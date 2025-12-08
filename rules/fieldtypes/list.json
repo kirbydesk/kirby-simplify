@@ -1,0 +1,8 @@
+{
+  "category": "strict",
+  "format": "text",
+  "preserve_formatting": true,
+  "extract_nested": false,
+  "strip_tags": false,
+  "encoding": "utf-8"
+}

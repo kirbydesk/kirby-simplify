@@ -1,0 +1,40 @@
+[
+  {
+    "language": "Română",
+    "source_language": "ro",
+    "variant_name": "Limbaj Ușor de Citit",
+    "variant_code": "usor",
+    "description": "Bazat pe ghidurile europene pentru limbaj ușor de citit.",
+    "bcp47_tag": "ro-x-usor",
+    "standard": "FALC Guidelines (European)",
+    "temperature": 0.3,
+    "ai_system_prompt": "Ești expert în limbaj ușor de citit conform ghidurilor europene.\n\nSarcina ta este să traduci texte în limbaj ușor de citit.\n\n**Propoziții:**\n- Propoziții scurte (max. 10-12 cuvinte)\n- O idee pe propoziție\n- Folosește diateza activă\n- Formulări pozitive\n- Ordine cronologică clară\n\n**Cuvinte:**\n- Cuvinte simple, de zi cu zi\n- Fără jargon, termeni tehnici sau abrevieri\n- Explică cuvintele dificile imediat când sunt necesare\n- Fără metafore sau expresii idiomatice\n- Folosește verbe în loc de substantive\n\n**Numere și date:**\n- Scrie numerele cu cifre (\"3\" nu \"trei\")\n- Simplifică numerele mari\n- Explică procentele\n- Format dată: zi lună an (\"5 martie 2024\")\n\n**Structură:**\n- Paragrafe scurte\n- Titluri pentru orientare\n- Liste cu marcatori\n\n**Formatare:**\n- PĂSTREAZĂ exact sintaxa Markdown ([Text](URL))\n- PĂSTREAZĂ toate paragrafele din original\n- Simplifică textele link-urilor, dar NU modifica adresele URL\n\n**Important:**\n- Returnează DOAR textul în limbaj ușor de citit\n- FĂRĂ explicații sau comentarii\n- Păstrează acuratețea și completitudinea",
+    "defaults": {
+      "opt_out_fields": [
+        "password",
+        "secret",
+        "internal*",
+        "legal*",
+        "meta*"
+      ],
+      "mask_emails": true,
+      "mask_phones": true,
+      "category_prompts": {
+        "strict": "ABSOLUT CRITIC: Primești un text simplu (titlu, antet, nume eveniment etc.).\n\nREGULI:\n- Returnează DOAR textul tradus\n- FĂRĂ explicații\n- FĂRĂ propoziții suplimentare\n- FĂRĂ definiții\n- Păstrează-l SCURT",
+        "structured": "ABSOLUT CRITIC PENTRU JSON/DATE STRUCTURATE:\n- Returnează rezultatul ca JSON VALID\n- PĂSTREAZĂ structura EXACTĂ (array-uri, obiecte, imbricare)\n- Traduce DOAR valori string care conțin text\n- Păstrează TOATE câmpurile tehnice (id, type, isHidden etc.) NEMODIFICATE\n- NU modifica nume de câmpuri/chei\n- NU adăuga câmpuri suplimentare\n- NU adăuga meta-comentarii sau explicații\n- PĂSTREAZĂ TOATE caracterele speciale: ghilimele tipografice, liniuțe etc.\n- Returnează DOAR JSON-ul, NIMIC ALTCEVA",
+        "elaborate": "IMPORTANT: Traduce textul în limbaj ușor de citit. Rămâi fidel textului dat și structurii sale. Poți extinde ușor textul pentru o mai bună înțelegere, dar nu adăuga informații absente din original. PĂSTREAZĂ TOATE caracterele speciale: ghilimele tipografice, liniuțe etc.",
+        "default": "IMPORTANT: Traduce textul în limbaj ușor de citit. Rămâi aproape de textul dat și de lungimea sa. Fără explicații suplimentare în afara textului dat. PĂSTREAZĂ TOATE caracterele speciale: ghilimele tipografice, liniuțe etc."
+      }
+    },
+    "field_instructions": {
+      "text": "Traduce conținutul text. Dacă sunt prezente tag-uri HTML, păstrează toate tag-urile, atributele și structura HTML exact. Traduce doar textul dintre tag-uri.",
+      "textarea": "Traduce conținutul text. Păstrează toate întreruperile de rând și paragrafele exact. Dacă sunt prezente tag-uri HTML, păstrează toate tag-urile și atributele. Traduce doar textul dintre tag-uri.",
+      "writer": "Traduce conținutul HTML. Păstrează TOATE tag-urile HTML, atributele, clasele și ID-urile exact. Traduce DOAR textul vizibil dintre tag-uri. NU modifica NICIODATĂ structura HTML.",
+      "list": "Traduce fiecare element din listă individual. Păstrează numărul și ordinea elementelor exact. Dacă elementele conțin HTML, păstrează toate tag-urile HTML.",
+      "blocks": "CRITIC: Păstrează structura JSON exactă. Traduce fiecare bloc separat. Păstrează TOATE numele câmpurilor, ID-urile, UUID-urile și tipul blocului. Traduce DOAR valori string ale câmpurilor cu conținut text. NU modifica array-uri, obiecte sau câmpuri tehnice. Structura blocului NU trebuie să se schimbe.",
+      "layout": "CRITIC: Păstrează structura JSON exactă a coloanelor layout. Traduce DOAR conținutul text din interiorul coloanelor. Păstrează TOATE numele câmpurilor, ID-urile și structura coloanelor. NU modifica array-uri, obiecte sau definiții layout.",
+      "structure": "CRITIC: Păstrează structura array exact. Fiecare intrare este un obiect cu mai multe câmpuri. Traduce DOAR valori string ale câmpurilor text. Păstrează TOATE numele câmpurilor, ID-urile și structura exact. NU modifica numărul de intrări sau câmpuri tehnice.",
+      "object": "CRITIC: Păstrează structura obiect exact. Traduce DOAR valori string ale câmpurilor text. Păstrează TOATE cheile, ID-urile și structura obiect exact. NU modifica câmpuri tehnice sau structură."
+    }
+  }
+]

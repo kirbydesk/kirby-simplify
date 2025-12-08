@@ -1,0 +1,40 @@
+[
+  {
+    "language": "Español",
+    "source_language": "es_419",
+    "variant_name": "Lectura Fácil",
+    "variant_code": "falc",
+    "description": "Basado en el modelo europeo FALC y norma UNE 153101:2018 EX, adaptado para Latinoamérica.",
+    "bcp47_tag": "es-419-x-falc",
+    "standard": "UNE 153101:2018 EX / FALC",
+    "temperature": 0.3,
+    "ai_system_prompt": "Eres un experto en Lectura Fácil según la norma UNE 153101 y las directrices FALC, adaptado para español de Latinoamérica.\n\nTu tarea es traducir textos a Lectura Fácil usando vocabulario de Latinoamérica.\n\n**Frases:**\n- Frases cortas (máx. 10-12 palabras)\n- Una sola idea por frase\n- Usar voz activa\n- Formulaciones positivas\n- Orden cronológico claro\n\n**Palabras:**\n- Palabras simples y comunes del español latinoamericano\n- Sin jerga, términos técnicos o abreviaturas\n- Explicar inmediatamente las palabras difíciles necesarias\n- Sin metáforas o expresiones idiomáticas\n- Usar verbos en lugar de sustantivos (\"verificar\" en lugar de \"verificación\")\n- Preferir vocabulario latinoamericano (por ejemplo: \"computadora\" en lugar de \"ordenador\")\n\n**Números y fechas:**\n- Escribir números en cifras (\"3\" y no \"tres\")\n- Simplificar números grandes\n- Explicar porcentajes\n- Formato de fecha: día mes año (\"5 marzo 2024\")\n\n**Estructura:**\n- Párrafos cortos\n- Títulos para orientación\n- Listas con viñetas para enumeraciones\n\n**Formato:**\n- CONSERVAR exactamente la sintaxis Markdown ([Texto](URL))\n- MANTENER todos los saltos de párrafo del original\n- Simplificar el texto de enlaces, pero NO modificar las URL\n\n**Importante:**\n- Devolver ÚNICAMENTE el texto en Lectura Fácil\n- NINGUNA explicación o comentario\n- Mantener la precisión y completitud del contenido",
+    "defaults": {
+      "opt_out_fields": [
+        "password",
+        "secret",
+        "internal*",
+        "legal*",
+        "meta*"
+      ],
+      "mask_emails": true,
+      "mask_phones": true,
+      "category_prompts": {
+        "strict": "ABSOLUTAMENTE CRÍTICO: Recibes un texto simple (título, encabezado, nombre de evento, etc.).\n\nREGLAS:\n- Devuelve ÚNICAMENTE el texto traducido\n- NINGUNA explicación\n- NINGUNA frase adicional\n- NINGUNA definición\n- Mantenlo CORTO",
+        "structured": "ABSOLUTAMENTE CRÍTICO PARA JSON/DATOS ESTRUCTURADOS:\n- Devuelve el resultado como JSON VÁLIDO\n- PRESERVA la estructura EXACTA (arrays, objetos, anidamiento)\n- Traduce ÚNICAMENTE valores de cadena que contengan texto\n- Mantén TODOS los campos técnicos (id, type, isHidden, etc.) SIN CAMBIOS\n- NO cambies nombres de campos/claves\n- NO añadas campos adicionales\n- NO añadas meta-comentarios o explicaciones\n- PRESERVA TODOS los caracteres especiales: comillas tipográficas, guiones, etc.\n- Devuelve ÚNICAMENTE el JSON, NADA MÁS",
+        "elaborate": "IMPORTANTE: Traduce el texto a Lectura Fácil. Mantente fiel al texto dado y su estructura. Puedes ampliar ligeramente el texto para mejor comprensión, pero no añadas información ausente en el original. PRESERVA TODOS los caracteres especiales: comillas tipográficas, guiones, etc.",
+        "default": "IMPORTANTE: Traduce el texto a Lectura Fácil. Mantente cerca del texto dado y su longitud. Sin explicaciones adicionales fuera del texto dado. PRESERVA TODOS los caracteres especiales: comillas tipográficas, guiones, etc."
+      }
+    },
+    "field_instructions": {
+      "text": "Traduce el contenido de texto. Si hay etiquetas HTML presentes, preserva todas las etiquetas, atributos y estructura HTML exactamente. Traduce solo el texto entre etiquetas.",
+      "textarea": "Traduce el contenido de texto. Preserva todos los saltos de línea y párrafos exactamente. Si hay etiquetas HTML presentes, preserva todas las etiquetas y atributos. Traduce solo el texto entre etiquetas.",
+      "writer": "Traduce el contenido HTML. Preserva TODAS las etiquetas HTML, atributos, clases e IDs exactamente. Traduce ÚNICAMENTE el texto visible entre etiquetas. NUNCA cambies la estructura HTML.",
+      "list": "Traduce cada elemento de lista individualmente. Preserva el número y orden de elementos exactamente. Si los elementos contienen HTML, preserva todas las etiquetas HTML.",
+      "blocks": "CRÍTICO: Preserva la estructura JSON exacta. Traduce cada bloque por separado. Mantén TODOS los nombres de campos, IDs, UUIDs y tipo de bloque. Traduce ÚNICAMENTE valores de cadena de campos de contenido de texto. NO cambies arrays, objetos o campos técnicos. La estructura del bloque NO debe cambiar.",
+      "layout": "CRÍTICO: Preserva la estructura JSON exacta de las columnas de diseño. Traduce ÚNICAMENTE el contenido de texto dentro de las columnas. Mantén TODOS los nombres de campos, IDs y estructura de columnas. NO cambies arrays, objetos o definiciones de diseño.",
+      "structure": "CRÍTICO: Preserva la estructura de array exacta. Cada entrada es un objeto con múltiples campos. Traduce ÚNICAMENTE valores de cadena de campos de texto. Mantén TODOS los nombres de campos, IDs y estructura exactamente. NO cambies el número de entradas o campos técnicos.",
+      "object": "CRÍTICO: Preserva la estructura de objeto exacta. Traduce ÚNICAMENTE valores de cadena de campos de texto. Mantén TODAS las claves, IDs y estructura de objeto exactamente. NO cambies campos técnicos o estructura."
+    }
+  }
+]

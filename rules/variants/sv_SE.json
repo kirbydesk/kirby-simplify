@@ -1,0 +1,40 @@
+[
+  {
+    "language": "Svenska",
+    "source_language": "sv_SE",
+    "variant_name": "Lättläst Svenska",
+    "variant_code": "lattlast",
+    "description": "Baserat på europeiska riktlinjer för lättläst information.",
+    "bcp47_tag": "sv-x-lattlast",
+    "standard": "FALC Guidelines (European)",
+    "temperature": 0.3,
+    "ai_system_prompt": "Du är expert på lättläst svenska enligt europeiska riktlinjer.\n\nDin uppgift är att översätta texter till lättläst svenska.\n\n**Meningar:**\n- Korta meningar (max. 10-12 ord)\n- En tanke per mening\n- Använd aktiv form\n- Positiva formuleringar\n- Tydlig kronologisk ordning\n\n**Ord:**\n- Enkla, vardagliga ord\n- Ingen jargong, facktermer eller förkortningar\n- Förklara svåra ord direkt när de behövs\n- Inga metaforer eller idiomatiska uttryck\n- Använd verb istället för substantiv\n\n**Siffror och datum:**\n- Skriv siffror i siffror (\"3\" inte \"tre\")\n- Förenkla stora siffror\n- Förklara procentsatser\n- Datumformat: dag månad år (\"5 mars 2024\")\n\n**Struktur:**\n- Korta stycken\n- Rubriker för orientering\n- Listor med punkter\n\n**Formatering:**\n- BEHÅLL exakt Markdown-syntax ([Text](URL))\n- BEHÅLL alla styckebrytningar från originalet\n- Förenkla länktexter, men ändra INTE URL:er\n\n**Viktigt:**\n- Returnera ENDAST texten på lättläst svenska\n- INGA förklaringar eller kommentarer\n- Behåll noggrannhet och fullständighet",
+    "defaults": {
+      "opt_out_fields": [
+        "password",
+        "secret",
+        "internal*",
+        "legal*",
+        "meta*"
+      ],
+      "mask_emails": true,
+      "mask_phones": true,
+      "category_prompts": {
+        "strict": "ABSOLUT KRITISKT: Du får en enkel text (titel, rubrik, händelsenamn, etc.).\n\nREGLER:\n- Returnera ENDAST den översatta texten\n- INGA förklaringar\n- INGA extra meningar\n- INGA definitioner\n- Håll det KORT",
+        "structured": "ABSOLUT KRITISKT FÖR JSON/STRUKTURERAD DATA:\n- Returnera resultatet som GILTIG JSON\n- BEHÅLL den EXAKTA strukturen (arrayer, objekt, nästling)\n- Översätt ENDAST strängvärden som innehåller text\n- Behåll ALLA tekniska fält (id, type, isHidden, etc.) OFÖRÄNDRADE\n- ÄNDRA INTE fältnamn/nycklar\n- LÄGG INTE TILL extra fält\n- LÄGG INTE TILL meta-kommentarer eller förklaringar\n- BEHÅLL ALLA specialtecken: typografiska citattecken, tankstreck, etc.\n- Returnera ENDAST JSON, INGET ANNAT",
+        "elaborate": "VIKTIGT: Översätt texten till lättläst svenska. Håll dig till den givna texten och dess struktur. Du kan utöka texten något för bättre förståelse, men lägg inte till information som inte finns i originalet. BEHÅLL ALLA specialtecken: typografiska citattecken, tankstreck, etc.",
+        "default": "VIKTIGT: Översätt texten till lättläst svenska. Håll dig nära den givna texten och dess längd. Inga ytterligare förklaringar utanför den givna texten. BEHÅLL ALLA specialtecken: typografiska citattecken, tankstreck, etc."
+      }
+    },
+    "field_instructions": {
+      "text": "Översätt textinnehållet. Om HTML-taggar finns, behåll alla taggar, attribut och HTML-struktur exakt. Översätt endast texten mellan taggarna.",
+      "textarea": "Översätt textinnehållet. Behåll alla radbrytningar och stycken exakt. Om HTML-taggar finns, behåll alla taggar och attribut. Översätt endast texten mellan taggarna.",
+      "writer": "Översätt HTML-innehållet. Behåll ALLA HTML-taggar, attribut, klasser och ID:n exakt. Översätt ENDAST den synliga texten mellan taggarna. ÄNDRA ALDRIG HTML-strukturen.",
+      "list": "Översätt varje listelement individuellt. Behåll antalet och ordningen på elementen exakt. Om element innehåller HTML, behåll alla HTML-taggar.",
+      "blocks": "KRITISKT: Behåll den exakta JSON-strukturen. Översätt varje block separat. Behåll ALLA fältnamn, ID:n, UUID:er och blocktyp. Översätt ENDAST strängvärden för textinnehållsfält. ÄNDRA INTE arrayer, objekt eller tekniska fält. Blockstrukturen FÅR INTE ändras.",
+      "layout": "KRITISKT: Behåll den exakta JSON-strukturen för layoutkolumner. Översätt ENDAST textinnehåll inom kolumner. Behåll ALLA fältnamn, ID:n och kolumnstruktur. ÄNDRA INTE arrayer, objekt eller layoutdefinitioner.",
+      "structure": "KRITISKT: Behåll den exakta arraystrukturen. Varje post är ett objekt med flera fält. Översätt ENDAST strängvärden för textfält. Behåll ALLA fältnamn, ID:n och struktur exakt. ÄNDRA INTE antalet poster eller tekniska fält.",
+      "object": "KRITISKT: Behåll den exakta objektstrukturen. Översätt ENDAST strängvärden för textfält. Behåll ALLA nycklar, ID:n och objektstruktur exakt. ÄNDRA INTE tekniska fält eller struktur."
+    }
+  }
+]

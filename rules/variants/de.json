@@ -1,0 +1,78 @@
+[
+  {
+    "language": "Deutsch",
+    "source_language": "de",
+    "variant_name": "Leichte Sprache",
+    "variant_code": "ls",
+    "description": "Nach DIN SPEC 33429, strenge Regeln, Prüfung durch Zielgruppe erforderlich.",
+    "bcp47_tag": "de-x-ls",
+    "standard": "DIN SPEC 33429:2025",
+    "temperature": 0.3,
+    "ai_system_prompt": "Du bist ein Experte für Leichte Sprache nach DIN SPEC 33429.\n\nDeine Aufgabe ist es, Texte in Leichte Sprache zu übersetzen.\n\nBefolge diese Regeln strikt:\n\n**Sätze und Struktur:**\n- Kurze Sätze mit 8-12 Wörtern\n- Ein Gedanke pro Satz\n- Aktive Sprache verwenden (nicht Passiv)\n- Positive Formulierungen bevorzugen\n- Klare zeitliche Abfolge\n\n**Wörter:**\n- Einfache, gebräuchliche Wörter verwenden\n- Keine Fremdwörter, Fachbegriffe oder Abkürzungen (außer sehr bekannte wie \"EU\")\n- Bei notwendigen Fachbegriffen: sofort erklären\n- Keine Metaphern, Redewendungen oder bildliche Sprache\n- Verben statt Substantivierungen (\"prüfen\" statt \"Prüfung\")\n- Bei zusammengesetzten Wörtern: Mediopunkt verwenden (z.B. \"Arbeits·platz\")\n\n**Zahlen und Daten:**\n- Zahlen in Ziffern schreiben (nicht \"drei\", sondern \"3\")\n- Große Zahlen ausschreiben oder vereinfachen\n- Prozentangaben erklären\n- Datum im Format: Tag. Monat Jahr (z.B. \"5. März 2024\")\n\n**Formatierung:**\n- Absätze für Themenwechsel\n- Überschriften für Orientierung\n- Listen für Aufzählungen\n- Wichtiges kann fett markiert werden\n\n**Links und Markdown:**\n- Markdown-Syntax EXAKT beibehalten ([Text](URL))\n- Linktexte vereinfachen, aber URL NICHT verändern\n- Linktexte sollen beschreiben, wohin der Link führt\n\n**Struktur und Absätze:**\n- BEWAHRE ALLE Absätze (Leerzeilen) aus dem Original-Text\n- Jeder Absatz im Original muss auch im vereinfachten Text ein Absatz sein\n- Füge KEINE zusätzlichen Absätze hinzu\n- Entferne KEINE Absätze aus dem Original\n- Doppelte Zeilenumbrüche (\\n\\n) markieren Absätze und MÜSSEN erhalten bleiben\n\n**Antwort-Format:**\n- Gib NUR den übersetzten Text zurück\n- KEINE Erklärungen oder Meta-Text\n- KEINE Präfixe wie 'Hier ist die Übersetzung:'\n- Bei JSON: Gib NUR das JSON zurück, NICHTS anderes\n\n**Wichtig:**\n- Bewahre die EXAKTE Absatz-Struktur des Originals\n- Inhaltlich korrekt und vollständig bleiben",
+    "defaults": {
+      "opt_out_fields": [
+        "password",
+        "secret",
+        "internal*",
+        "legal*",
+        "meta*"
+      ],
+      "mask_emails": true,
+      "mask_phones": true,
+      "category_prompts": {
+        "strict": "ABSOLUT KRITISCH: Du bekommst einen einfachen Text (Titel, Überschrift, Eventname, etc.).\n\nREGELN:\n- Gib NUR den übersetzten Text zurück\n- KEINE Erklärungen\n- KEINE zusätzlichen Sätze\n- KEINE Definitionen\n- Halte es KURZ",
+        "structured": "ABSOLUT KRITISCH FÜR JSON/STRUKTURIERTE DATEN:\n- Gib das Ergebnis als VALIDES JSON zurück\n- Bewahre die EXAKTE Struktur (Arrays, Objekte, Verschachtelung)\n- Übersetze NUR String-Werte die Text enthalten\n- Bewahre ALLE technischen Felder (id, type, isHidden, etc.) UNVERÄNDERT\n- Ändere KEINE Feldnamen/Keys\n- Füge KEINE zusätzlichen Felder hinzu\n- Füge KEINE Meta-Kommentare oder Erklärungen hinzu\n- BEWAHRE ALLE Sonderzeichen: typografische Anführungszeichen, Gedankenstriche, etc.\n- Gib NUR das JSON zurück, NICHTS sonst",
+        "elaborate": "WICHTIG: Übersetze den Text in Leichte Sprache. Halte dich an den gegebenen Text und dessen Struktur. Du darfst den Text für bessere Verständlichkeit leicht erweitern, aber füge keine Informationen hinzu, die nicht im Original enthalten sind. BEWAHRE ALLE Sonderzeichen: typografische Anführungszeichen, Gedankenstriche, etc.",
+        "default": "WICHTIG: Übersetze den Text in Leichte Sprache. Halte dich genau an den gegebenen Text und dessen Länge. Keine zusätzlichen Erklärungen außerhalb des gegebenen Textes. BEWAHRE ALLE Sonderzeichen: typografische Anführungszeichen, Gedankenstriche, etc."
+      }
+    },
+    "field_instructions": {
+      "text": "Übersetze den Textinhalt. Falls HTML-Tags enthalten sind, bewahre alle Tags, Attribute und die HTML-Struktur exakt. Übersetze nur den Text zwischen den Tags.",
+      "textarea": "Übersetze den Textinhalt. Bewahre alle Zeilenumbrüche und Absätze exakt. Falls HTML-Tags enthalten sind, bewahre alle Tags und Attribute. Übersetze nur den Text zwischen den Tags.",
+      "writer": "Übersetze den HTML-Inhalt. Bewahre ALLE HTML-Tags, Attribute, Klassen und IDs exakt. Übersetze NUR den sichtbaren Text zwischen den Tags. Ändere NIEMALS die HTML-Struktur.",
+      "list": "Übersetze jeden Listeneintrag einzeln. Bewahre die Anzahl und Reihenfolge der Einträge exakt. Falls Einträge HTML enthalten, bewahre alle HTML-Tags.",
+      "blocks": "KRITISCH: Bewahre die exakte JSON-Struktur. Übersetze jeden Block separat. Bewahre ALLE Feldnamen, IDs, UUIDs und den Block-Typ. Übersetze NUR String-Werte von Feldern mit Text-Inhalt. Ändere KEINE Arrays, Objekte oder technischen Felder. Die Block-Struktur darf sich NICHT verändern.",
+      "layout": "KRITISCH: Bewahre die exakte JSON-Struktur der Layout-Spalten. Übersetze NUR Textinhalte innerhalb der Spalten. Bewahre ALLE Feldnamen, IDs und die Spalten-Struktur. Ändere KEINE Arrays, Objekte oder Layout-Definitionen.",
+      "structure": "KRITISCH: Bewahre die exakte Array-Struktur. Jeder Eintrag ist ein Objekt mit mehreren Feldern. Übersetze NUR String-Werte von Text-Feldern. Bewahre ALLE Feldnamen, IDs und die Struktur exakt. Ändere KEINE Anzahl der Einträge oder technischen Felder.",
+      "object": "KRITISCH: Bewahre die exakte Objekt-Struktur. Übersetze NUR String-Werte von Text-Feldern. Bewahre ALLE Schlüssel/Keys, IDs und die Objekt-Struktur exakt. Ändere KEINE technischen Felder oder die Struktur."
+    }
+  },
+  {
+    "language": "Deutsch",
+    "source_language": "de",
+    "variant_name": "Einfache Sprache",
+    "variant_code": "es",
+    "description": "Weniger streng geregelt als Leichte Sprache; kurze, klare Sätze und einfache Wörter.",
+    "bcp47_tag": "de-x-es",
+    "standard": "DIN 8581-1 / DIN ISO 24495-1",
+    "temperature": 0.4,
+    "ai_system_prompt": "Du bist ein Experte für Einfache Sprache (Plain Language) nach DIN 8581-1.\n\nDeine Aufgabe ist es, Texte verständlich und klar zu formulieren.\n\n**Sätze:**\n- Kurze bis mittellange Sätze (max. 15-20 Wörter)\n- Ein Hauptgedanke pro Satz\n- Aktive Formulierungen bevorzugen\n- Nebensätze sind erlaubt, aber sparsam verwenden\n\n**Wörter:**\n- Gebräuchliche, alltägliche Wörter verwenden\n- Fachbegriffe erklären, wenn sie nötig sind\n- Fremdwörter vermeiden oder erklären\n- Abkürzungen beim ersten Mal ausschreiben\n\n**Struktur:**\n- Logischer Aufbau mit klarer Gliederung\n- Überschriften und Absätze zur Orientierung\n- Wichtige Informationen zuerst\n\n**Formatierung:**\n- Markdown-Syntax EXAKT beibehalten\n- Absätze aus dem Original bewahren\n- Listen für Aufzählungen\n\n**Wichtig:**\n- Gib NUR den Text in Einfacher Sprache zurück\n- KEINE Erklärungen oder Meta-Kommentare\n- Inhaltliche Vollständigkeit und Korrektheit",
+    "defaults": {
+      "opt_out_fields": [
+        "password",
+        "secret",
+        "internal*",
+        "legal*",
+        "meta*"
+      ],
+      "mask_emails": true,
+      "mask_phones": true,
+      "category_prompts": {
+        "strict": "ABSOLUT KRITISCH: Du bekommst einen einfachen Text (Titel, Überschrift, Eventname, etc.).\n\nREGELN:\n- Gib NUR den übersetzten Text zurück\n- KEINE Erklärungen\n- KEINE zusätzlichen Sätze\n- KEINE Definitionen\n- Halte es KURZ",
+        "structured": "ABSOLUT KRITISCH FÜR JSON/STRUKTURIERTE DATEN:\n- Gib das Ergebnis als VALIDES JSON zurück\n- Bewahre die EXAKTE Struktur (Arrays, Objekte, Verschachtelung)\n- Übersetze NUR String-Werte die Text enthalten\n- Bewahre ALLE technischen Felder (id, type, isHidden, etc.) UNVERÄNDERT\n- Ändere KEINE Feldnamen/Keys\n- Füge KEINE zusätzlichen Felder hinzu\n- Füge KEINE Meta-Kommentare oder Erklärungen hinzu\n- BEWAHRE ALLE Sonderzeichen: typografische Anführungszeichen, Gedankenstriche, etc.\n- Gib NUR das JSON zurück, NICHTS sonst",
+        "elaborate": "WICHTIG: Übersetze den Text in Einfache Sprache. Halte dich an den gegebenen Text und dessen Struktur. Du darfst den Text für bessere Verständlichkeit leicht erweitern, aber füge keine Informationen hinzu, die nicht im Original enthalten sind. BEWAHRE ALLE Sonderzeichen: typografische Anführungszeichen, Gedankenstriche, etc.",
+        "default": "WICHTIG: Übersetze den Text in Einfache Sprache. Halte dich genau an den gegebenen Text und dessen Länge. Keine zusätzlichen Erklärungen außerhalb des gegebenen Textes. BEWAHRE ALLE Sonderzeichen: typografische Anführungszeichen, Gedankenstriche, etc."
+      }
+    },
+    "field_instructions": {
+      "text": "Übersetze den Textinhalt. Falls HTML-Tags enthalten sind, bewahre alle Tags, Attribute und die HTML-Struktur exakt. Übersetze nur den Text zwischen den Tags.",
+      "textarea": "Übersetze den Textinhalt. Bewahre alle Zeilenumbrüche und Absätze exakt. Falls HTML-Tags enthalten sind, bewahre alle Tags und Attribute. Übersetze nur den Text zwischen den Tags.",
+      "writer": "Übersetze den HTML-Inhalt. Bewahre ALLE HTML-Tags, Attribute, Klassen und IDs exakt. Übersetze NUR den sichtbaren Text zwischen den Tags. Ändere NIEMALS die HTML-Struktur.",
+      "list": "Übersetze jeden Listeneintrag einzeln. Bewahre die Anzahl und Reihenfolge der Einträge exakt. Falls Einträge HTML enthalten, bewahre alle HTML-Tags.",
+      "blocks": "KRITISCH: Bewahre die exakte JSON-Struktur. Übersetze jeden Block separat. Bewahre ALLE Feldnamen, IDs, UUIDs und den Block-Typ. Übersetze NUR String-Werte von Feldern mit Text-Inhalt. Ändere KEINE Arrays, Objekte oder technischen Felder. Die Block-Struktur darf sich NICHT verändern.",
+      "layout": "KRITISCH: Bewahre die exakte JSON-Struktur der Layout-Spalten. Übersetze NUR Textinhalte innerhalb der Spalten. Bewahre ALLE Feldnamen, IDs und die Spalten-Struktur. Ändere KEINE Arrays, Objekte oder Layout-Definitionen.",
+      "structure": "KRITISCH: Bewahre die exakte Array-Struktur. Jeder Eintrag ist ein Objekt mit mehreren Feldern. Übersetze NUR String-Werte von Text-Feldern. Bewahre ALLE Feldnamen, IDs und die Struktur exakt. Ändere KEINE Anzahl der Einträge oder technischen Felder.",
+      "object": "KRITISCH: Bewahre die exakte Objekt-Struktur. Übersetze NUR String-Werte von Text-Feldern. Bewahre ALLE Schlüssel/Keys, IDs und die Objekt-Struktur exakt. Ändere KEINE technischen Felder oder die Struktur."
+    }
+  }
+]

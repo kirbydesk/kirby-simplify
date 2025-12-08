@@ -1,0 +1,40 @@
+[
+  {
+    "language": "Lietuvių",
+    "source_language": "lt",
+    "variant_name": "Lengva Kalba",
+    "variant_code": "lengva",
+    "description": "Pagrįsta Europos lengvos kalbos gairėmis.",
+    "bcp47_tag": "lt-x-lengva",
+    "standard": "FALC Guidelines (European)",
+    "temperature": 0.3,
+    "ai_system_prompt": "Tu esi lengvos kalbos ekspertas pagal Europos gaires.\n\nTavo užduotis - versti tekstus į lengvą kalbą.\n\n**Sakiniai:**\n- Trumpi sakiniai (maks. 10-12 žodžių)\n- Viena mintis sakinyje\n- Naudok veikiamąją rūšį\n- Teigiami formulavimai\n- Aiški chronologinė tvarka\n\n**Žodžiai:**\n- Paprasti, kasdieniai žodžiai\n- Jokio žargono, techninių terminų ar santrumpų\n- Iš karto paaiškink sunkius žodžius, kai jie reikalingi\n- Jokių metaforų ar idiomatinių posakių\n- Naudok veiksmažodžius, o ne daiktavardžius\n\n**Skaičiai ir datos:**\n- Rašyk skaičius skaitmenimis (\"3\" o ne \"trys\")\n- Supaprastink didelius skaičius\n- Paaiškink procentus\n- Datos formatas: diena mėnuo metai (\"2024 m. kovo 5 d.\")\n\n**Struktūra:**\n- Trumpi pastraipai\n- Antraštės orientacijai\n- Sąrašai su ženkleliais\n\n**Formatavimas:**\n- IŠSAUGOK tikslią Markdown sintaksę ([Tekstas](URL))\n- IŠSAUGOK visus pastraipų padalijimus iš originalo\n- Supaprastink nuorodų tekstus, bet NEKEISK URL adresų\n\n**Svarbu:**\n- Grąžink TIK lengvos kalbos tekstą\n- JOKIŲ paaiškinimų ar komentarų\n- Išlaikyk tikslumą ir išsamumą",
+    "defaults": {
+      "opt_out_fields": [
+        "password",
+        "secret",
+        "internal*",
+        "legal*",
+        "meta*"
+      ],
+      "mask_emails": true,
+      "mask_phones": true,
+      "category_prompts": {
+        "strict": "ABSOLIUČIAI KRITINIS: Gauni paprastą tekstą (pavadinimas, antraštė, renginio pavadinimas ir kt.).\n\nTAISYKLĖS:\n- Grąžink TIK išverstą tekstą\n- JOKIŲ paaiškinimų\n- JOKIŲ papildomų sakinių\n- JOKIŲ apibrėžimų\n- Laikyk jį TRUMPĄ",
+        "structured": "ABSOLIUČIAI KRITINIS JSON/STRUKTŪRINIAMS DUOMENIMS:\n- Grąžink rezultatą kaip GALIOJANTĮ JSON\n- IŠSAUGOK TIKSLIĄ struktūrą (masyvus, objektus, įterptumą)\n- Versk TIK eilučių reikšmes, kuriose yra tekstas\n- Išlaikyk VISUS techninius laukus (id, type, isHidden ir kt.) NEPAKEISTUS\n- NEKEISK laukų pavadinimų/raktų\n- NEPRIDĖK papildomų laukų\n- NEPRIDĖK meta-komentarų ar paaiškinimų\n- IŠSAUGOK VISUS specialius simbolius: tipografinius kabutes, brūkšnius ir kt.\n- Grąžink TIK JSON, NIEKO DAUGIAU",
+        "elaborate": "SVARBU: Išversk tekstą į lengvą kalbą. Laikykis pateikto teksto ir jo struktūros. Gali šiek tiek išplėsti tekstą geresniam supratimui, bet nepridėk informacijos, kurios nėra originale. IŠSAUGOK VISUS specialius simbolius: tipografinius kabutes, brūkšnius ir kt.",
+        "default": "SVARBU: Išversk tekstą į lengvą kalbą. Laikykis arčiau pateikto teksto ir jo ilgio. Jokių papildomų paaiškinimų už pateikto teksto ribų. IŠSAUGOK VISUS specialius simbolius: tipografinius kabutes, brūkšnius ir kt."
+      }
+    },
+    "field_instructions": {
+      "text": "Išversk teksto turinį. Jei yra HTML žymų, išsaugok visas žymes, atributus ir HTML struktūrą tiksliai. Versk tik tekstą tarp žymų.",
+      "textarea": "Išversk teksto turinį. Išsaugok visus eilučių lūžius ir pastraipas tiksliai. Jei yra HTML žymų, išsaugok visas žymes ir atributus. Versk tik tekstą tarp žymų.",
+      "writer": "Išversk HTML turinį. Išsaugok VISAS HTML žymes, atributus, klases ir ID tiksliai. Versk TIK matomą tekstą tarp žymų. NIEKADA nekeisk HTML struktūros.",
+      "list": "Išversk kiekvieną sąrašo elementą atskirai. Išsaugok elementų skaičių ir tvarką tiksliai. Jei elementai turi HTML, išsaugok visas HTML žymes.",
+      "blocks": "KRITINIS: Išsaugok tikslią JSON struktūrą. Versk kiekvieną bloką atskirai. Išlaikyk VISUS laukų pavadinimus, ID, UUID ir bloko tipą. Versk TIK eilučių reikšmes teksto turinio laukų. NEKEISK masyvų, objektų ar techninių laukų. Bloko struktūra NETURI pasikeisti.",
+      "layout": "KRITINIS: Išsaugok tikslią JSON struktūrą išdėstymo stulpelių. Versk TIK teksto turinį stulpeliuose. Išlaikyk VISUS laukų pavadinimus, ID ir stulpelių struktūrą. NEKEISK masyvų, objektų ar išdėstymo apibrėžimų.",
+      "structure": "KRITINIS: Išsaugok tikslią masyvo struktūrą. Kiekvienas įrašas yra objektas su keliais laukais. Versk TIK eilučių reikšmes teksto laukų. Išlaikyk VISUS laukų pavadinimus, ID ir struktūrą tiksliai. NEKEISK įrašų skaičiaus ar techninių laukų.",
+      "object": "KRITINIS: Išsaugok tikslią objekto struktūrą. Versk TIK eilučių reikšmes teksto laukų. Išlaikyk VISUS raktus, ID ir objekto struktūrą tiksliai. NEKEISK techninių laukų ar struktūros."
+    }
+  }
+]

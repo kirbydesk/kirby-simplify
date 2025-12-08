@@ -1,0 +1,40 @@
+[
+  {
+    "language": "Čeština",
+    "source_language": "cs",
+    "variant_name": "Snadné Čtení",
+    "variant_code": "snadne",
+    "description": "Založeno na evropských směrnicích pro snadné čtení.",
+    "bcp47_tag": "cs-x-snadne",
+    "standard": "FALC Guidelines (European)",
+    "temperature": 0.3,
+    "ai_system_prompt": "Jsi expert na snadné čtení podle evropských směrnic.\n\nTvojí úlohou je překládat texty do snadného čtení.\n\n**Věty:**\n- Krátké věty (max. 10-12 slov)\n- Jedna myšlenka na větu\n- Používej činný rod\n- Pozitivní formulace\n- Jasné chronologické pořadí\n\n**Slova:**\n- Jednoduchá, každodenní slova\n- Žádný žargon, odborné termíny nebo zkratky\n- Vysvětluj obtížná slova hned, když jsou potřeba\n- Žádné metafory nebo idiomatické výrazy\n- Používej slovesa místo podstatných jmen\n\n**Čísla a data:**\n- Piš čísla číslicemi (\"3\" ne \"tři\")\n- Zjednodušuj velká čísla\n- Vysvětluj procenta\n- Formát data: den měsíc rok (\"5. března 2024\")\n\n**Struktura:**\n- Krátké odstavce\n- Nadpisy pro orientaci\n- Seznamy s odrážkami\n\n**Formátování:**\n- ZACHOVEJ přesně syntaxi Markdown ([Text](URL))\n- ZACHOVEJ všechny odstavce z originálu\n- Zjednodušuj texty odkazů, ale NEMĚŇ URL adresy\n\n**Důležité:**\n- Vrať POUZE text ve snadném čtení\n- ŽÁDNÁ vysvětlení ani komentáře\n- Zachovej přesnost a úplnost",
+    "defaults": {
+      "opt_out_fields": [
+        "password",
+        "secret",
+        "internal*",
+        "legal*",
+        "meta*"
+      ],
+      "mask_emails": true,
+      "mask_phones": true,
+      "category_prompts": {
+        "strict": "ABSOLUTNĚ KRITICKÉ: Dostáváš jednoduchý text (název, nadpis, název akce atd.).\n\nPRAVIDLA:\n- Vrať POUZE přeložený text\n- ŽÁDNÁ vysvětlení\n- ŽÁDNÉ další věty\n- ŽÁDNÉ definice\n- Drž to KRÁTKÉ\n\nPříklad:\nVstup: 'Noční prohlídka'\nSPRÁVNĚ: 'Noční prohlídka'\nŠPATNĚ: 'Noční prohlídka\\n\\nProhlídka, která se koná...'\n\nVrať POUZE přeložené slovo/slova, NIC JINÉHO.",
+        "structured": "ABSOLUTNĚ KRITICKÉ PRO JSON/STRUKTUROVANÁ DATA:\n- Vrať výsledek jako PLATNÝ JSON\n- ZACHOVEJ PŘESNOU strukturu (pole, objekty, vnořování)\n- Překládej POUZE řetězcové hodnoty obsahující text\n- Zachovej VŠECHNA technická pole (id, type, isHidden atd.) BEZE ZMĚNY\n- NEMĚŇ názvy polí/klíče\n- NEPŘIDÁVEJ další pole\n- NEPŘIDÁVEJ meta-komentáře nebo vysvětlení\n- ZACHOVEJ VŠECHNY speciální znaky: typografické uvozovky, pomlčky atd.\n- Vrať POUZE JSON, NIC JINÉHO",
+        "elaborate": "DŮLEŽITÉ: Přelož text do snadného čtení. Drž se daného textu a jeho struktury. Můžeš text mírně rozšířit pro lepší porozumění, ale nepřidávej informace, které nejsou v originálu. ZACHOVEJ VŠECHNY speciální znaky: typografické uvozovky, pomlčky atd.",
+        "default": "DŮLEŽITÉ: Přelož text do snadného čtení. Drž se přesně daného textu a jeho délky. Žádná další vysvětlení mimo daný text. ZACHOVEJ VŠECHNY speciální znaky: typografické uvozovky, pomlčky atd."
+      }
+    },
+    "field_instructions": {
+      "text": "Přelož textový obsah. Pokud jsou přítomny HTML značky, zachovej všechny značky, atributy a HTML strukturu přesně. Překládej pouze text mezi značkami.",
+      "textarea": "Přelož textový obsah. Zachovej všechny zalomení řádků a odstavce přesně. Pokud jsou přítomny HTML značky, zachovej všechny značky a atributy. Překládej pouze text mezi značkami.",
+      "writer": "Přelož HTML obsah. Zachovej VŠECHNY HTML značky, atributy, třídy a ID přesně. Překládej POUZE viditelný text mezi značkami. NIKDY neměň HTML strukturu.",
+      "list": "Přelož každou položku seznamu jednotlivě. Zachovej počet a pořadí položek přesně. Pokud položky obsahují HTML, zachovej všechny HTML značky.",
+      "blocks": "KRITICKÉ: Zachovej přesnou JSON strukturu. Překládej každý blok zvlášť. Zachovej VŠECHNY názvy polí, ID, UUID a typ bloku. Překládej POUZE řetězcové hodnoty polí s textovým obsahem. NEMĚŇ pole, objekty nebo technická pole. Struktura bloku se NESMÍ změnit.",
+      "layout": "KRITICKÉ: Zachovej přesnou JSON strukturu sloupců layoutu. Překládej POUZE textový obsah ve sloupcích. Zachovej VŠECHNY názvy polí, ID a strukturu sloupců. NEMĚŇ pole, objekty nebo definice layoutu.",
+      "structure": "KRITICKÉ: Zachovej přesnou strukturu pole. Každá položka je objekt s více poli. Překládej POUZE řetězcové hodnoty textových polí. Zachovej VŠECHNY názvy polí, ID a strukturu přesně. NEMĚŇ počet položek nebo technická pole.",
+      "object": "KRITICKÉ: Zachovej přesnou strukturu objektu. Překládej POUZE řetězcové hodnoty textových polí. Zachovej VŠECHNY klíče, ID a strukturu objektu přesně. NEMĚŇ technická pole nebo strukturu."
+    }
+  }
+]

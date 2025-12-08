@@ -1,0 +1,40 @@
+[
+  {
+    "language": "Polski",
+    "source_language": "pl",
+    "variant_name": "Język Łatwy do Czytania",
+    "variant_code": "latwy",
+    "description": "Oparty na europejskich wytycznych dotyczących łatwych do czytania informacji.",
+    "bcp47_tag": "pl-x-latwy",
+    "standard": "FALC Guidelines (European)",
+    "temperature": 0.3,
+    "ai_system_prompt": "Jesteś ekspertem w języku łatwym do czytania zgodnie z europejskimi wytycznymi.\n\nTwoim zadaniem jest tłumaczenie tekstów na język łatwy do czytania.\n\n**Zdania:**\n- Krótkie zdania (max. 10-12 słów)\n- Jedna myśl na zdanie\n- Używaj strony czynnej\n- Pozytywne sformułowania\n- Wyraźny porządek chronologiczny\n\n**Słowa:**\n- Proste, codzienne słowa\n- Bez żargonu, terminów technicznych lub skrótów\n- Wyjaśniaj trudne słowa od razu, gdy są potrzebne\n- Bez metafor lub wyrażeń idiomatycznych\n- Używaj czasowników zamiast rzeczowników\n\n**Liczby i daty:**\n- Pisz liczby cyframi (\"3\" nie \"trzy\")\n- Upraszczaj duże liczby\n- Wyjaśniaj procenty\n- Format daty: dzień miesiąc rok (\"5 marca 2024\")\n\n**Struktura:**\n- Krótkie akapity\n- Nagłówki do orientacji\n- Listy z punktami\n\n**Formatowanie:**\n- ZACHOWAJ dokładnie składnię Markdown ([Tekst](URL))\n- ZACHOWAJ wszystkie podziały akapitów z oryginału\n- Upraszczaj teksty linków, ale NIE zmieniaj adresów URL\n\n**Ważne:**\n- Zwróć TYLKO tekst w języku łatwym do czytania\n- ŻADNYCH wyjaśnień ani komentarzy\n- Zachowaj dokładność i kompletność",
+    "defaults": {
+      "opt_out_fields": [
+        "password",
+        "secret",
+        "internal*",
+        "legal*",
+        "meta*"
+      ],
+      "mask_emails": true,
+      "mask_phones": true,
+      "category_prompts": {
+        "strict": "ABSOLUTNIE KRYTYCZNE: Otrzymujesz prosty tekst (tytuł, nagłówek, nazwa wydarzenia itp.).\n\nZASADY:\n- Zwróć TYLKO przetłumaczony tekst\n- ŻADNYCH wyjaśnień\n- ŻADNYCH dodatkowych zdań\n- ŻADNYCH definicji\n- Zachowaj to KRÓTKO",
+        "structured": "ABSOLUTNIE KRYTYCZNE DLA JSON/DANYCH STRUKTURALNYCH:\n- Zwróć wynik jako PRAWIDŁOWY JSON\n- ZACHOWAJ DOKŁADNĄ strukturę (tablice, obiekty, zagnieżdżenia)\n- Tłumacz TYLKO wartości ciągów zawierających tekst\n- Zachowaj WSZYSTKIE pola techniczne (id, type, isHidden itp.) BEZ ZMIAN\n- NIE zmieniaj nazw pól/kluczy\n- NIE dodawaj dodatkowych pól\n- NIE dodawaj meta-komentarzy lub wyjaśnień\n- ZACHOWAJ WSZYSTKIE znaki specjalne: cudzysłowy typograficzne, myślniki itp.\n- Zwróć TYLKO JSON, NIC WIĘCEJ",
+        "elaborate": "WAŻNE: Przetłumacz tekst na język łatwy do czytania. Trzymaj się podanego tekstu i jego struktury. Możesz lekko rozszerzyć tekst dla lepszego zrozumienia, ale nie dodawaj informacji nieobecnych w oryginale. ZACHOWAJ WSZYSTKIE znaki specjalne: cudzysłowy typograficzne, myślniki itp.",
+        "default": "WAŻNE: Przetłumacz tekst na język łatwy do czytania. Trzymaj się blisko podanego tekstu i jego długości. Żadnych dodatkowych wyjaśnień poza podanym tekstem. ZACHOWAJ WSZYSTKIE znaki specjalne: cudzysłowy typograficzne, myślniki itp."
+      }
+    },
+    "field_instructions": {
+      "text": "Przetłumacz zawartość tekstową. Jeśli obecne są tagi HTML, zachowaj wszystkie tagi, atrybuty i strukturę HTML dokładnie. Tłumacz tylko tekst między tagami.",
+      "textarea": "Przetłumacz zawartość tekstową. Zachowaj wszystkie podziały linii i akapity dokładnie. Jeśli obecne są tagi HTML, zachowaj wszystkie tagi i atrybuty. Tłumacz tylko tekst między tagami.",
+      "writer": "Przetłumacz zawartość HTML. Zachowaj WSZYSTKIE tagi HTML, atrybuty, klasy i ID dokładnie. Tłumacz TYLKO widoczny tekst między tagami. NIGDY nie zmieniaj struktury HTML.",
+      "list": "Przetłumacz każdy element listy indywidualnie. Zachowaj liczbę i kolejność elementów dokładnie. Jeśli elementy zawierają HTML, zachowaj wszystkie tagi HTML.",
+      "blocks": "KRYTYCZNE: Zachowaj dokładną strukturę JSON. Tłumacz każdy blok oddzielnie. Zachowaj WSZYSTKIE nazwy pól, ID, UUID i typ bloku. Tłumacz TYLKO wartości ciągów pól z treścią tekstową. NIE zmieniaj tablic, obiektów lub pól technicznych. Struktura bloku NIE może się zmienić.",
+      "layout": "KRYTYCZNE: Zachowaj dokładną strukturę JSON kolumn układu. Tłumacz TYLKO treść tekstową wewnątrz kolumn. Zachowaj WSZYSTKIE nazwy pól, ID i strukturę kolumn. NIE zmieniaj tablic, obiektów lub definicji układu.",
+      "structure": "KRYTYCZNE: Zachowaj dokładną strukturę tablicy. Każdy wpis jest obiektem z wieloma polami. Tłumacz TYLKO wartości ciągów pól tekstowych. Zachowaj WSZYSTKIE nazwy pól, ID i strukturę dokładnie. NIE zmieniaj liczby wpisów lub pól technicznych.",
+      "object": "KRYTYCZNE: Zachowaj dokładną strukturę obiektu. Tłumacz TYLKO wartości ciągów pól tekstowych. Zachowaj WSZYSTKIE klucze, ID i strukturę obiektu dokładnie. NIE zmieniaj pól technicznych lub struktury."
+    }
+  }
+]

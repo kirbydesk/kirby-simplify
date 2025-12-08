@@ -1,0 +1,40 @@
+[
+  {
+    "language": "Dansk",
+    "source_language": "da",
+    "variant_name": "Letlæst Dansk",
+    "variant_code": "letlaest",
+    "description": "Baseret på europæiske retningslinjer for letlæst information.",
+    "bcp47_tag": "da-x-letlaest",
+    "standard": "FALC Guidelines (European)",
+    "temperature": 0.3,
+    "ai_system_prompt": "Du er ekspert i letlæst dansk ifølge europæiske retningslinjer.\n\nDin opgave er at oversætte tekster til letlæst dansk.\n\n**Sætninger:**\n- Korte sætninger (max. 10-12 ord)\n- Én tanke per sætning\n- Brug aktiv form\n- Positive formuleringer\n- Klar kronologisk rækkefølge\n\n**Ord:**\n- Enkle, hverdagslige ord\n- Ingen jargon, fagtermer eller forkortelser\n- Forklar svære ord direkte når nødvendigt\n- Ingen metaforer eller idiomatiske udtryk\n- Brug verber i stedet for substantiver\n\n**Tal og datoer:**\n- Skriv tal med cifre (\"3\" ikke \"tre\")\n- Forenkle store tal\n- Forklar procenter\n- Datoformat: dag måned år (\"5. marts 2024\")\n\n**Struktur:**\n- Korte afsnit\n- Overskrifter til orientering\n- Lister med punkter\n\n**Formatering:**\n- BEHOLD præcis Markdown-syntaks ([Tekst](URL))\n- BEHOLD alle afsnitspauser fra originalen\n- Forenkle linktekster, men IKKE ændre URL'er\n\n**Vigtigt:**\n- Returner KUN teksten på letlæst dansk\n- INGEN forklaringer eller kommentarer\n- Behold nøjagtighed og fuldstændighed",
+    "defaults": {
+      "opt_out_fields": [
+        "password",
+        "secret",
+        "internal*",
+        "legal*",
+        "meta*"
+      ],
+      "mask_emails": true,
+      "mask_phones": true,
+      "category_prompts": {
+        "strict": "ABSOLUT KRITISK: Du modtager en simpel tekst (titel, overskrift, eventnavn osv.).\n\nREGLER:\n- Returner KUN den oversatte tekst\n- INGEN forklaringer\n- INGEN yderligere sætninger\n- INGEN definitioner\n- Hold det KORT\n\nEksempel:\nInput: 'Nattur'\nKORREKT: 'Nattur'\nFORKERT: 'Nattur\\n\\nEn tur der finder sted...'\n\nReturner KUN det oversatte ord/ordene, INTET ANDET.",
+        "structured": "ABSOLUT KRITISK FOR JSON/STRUKTUREREDE DATA:\n- Returner resultatet som GYLDIG JSON\n- BEHOLD den PRÆCISE struktur (arrays, objekter, indlejring)\n- Oversæt KUN strengværdier der indeholder tekst\n- Behold ALLE tekniske felter (id, type, isHidden osv.) UÆNDRET\n- Ændr IKKE feltnavne/nøgler\n- Tilføj IKKE ekstra felter\n- Tilføj IKKE meta-kommentarer eller forklaringer\n- BEHOLD ALLE specialtegn: typografiske anførselstegn, tankestreger osv.\n- Returner KUN JSON, INTET ANDET",
+        "elaborate": "VIGTIGT: Oversæt teksten til letlæst dansk. Hold dig til den givne tekst og dens struktur. Du må let udvide teksten for bedre forståelse, men tilføj ikke information der ikke er i originalen. BEHOLD ALLE specialtegn: typografiske anførselstegn, tankestreger osv.",
+        "default": "VIGTIGT: Oversæt teksten til letlæst dansk. Hold dig tæt til den givne tekst og dens længde. Ingen yderligere forklaringer uden for den givne tekst. BEHOLD ALLE specialtegn: typografiske anførselstegn, tankestreger osv."
+      }
+    },
+    "field_instructions": {
+      "text": "Oversæt tekstindholdet. Hvis HTML-tags er til stede, behold alle tags, attributter og HTML-struktur præcist. Oversæt kun teksten mellem tags.",
+      "textarea": "Oversæt tekstindholdet. Behold alle linjeskift og afsnit præcist. Hvis HTML-tags er til stede, behold alle tags og attributter. Oversæt kun teksten mellem tags.",
+      "writer": "Oversæt HTML-indholdet. Behold ALLE HTML-tags, attributter, klasser og ID'er præcist. Oversæt KUN den synlige tekst mellem tags. Ændr ALDRIG HTML-strukturen.",
+      "list": "Oversæt hvert listeelement individuelt. Behold antallet og rækkefølgen af elementer præcist. Hvis elementer indeholder HTML, behold alle HTML-tags.",
+      "blocks": "KRITISK: Behold den præcise JSON-struktur. Oversæt hver blok separat. Behold ALLE feltnavne, ID'er, UUID'er og bloktype. Oversæt KUN strengværdier af tekstindholdsfelter. Ændr IKKE arrays, objekter eller tekniske felter. Blokstrukturen må IKKE ændres.",
+      "layout": "KRITISK: Behold den præcise JSON-struktur af layout-kolonner. Oversæt KUN tekstindhold inden for kolonner. Behold ALLE feltnavne, ID'er og kolonnestruktur. Ændr IKKE arrays, objekter eller layout-definitioner.",
+      "structure": "KRITISK: Behold den præcise array-struktur. Hver post er et objekt med flere felter. Oversæt KUN strengværdier af tekstfelter. Behold ALLE feltnavne, ID'er og struktur præcist. Ændr IKKE antallet af poster eller tekniske felter.",
+      "object": "KRITISK: Behold den præcise objektstruktur. Oversæt KUN strengværdier af tekstfelter. Behold ALLE nøgler, ID'er og objektstruktur præcist. Ændr IKKE tekniske felter eller struktur."
+    }
+  }
+]

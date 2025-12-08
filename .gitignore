@@ -1,0 +1,32 @@
+# Dependencies
+/vendor/
+composer.lock
+package-lock.json
+
+# Environment
+.env
+.env.local
+
+# IDE
+.idea/
+.vscode/
+*.sublime-workspace
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Testing
+/tests/coverage/
+.phpunit.result.cache
+
+# Build artifacts
+/dist/
+/build/
+/node_modules
