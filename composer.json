@@ -1,0 +1,39 @@
+{
+  "name": "kirbydesk/kirby-simplify",
+  "description": "Create accessible language variants for Kirby CMS using AI-powered content translations.",
+  "type": "kirby-plugin",
+  "license": "MIT",
+  "homepage": "https://kirbydesk.com/simplify",
+  "authors": [
+    {
+      "name": "Christian Fickinger",
+      "email": "mail@kirbydesk.com",
+      "homepage": "https://kirbydesk.com"
+    }
+  ],
+  "keywords": [
+    "kirby",
+    "kirby-plugin",
+    "accessibility",
+    "easy-language",
+    "plain-language",
+    "a11y",
+    "ai"
+  ],
+  "require": {
+    "php": ">=8.0",
+    "getkirby/composer-installer": "^1.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "chrfickinger\\Simplify\\": "lib/"
+    }
+  },
+  "config": {
+    "optimize-autoloader": true
+  },
+  "extra": {
+    "installer-name": "kirby-simplify"
+  }
+}
+
