@@ -136,7 +136,7 @@ $kirby = new Kirby(empty($roots) ? [] : ['roots' => $roots]);
 error_reporting($oldErrorReporting);
 
 // Plugin autoloader is now active
-use chrfickinger\Simplify\Core\TranslationWorker;
+use kirbydesk\Simplify\Core\TranslationWorker;
 
 // Set unlimited execution time for background jobs
 set_time_limit(0);
@@ -151,7 +151,7 @@ try {
     echo "Worker instance created\n";
 
     // Get queue instance
-    $queue = new \chrfickinger\Simplify\Queue\TranslationQueue();
+    $queue = new \kirbydesk\Simplify\Queue\TranslationQueue();
 
     // Try to acquire lock with retry
     $maxRetries = 3;

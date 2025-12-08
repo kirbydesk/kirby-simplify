@@ -1,6 +1,6 @@
 <?php
 
-namespace chrfickinger\Simplify\Cache;
+namespace kirbydesk\Simplify\Cache;
 
 use SQLite3;
 use Exception;

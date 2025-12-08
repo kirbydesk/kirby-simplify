@@ -7,7 +7,7 @@ use Kirby\Cms\App as Kirby;
 
 // Manual autoloader for lib classes
 spl_autoload_register(function ($class) {
-    $prefix = "chrfickinger\\Simplify\\";
+    $prefix = "kirbydesk\\Simplify\\";
     $baseDir = __DIR__ . "/lib/";
 
     $len = strlen($prefix);
@@ -45,7 +45,7 @@ $pluginHooks['system.loadPlugins:after'] = function () {
     $kirby = Kirby::instance();
 
     // Get logging configuration
-    $loggingConfig = $kirby->option('chrfickinger.simplify.logging', []);
+    $loggingConfig = $kirby->option('kirbydesk.simplify.logging', []);
     // Create simplify subdirectory for logs
     $simplifyLogsDir = $kirby->root('logs') . '/simplify';
     $logsSubDir = $simplifyLogsDir . '/logs';
@@ -57,19 +57,19 @@ $pluginHooks['system.loadPlugins:after'] = function () {
 
     // Initialize separate loggers for different purposes (only if enabled)
     $apiLogger = ($loggingConfig['api'] ?? true)
-        ? new \chrfickinger\Simplify\Logging\Logger($logsSubDir . '/api.log', $logLevel)
+        ? new \kirbydesk\Simplify\Logging\Logger($logsSubDir . '/api.log', $logLevel)
         : null;
 
     $workerLogger = ($loggingConfig['worker'] ?? true)
-        ? new \chrfickinger\Simplify\Logging\Logger($logsSubDir . '/worker.log', $logLevel)
+        ? new \kirbydesk\Simplify\Logging\Logger($logsSubDir . '/worker.log', $logLevel)
         : null;
 
     $hooksLogger = ($loggingConfig['hooks'] ?? true)
-        ? new \chrfickinger\Simplify\Logging\Logger($logsSubDir . '/hooks.log', $logLevel)
+        ? new \kirbydesk\Simplify\Logging\Logger($logsSubDir . '/hooks.log', $logLevel)
         : null;
 
     $systemLogger = ($loggingConfig['system'] ?? true)
-        ? new \chrfickinger\Simplify\Logging\Logger($logsSubDir . '/system.log', $logLevel)
+        ? new \kirbydesk\Simplify\Logging\Logger($logsSubDir . '/system.log', $logLevel)
         : null;
 
     // Store loggers in global instances
@@ -80,7 +80,7 @@ $pluginHooks['system.loadPlugins:after'] = function () {
     $GLOBALS["simplify_instances"]["system_logger"] = $systemLogger;
 };
 
-Kirby::plugin("chrfickinger/simplify", [
+Kirby::plugin("kirbydesk/simplify", [
     "translations" => $translations,
     "areas" => [
         "simplify" => require __DIR__ . "/src/extensions/areas.php",

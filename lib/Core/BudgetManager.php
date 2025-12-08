@@ -1,11 +1,11 @@
 <?php
 
-namespace chrfickinger\Simplify\Core;
+namespace kirbydesk\Simplify\Core;
 
 use SQLite3;
 use Exception;
 use Kirby\Cms\App as Kirby;
-use chrfickinger\Simplify\Logging\BaseLogger;
+use kirbydesk\Simplify\Logging\BaseLogger;
 
 /**
  * Budget Manager

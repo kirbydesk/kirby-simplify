@@ -7,8 +7,8 @@
  * Handles: simplify/project/*
  */
 
-use chrfickinger\Simplify\Helpers\RouteHelper;
-use chrfickinger\Simplify\Config\ConfigFileManager;
+use kirbydesk\Simplify\Helpers\RouteHelper;
+use kirbydesk\Simplify\Config\ConfigFileManager;
 
 return [
     [
@@ -25,7 +25,7 @@ return [
 
             return RouteHelper::handleAction(function () use ($context, $sourceLanguage) {
                 $kirby = $context['kirby'];
-                $configPath = \chrfickinger\Simplify\Helpers\PathHelper::getConfigPath($sourceLanguage . '.json');
+                $configPath = \kirbydesk\Simplify\Helpers\PathHelper::getConfigPath($sourceLanguage . '.json');
 
                 $projectPrompt = '';
 
@@ -68,7 +68,7 @@ return [
 
             return RouteHelper::handleAction(function () use ($data, $context, $sourceLanguage) {
                 $kirby = $context['kirby'];
-                $configPath = \chrfickinger\Simplify\Helpers\PathHelper::getConfigPath($sourceLanguage . '.json');
+                $configPath = \kirbydesk\Simplify\Helpers\PathHelper::getConfigPath($sourceLanguage . '.json');
 
                 // Load existing config or create new one
                 $config = [];
@@ -81,7 +81,7 @@ return [
                 $config['project_prompt'] = $data['description'] ?? '';
 
                 // Ensure directory exists
-                \chrfickinger\Simplify\Helpers\PathHelper::ensureConfigDirectory(dirname($configPath));
+                \kirbydesk\Simplify\Helpers\PathHelper::ensureConfigDirectory(dirname($configPath));
 
                 // Save config
                 file_put_contents($configPath, json_encode($config, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));

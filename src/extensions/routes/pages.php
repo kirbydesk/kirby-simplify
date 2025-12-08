@@ -7,12 +7,12 @@
  * Handles: simplify/page/*
  */
 
-use chrfickinger\Simplify\Helpers\RouteHelper;
-use chrfickinger\Simplify\Queue\WorkerManager;
-use chrfickinger\Simplify\Config\ConfigFileManager;
-use chrfickinger\Simplify\Config\ModelConfig;
-use chrfickinger\Simplify\Queue\TranslationQueue;
-use chrfickinger\Simplify\Processing\DiffDetector;
+use kirbydesk\Simplify\Helpers\RouteHelper;
+use kirbydesk\Simplify\Queue\WorkerManager;
+use kirbydesk\Simplify\Config\ConfigFileManager;
+use kirbydesk\Simplify\Config\ModelConfig;
+use kirbydesk\Simplify\Queue\TranslationQueue;
+use kirbydesk\Simplify\Processing\DiffDetector;
 
 return [
     [
@@ -124,7 +124,7 @@ return [
                 }
 
                 // Check if provider has API key configured
-                $globalConfig = $context['kirby']->option('chrfickinger.simplify', []);
+                $globalConfig = $context['kirby']->option('kirbydesk.simplify', []);
                 $providerConfig = $globalConfig['providers'][$providerType] ?? null;
                 if (!$providerConfig || empty($providerConfig['apikey'])) {
                     return RouteHelper::errorResponse(t('simplify.pages.translate.noProvider'));
@@ -150,7 +150,7 @@ return [
                 // This ensures fresh translation even if content hasn't changed
                 $pageUuid = $page->uuid() ? $page->uuid()->toString() : null;
                 if ($pageUuid) {
-                    $cache = new \chrfickinger\Simplify\Cache\TranslationCache();
+                    $cache = new \kirbydesk\Simplify\Cache\TranslationCache();
                     $languageCode = $variantConfig['language_code'] ?? $variantCode;
                     $cache->clearPage($pageUuid, $languageCode);
 
@@ -319,7 +319,7 @@ return [
                     if ($runningJob) continue;
 
                     // Clear cache for fresh translation
-                    $cache = new \chrfickinger\Simplify\Cache\TranslationCache();
+                    $cache = new \kirbydesk\Simplify\Cache\TranslationCache();
                     $cache->clearPage($pageUuid, $variantCode);
 
                     // Create snapshot and add job

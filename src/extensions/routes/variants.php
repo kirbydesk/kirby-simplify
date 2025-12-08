@@ -7,10 +7,10 @@
  * Handles: simplify/variant/*
  */
 
-use chrfickinger\Simplify\Helpers\RouteHelper;
-use chrfickinger\Simplify\Config\ConfigFileManager;
-use chrfickinger\Simplify\Config\ConfigHelper;
-use chrfickinger\Simplify\Helpers\ModelQualityChecker;
+use kirbydesk\Simplify\Helpers\RouteHelper;
+use kirbydesk\Simplify\Config\ConfigFileManager;
+use kirbydesk\Simplify\Config\ConfigHelper;
+use kirbydesk\Simplify\Helpers\ModelQualityChecker;
 
 return [
     [

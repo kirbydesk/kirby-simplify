@@ -7,8 +7,8 @@
  * Handles: simplify/language/*
  */
 
-use chrfickinger\Simplify\Helpers\RouteHelper;
-use chrfickinger\Simplify\Config\ConfigInitializer;
+use kirbydesk\Simplify\Helpers\RouteHelper;
+use kirbydesk\Simplify\Config\ConfigInitializer;
 
 return [
     [
@@ -66,7 +66,7 @@ return [
                 }
 
                 // Test PHP binary for background workers
-                $phpBinary = \chrfickinger\Simplify\Queue\WorkerManager::detectPhpBinary();
+                $phpBinary = \kirbydesk\Simplify\Queue\WorkerManager::detectPhpBinary();
                 $testCommand = escapeshellarg($phpBinary) . ' -v 2>&1';
                 $testOutput = shell_exec($testCommand);
 
@@ -74,7 +74,7 @@ return [
                     $warningMessage = "Warning: PHP binary '{$phpBinary}' may not work correctly for background workers. " .
                                      "Output: " . substr($testOutput, 0, 200) . "\n\n" .
                                      "Please configure the correct PHP CLI binary in site/config/config.php:\n\n" .
-                                     "'chrfickinger.simplify' => [\n" .
+                                     "'kirbydesk.simplify' => [\n" .
                                      "    'php' => ['binary' => '/path/to/php']\n" .
                                      "]";
 
@@ -94,7 +94,7 @@ return [
                         'name' => $language->name(),
                         'source' => $data['source'],
                     ],
-                    'notice' => "Bitte füge folgende Konfiguration zu site/config/config.php hinzu:\n\n'chrfickinger.simplify' => [\n    'languages' => [\n        '{$code}' => [\n            'source' => '{$data['source']}',\n            'standard' => 'DIN-LS',\n            'auto' => 'preview',\n            'temperature' => 0.3,\n        ]\n    ]\n]"
+                    'notice' => "Bitte füge folgende Konfiguration zu site/config/config.php hinzu:\n\n'kirbydesk.simplify' => [\n    'languages' => [\n        '{$code}' => [\n            'source' => '{$data['source']}',\n            'standard' => 'DIN-LS',\n            'auto' => 'preview',\n            'temperature' => 0.3,\n        ]\n    ]\n]"
                 ]);
             }, $context['logger']);
         },

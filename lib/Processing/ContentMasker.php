@@ -1,6 +1,6 @@
 <?php
 
-namespace chrfickinger\Simplify\Processing;
+namespace kirbydesk\Simplify\Processing;
 
 class ContentMasker
 {

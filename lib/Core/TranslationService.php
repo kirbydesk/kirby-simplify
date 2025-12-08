@@ -1,21 +1,21 @@
 <?php
 
-namespace chrfickinger\Simplify\Core;
+namespace kirbydesk\Simplify\Core;
 
 use Kirby\Cms\Page;
 use Kirby\Cms\App as Kirby;
-use chrfickinger\Simplify\Providers\ProviderInterface;
-use chrfickinger\Simplify\Providers\Gemini;
-use chrfickinger\Simplify\Providers\OpenAI;
-use chrfickinger\Simplify\Providers\Anthropic;
-use chrfickinger\Simplify\Providers\Mistral;
-use chrfickinger\Simplify\Processing\TranslationFilter;
-use chrfickinger\Simplify\Processing\FieldGrouper;
-use chrfickinger\Simplify\Processing\ContentMasker;
-use chrfickinger\Simplify\Config\ConfigHelper;
-use chrfickinger\Simplify\Helpers\PageWriter;
-use chrfickinger\Simplify\Logging\Logger;
-use chrfickinger\Simplify\Logging\StatsLogger;
+use kirbydesk\Simplify\Providers\ProviderInterface;
+use kirbydesk\Simplify\Providers\Gemini;
+use kirbydesk\Simplify\Providers\OpenAI;
+use kirbydesk\Simplify\Providers\Anthropic;
+use kirbydesk\Simplify\Providers\Mistral;
+use kirbydesk\Simplify\Processing\TranslationFilter;
+use kirbydesk\Simplify\Processing\FieldGrouper;
+use kirbydesk\Simplify\Processing\ContentMasker;
+use kirbydesk\Simplify\Config\ConfigHelper;
+use kirbydesk\Simplify\Helpers\PageWriter;
+use kirbydesk\Simplify\Logging\Logger;
+use kirbydesk\Simplify\Logging\StatsLogger;
 
 /**
  * TranslationService - Option B Implementation
@@ -133,7 +133,7 @@ class TranslationService
             if ($this->budget) {
                 // Get model name from config_id
                 $modelConfigId = $config['provider'] ?? 'unknown';
-                $modelConfig = \chrfickinger\Simplify\Config\ModelConfig::load($modelConfigId);
+                $modelConfig = \kirbydesk\Simplify\Config\ModelConfig::load($modelConfigId);
                 $model = $modelConfig['model'] ?? $modelConfigId;
                 $this->budget->record(
                     $page->id(),
@@ -195,7 +195,7 @@ class TranslationService
     ): array {
         // Extract provider ID from config for stats logging
         $modelConfigId = $config['provider'] ?? null;
-        $modelConfig = \chrfickinger\Simplify\Config\ModelConfig::load($modelConfigId);
+        $modelConfig = \kirbydesk\Simplify\Config\ModelConfig::load($modelConfigId);
         $providerId = $modelConfig['provider_type'] ?? null;
         try {
             // Get field type configuration
@@ -232,7 +232,7 @@ class TranslationService
             // Check budget (if budget manager is available)
             // Get model name from config_id
             $modelConfigId = $config['provider'] ?? null;
-            $modelConfig = \chrfickinger\Simplify\Config\ModelConfig::load($modelConfigId);
+            $modelConfig = \kirbydesk\Simplify\Config\ModelConfig::load($modelConfigId);
             $model = $modelConfig['model'] ?? $modelConfigId;
             if (!$model) {
                 throw new \Exception("No provider configured for this variant");
@@ -344,7 +344,7 @@ class TranslationService
         // If model not provided, extract from config
         if (!$model) {
             $modelConfigId = $config['provider'] ?? null;
-            $modelConfig = \chrfickinger\Simplify\Config\ModelConfig::load($modelConfigId);
+            $modelConfig = \kirbydesk\Simplify\Config\ModelConfig::load($modelConfigId);
             $model = $modelConfig['model'] ?? $modelConfigId;
             if (!$model) {
                 throw new \Exception("No provider configured for this variant");
@@ -359,7 +359,7 @@ class TranslationService
             $options = [];
 
             // Load model config to check if temperature is supported
-            $modelConfig = \chrfickinger\Simplify\Config\ModelConfig::load($model);
+            $modelConfig = \kirbydesk\Simplify\Config\ModelConfig::load($model);
             if ($modelConfig && isset($modelConfig['supports_temperature']) && $modelConfig['supports_temperature'] === true) {
                 // Only set temperature if variant config provides it
                 if (isset($config['temperature'])) {
@@ -529,7 +529,7 @@ class TranslationService
         // Get model from config (set by user in Panel)
         // Get model name from config_id
         $modelConfigId = $config['provider'] ?? null;
-        $modelConfig = \chrfickinger\Simplify\Config\ModelConfig::load($modelConfigId);
+        $modelConfig = \kirbydesk\Simplify\Config\ModelConfig::load($modelConfigId);
         $model = $modelConfig['model'] ?? $modelConfigId;
 
         if (!$model) {
@@ -542,7 +542,7 @@ class TranslationService
 
         // Get global config for API key
         $kirby = Kirby::instance();
-        $globalConfig = $kirby->option('chrfickinger.simplify', []);
+        $globalConfig = $kirby->option('kirbydesk.simplify', []);
         $providerConfig = $globalConfig['providers'][$providerType] ?? [];
 
         $providerInstance = null;

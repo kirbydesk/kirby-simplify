@@ -1,10 +1,10 @@
 <?php
 
-namespace chrfickinger\Simplify\Helpers;
+namespace kirbydesk\Simplify\Helpers;
 
 use Kirby\Cms\Page;
 use Kirby\Cms\App as Kirby;
-use chrfickinger\Simplify\Logging\Logger;
+use kirbydesk\Simplify\Logging\Logger;
 
 /**
  * Draft Manager

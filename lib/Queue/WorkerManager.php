@@ -1,6 +1,6 @@
 <?php
 
-namespace chrfickinger\Simplify\Queue;
+namespace kirbydesk\Simplify\Queue;
 
 use Kirby\Cms\App as Kirby;
 
@@ -19,7 +19,7 @@ class WorkerManager
     public static function isPhpBinaryConfigured(): bool
     {
         $kirby = Kirby::instance();
-        $phpConfig = $kirby->option('chrfickinger.simplify.php', []);
+        $phpConfig = $kirby->option('kirbydesk.simplify.php', []);
         return isset($phpConfig['binary']) && !empty($phpConfig['binary']);
     }
 
@@ -31,7 +31,7 @@ class WorkerManager
     public static function detectPhpBinary(): string
     {
         $kirby = Kirby::instance();
-        $phpConfig = $kirby->option('chrfickinger.simplify.php', []);
+        $phpConfig = $kirby->option('kirbydesk.simplify.php', []);
         $phpBinary = $phpConfig['binary'] ?? null;
 
         // Auto-detect if not configured
@@ -63,7 +63,7 @@ class WorkerManager
 
         // Validate PHP binary exists
         if (!self::validatePhpBinary($phpBinary)) {
-            $error = "PHP binary not found: {$phpBinary}. Please check your config.php: 'chrfickinger.simplify.php.binary'";
+            $error = "PHP binary not found: {$phpBinary}. Please check your config.php: 'kirbydesk.simplify.php.binary'";
             if ($logger) {
                 $logger->error($error);
             }

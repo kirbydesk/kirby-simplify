@@ -1,26 +1,26 @@
 <?php
 
-namespace chrfickinger\Simplify\Core;
+namespace kirbydesk\Simplify\Core;
 
 use Kirby\Cms\App;
 use Exception;
-use chrfickinger\Simplify\Providers\Gemini;
-use chrfickinger\Simplify\Providers\OpenAI;
-use chrfickinger\Simplify\Providers\ProviderInterface;
-use chrfickinger\Simplify\Queue\TranslationQueue;
-use chrfickinger\Simplify\Processing\FieldGrouper;
-use chrfickinger\Simplify\Processing\ContentMasker;
-use chrfickinger\Simplify\Processing\DiffDetector;
-use chrfickinger\Simplify\Processing\TranslationFilter;
-use chrfickinger\Simplify\Config\ConfigHelper;
-use chrfickinger\Simplify\Helpers\ProviderFactory;
-use chrfickinger\Simplify\Helpers\FieldFilter;
-use chrfickinger\Simplify\Cache\TranslationCache;
-use chrfickinger\Simplify\Logging\Logger;
-use chrfickinger\Simplify\Logging\StatsLogger;
-use chrfickinger\Simplify\Logging\WorkerLogger;
-use chrfickinger\Simplify\Logging\ReportsLogger;
-use chrfickinger\Simplify\Helpers\PageWriter;
+use kirbydesk\Simplify\Providers\Gemini;
+use kirbydesk\Simplify\Providers\OpenAI;
+use kirbydesk\Simplify\Providers\ProviderInterface;
+use kirbydesk\Simplify\Queue\TranslationQueue;
+use kirbydesk\Simplify\Processing\FieldGrouper;
+use kirbydesk\Simplify\Processing\ContentMasker;
+use kirbydesk\Simplify\Processing\DiffDetector;
+use kirbydesk\Simplify\Processing\TranslationFilter;
+use kirbydesk\Simplify\Config\ConfigHelper;
+use kirbydesk\Simplify\Helpers\ProviderFactory;
+use kirbydesk\Simplify\Helpers\FieldFilter;
+use kirbydesk\Simplify\Cache\TranslationCache;
+use kirbydesk\Simplify\Logging\Logger;
+use kirbydesk\Simplify\Logging\StatsLogger;
+use kirbydesk\Simplify\Logging\WorkerLogger;
+use kirbydesk\Simplify\Logging\ReportsLogger;
+use kirbydesk\Simplify\Helpers\PageWriter;
 
 /**
  * Translation Worker
@@ -121,7 +121,7 @@ class TranslationWorker
                 $allFields = array_filter($allFields, fn($f) => $f !== 'title');
 
                 // Use FieldFilter to properly filter fields (includes field type whitelist check)
-                $filteredFields = \chrfickinger\Simplify\Helpers\FieldFilter::filterFields($page, $allFields, $variantConfig);
+                $filteredFields = \kirbydesk\Simplify\Helpers\FieldFilter::filterFields($page, $allFields, $variantConfig);
 
                 $changes = [
                     'strategy' => 'full',
@@ -138,7 +138,7 @@ class TranslationWorker
                 $changes['fields'] = array_filter($changes['fields'], fn($f) => $f !== 'title');
 
                 // Use FieldFilter to properly filter detected changes (includes field type whitelist check)
-                $changes['fields'] = \chrfickinger\Simplify\Helpers\FieldFilter::filterFields($page, $changes['fields'], $variantConfig);
+                $changes['fields'] = \kirbydesk\Simplify\Helpers\FieldFilter::filterFields($page, $changes['fields'], $variantConfig);
             }
 
             $this->logger->info("Diff detection: {$changes['strategy']} - {$changes['changedFields']} of {$changes['totalFields']} fields changed");
@@ -312,7 +312,7 @@ class TranslationWorker
             $kirby = \Kirby\Cms\App::instance();
 
             // Load project-specific config (keywords, prompt)
-            $projectConfigPath = \chrfickinger\Simplify\Helpers\PathHelper::getConfigPath($sourceLanguage . '.json');
+            $projectConfigPath = \kirbydesk\Simplify\Helpers\PathHelper::getConfigPath($sourceLanguage . '.json');
             if (file_exists($projectConfigPath)) {
                 $projectConfigJson = file_get_contents($projectConfigPath);
                 $projectConfig = json_decode($projectConfigJson, true);
@@ -389,7 +389,7 @@ class TranslationWorker
 
                         // Calculate cost using model config pricing
                         $modelConfigId = $variantConfig['provider'] ?? '';
-                        $modelConfig = \chrfickinger\Simplify\Config\ModelConfig::load($modelConfigId);
+                        $modelConfig = \kirbydesk\Simplify\Config\ModelConfig::load($modelConfigId);
                         $pricing = $modelConfig['pricing'] ?? null;
 
                         $cost = $this->calculateCost($modelConfigId, $inputTokens, $outputTokens, ['pricing' => $pricing]);
@@ -530,7 +530,7 @@ class TranslationWorker
         $singleFieldPrompt = $categoryPrompts[$fieldCategory] ?? $categoryPrompts['default'] ?? '';
 
         // Use PromptBuilder to build the system prompt (includes project_prompt, etc.)
-        $fullSystemPrompt = \chrfickinger\Simplify\Processing\PromptBuilder::buildSystemPromptFromConfig(
+        $fullSystemPrompt = \kirbydesk\Simplify\Processing\PromptBuilder::buildSystemPromptFromConfig(
             $sourceContent,
             $variantConfig,
             $fieldType,
@@ -574,7 +574,7 @@ class TranslationWorker
 
         // Get pricing from model config for cost calculation
         $modelConfigId = $variantConfig['provider'];
-        $modelConfig = \chrfickinger\Simplify\Config\ModelConfig::load($modelConfigId);
+        $modelConfig = \kirbydesk\Simplify\Config\ModelConfig::load($modelConfigId);
         $pricing = $modelConfig['pricing'] ?? null;
 
         $estimatedCost = $this->calculateCost(
@@ -609,7 +609,7 @@ class TranslationWorker
 
         // Get model name from config_id (e.g., "openai/gpt-4o" -> "gpt-4o")
         $modelConfigId = $variantConfig['provider'];
-        $modelConfig = \chrfickinger\Simplify\Config\ModelConfig::load($modelConfigId);
+        $modelConfig = \kirbydesk\Simplify\Config\ModelConfig::load($modelConfigId);
         $modelName = $modelConfig['model'] ?? $modelConfigId;
 
         // Build options based on model capabilities
@@ -636,7 +636,7 @@ class TranslationWorker
         $translatedContent = FieldGrouper::demaskFieldContents([$fieldName => $translatedContent], $maskingMap)[$fieldName] ?? $translatedContent;
 
         // Normalize text (remove AI artifacts, code blocks, etc.)
-        $translatedContent = \chrfickinger\Simplify\Processing\PromptBuilder::normalizeText($translatedContent, $sourceContent, $fieldType);
+        $translatedContent = \kirbydesk\Simplify\Processing\PromptBuilder::normalizeText($translatedContent, $sourceContent, $fieldType);
 
         // Compact JSON for structured fields
         // Some AI models return pretty-printed JSON which breaks Kirby's content files
@@ -685,7 +685,7 @@ class TranslationWorker
         $modelConfigId = $variantConfig['provider'] ?? ''; // e.g., "openai/gpt-4o"
 
         // Load model config to get provider_type and actual model name
-        $modelConfig = \chrfickinger\Simplify\Config\ModelConfig::load($modelConfigId);
+        $modelConfig = \kirbydesk\Simplify\Config\ModelConfig::load($modelConfigId);
         $providerId = $modelConfig['provider_type'] ?? $modelConfigId; // e.g., "openai"
         $modelName = $modelConfig['model'] ?? $modelConfigId; // e.g., "gpt-4o"
 
@@ -761,7 +761,7 @@ class TranslationWorker
         $modelConfigId = $variantConfig['provider'] ?? '';
 
         // Load model config to get provider type
-        $modelConfig = \chrfickinger\Simplify\Config\ModelConfig::load($modelConfigId);
+        $modelConfig = \kirbydesk\Simplify\Config\ModelConfig::load($modelConfigId);
 
         // Return provider_type (e.g., "openai")
         return $modelConfig['provider_type'] ?? $modelConfigId;

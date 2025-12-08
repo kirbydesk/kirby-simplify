@@ -7,10 +7,10 @@
  * Handles: simplify/job/*, simplify/jobs
  */
 
-use chrfickinger\Simplify\Helpers\RouteHelper;
-use chrfickinger\Simplify\Queue\TranslationQueue;
-use chrfickinger\Simplify\Logging\StatsLogger;
-use chrfickinger\Simplify\Config\ConfigHelper;
+use kirbydesk\Simplify\Helpers\RouteHelper;
+use kirbydesk\Simplify\Queue\TranslationQueue;
+use kirbydesk\Simplify\Logging\StatsLogger;
+use kirbydesk\Simplify\Config\ConfigHelper;
 
 return [
     [

@@ -1,10 +1,10 @@
 <?php
 
-namespace chrfickinger\Simplify\Helpers;
+namespace kirbydesk\Simplify\Helpers;
 
-use chrfickinger\Simplify\Logging\StatsLogger;
-use chrfickinger\Simplify\Core\BudgetManager;
-use chrfickinger\Simplify\Queue\WorkerManager;
+use kirbydesk\Simplify\Logging\StatsLogger;
+use kirbydesk\Simplify\Core\BudgetManager;
+use kirbydesk\Simplify\Queue\WorkerManager;
 
 /**
  * Provider Tester Class
@@ -45,7 +45,7 @@ class ProviderTester
             $apiResponse = null;
 
             // 1. Check if we have local model configs for this provider
-            $allModels = \chrfickinger\Simplify\Config\ModelConfig::getAll();
+            $allModels = \kirbydesk\Simplify\Config\ModelConfig::getAll();
             $localModels = array_filter($allModels, function($modelConfig) use ($providerId) {
                 return isset($modelConfig['provider_type']) && $modelConfig['provider_type'] === $providerId;
             });
@@ -116,8 +116,8 @@ class ProviderTester
 
             if ($useLocalConfig) {
                 // Load from local model config
-                $modelConfigId = \chrfickinger\Simplify\Config\ModelConfig::buildId($providerId, $model);
-                $modelConfig = \chrfickinger\Simplify\Config\ModelConfig::load($modelConfigId);
+                $modelConfigId = \kirbydesk\Simplify\Config\ModelConfig::buildId($providerId, $model);
+                $modelConfig = \kirbydesk\Simplify\Config\ModelConfig::load($modelConfigId);
 
                 // Only set temperature if model supports it
                 if ($modelConfig && isset($modelConfig['supports_temperature']) && $modelConfig['supports_temperature'] === true) {
@@ -191,14 +191,14 @@ class ProviderTester
             $statsLogger = new StatsLogger();
 
             // Load pricing from model config (not provider config)
-            $modelConfigId = \chrfickinger\Simplify\Config\ModelConfig::buildId($providerId, $model);
-            $modelConfig = \chrfickinger\Simplify\Config\ModelConfig::load($modelConfigId);
+            $modelConfigId = \kirbydesk\Simplify\Config\ModelConfig::buildId($providerId, $model);
+            $modelConfig = \kirbydesk\Simplify\Config\ModelConfig::load($modelConfigId);
             $pricing = $modelConfig['pricing'] ?? null;
 
             // Calculate cost only if pricing data is available
             $cost = null;
             if ($pricing && isset($pricing['input']) && isset($pricing['output'])) {
-                $perTokens = $pricing['per_tokens'] ?? \chrfickinger\Simplify\Core\BudgetManager::DEFAULT_PER_TOKENS;
+                $perTokens = $pricing['per_tokens'] ?? \kirbydesk\Simplify\Core\BudgetManager::DEFAULT_PER_TOKENS;
                 $inputCost = (($response->promptTokens ?? 0) / $perTokens) * $pricing['input'];
                 $outputCost = (($response->completionTokens ?? 0) / $perTokens) * $pricing['output'];
                 $cost = $inputCost + $outputCost;
@@ -262,8 +262,8 @@ class ProviderTester
     {
         try {
             // Load pricing from model config (not provider config)
-            $modelConfigId = \chrfickinger\Simplify\Config\ModelConfig::buildId($providerId, $model);
-            $modelConfig = \chrfickinger\Simplify\Config\ModelConfig::load($modelConfigId);
+            $modelConfigId = \kirbydesk\Simplify\Config\ModelConfig::buildId($providerId, $model);
+            $modelConfig = \kirbydesk\Simplify\Config\ModelConfig::load($modelConfigId);
             $pricing = $modelConfig['pricing'] ?? null;
 
             $inputTokens = $response->promptTokens ?? 0;
@@ -271,14 +271,14 @@ class ProviderTester
 
             $totalCost = null;
             if ($pricing && isset($pricing['input']) && isset($pricing['output'])) {
-                $perTokens = $pricing['per_tokens'] ?? \chrfickinger\Simplify\Core\BudgetManager::DEFAULT_PER_TOKENS;
+                $perTokens = $pricing['per_tokens'] ?? \kirbydesk\Simplify\Core\BudgetManager::DEFAULT_PER_TOKENS;
                 $inputCost = ($inputTokens / $perTokens) * $pricing['input'];
                 $outputCost = ($outputTokens / $perTokens) * $pricing['output'];
                 $totalCost = $inputCost + $outputCost;
             }
 
             // Record in BudgetManager (use model config ID)
-            $modelConfigId = \chrfickinger\Simplify\Config\ModelConfig::buildId($providerId, $model);
+            $modelConfigId = \kirbydesk\Simplify\Config\ModelConfig::buildId($providerId, $model);
             $budgetManager = new BudgetManager($modelConfigId);
             $budgetManager->record($inputTokens, $outputTokens, $totalCost);
 

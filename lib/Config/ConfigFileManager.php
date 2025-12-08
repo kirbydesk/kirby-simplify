@@ -1,9 +1,9 @@
 <?php
 
-namespace chrfickinger\Simplify\Config;
+namespace kirbydesk\Simplify\Config;
 
 use Kirby\Cms\App as Kirby;
-use chrfickinger\Simplify\Helpers\PathHelper;
+use kirbydesk\Simplify\Helpers\PathHelper;
 
 /**
  * Config File Manager Class

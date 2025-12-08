@@ -1,6 +1,6 @@
 <?php
 
-namespace chrfickinger\Simplify\Logging;
+namespace kirbydesk\Simplify\Logging;
 
 use Kirby\Cms\App as Kirby;
 use Kirby\Toolkit\Dir;

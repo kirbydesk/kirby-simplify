@@ -1,8 +1,8 @@
 <?php
 
-namespace chrfickinger\Simplify\Logging;
+namespace kirbydesk\Simplify\Logging;
 
-use chrfickinger\Simplify\Logging\BaseLogger;
+use kirbydesk\Simplify\Logging\BaseLogger;
 
 /**
  * Logger for worker-specific activity

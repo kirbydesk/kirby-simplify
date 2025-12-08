@@ -1,6 +1,6 @@
 <?php
 
-namespace chrfickinger\Simplify\Providers;
+namespace kirbydesk\Simplify\Providers;
 
 /**
  * Result object returned by AI providers

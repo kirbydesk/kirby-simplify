@@ -1,6 +1,6 @@
 <?php
 
-namespace chrfickinger\Simplify\Config;
+namespace kirbydesk\Simplify\Config;
 
 use Kirby\Cms\App as Kirby;
 
@@ -14,7 +14,7 @@ class ConfigHelper
     public static function getConfig(): array
     {
         $kirby = Kirby::instance();
-        $config = $kirby->option("chrfickinger.simplify", []);
+        $config = $kirby->option("kirbydesk.simplify", []);
 
         // If languages is a callable, evaluate it
         if (isset($config['languages']) && is_callable($config['languages'])) {
@@ -118,7 +118,7 @@ class ConfigHelper
         $kirby = Kirby::instance();
 
         // Read variant config file (Single Source of Truth)
-        $configPath = \chrfickinger\Simplify\Helpers\PathHelper::getConfigPath($languageCode . '.json');
+        $configPath = \kirbydesk\Simplify\Helpers\PathHelper::getConfigPath($languageCode . '.json');
 
         if (!file_exists($configPath)) {
             // Config doesn't exist yet - trigger initialization

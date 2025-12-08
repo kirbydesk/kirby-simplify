@@ -7,10 +7,10 @@
  * Handles: simplify/models/*
  */
 
-use chrfickinger\Simplify\Helpers\RouteHelper;
-use chrfickinger\Simplify\Config\ModelConfig;
-use chrfickinger\Simplify\Helpers\ModelQualityChecker;
-use chrfickinger\Simplify\Logging\StatsLogger;
+use kirbydesk\Simplify\Helpers\RouteHelper;
+use kirbydesk\Simplify\Config\ModelConfig;
+use kirbydesk\Simplify\Helpers\ModelQualityChecker;
+use kirbydesk\Simplify\Logging\StatsLogger;
 use Kirby\Http\Remote;
 
 return [
@@ -73,7 +73,7 @@ return [
             return RouteHelper::handleAction(function () use ($context) {
                 // Get configured providers from config
                 $kirby = $context['kirby'];
-                $config = $kirby->option('chrfickinger.simplify');
+                $config = $kirby->option('kirbydesk.simplify');
                 $configuredProviders = $config['providers'] ?? [];
 
                 // Fetch models and status from kirbydesk.com API for each provider
@@ -276,7 +276,7 @@ return [
                     $config['pricing'] = [
                         'input' => $data['pricing']['input'] !== null ? (float) $data['pricing']['input'] : null,
                         'output' => $data['pricing']['output'] !== null ? (float) $data['pricing']['output'] : null,
-                        'per_tokens' => $data['pricing']['per_tokens'] !== null ? (int) $data['pricing']['per_tokens'] : \chrfickinger\Simplify\Core\BudgetManager::DEFAULT_PER_TOKENS,
+                        'per_tokens' => $data['pricing']['per_tokens'] !== null ? (int) $data['pricing']['per_tokens'] : \kirbydesk\Simplify\Core\BudgetManager::DEFAULT_PER_TOKENS,
                     ];
                 }
 
@@ -352,7 +352,7 @@ return [
                 }
 
                 // Load budget settings from SQLite database
-                $budgetManager = new \chrfickinger\Simplify\Core\BudgetManager($configId);
+                $budgetManager = new \kirbydesk\Simplify\Core\BudgetManager($configId);
                 $settings = $budgetManager->loadSettings();
 
                 // Load GitHub data to get provider URL and model URL
@@ -361,7 +361,7 @@ return [
 
                 // Get provider currency from config (fallback to USD)
                 $kirby = $context['kirby'];
-                $config = $kirby->option('chrfickinger.simplify');
+                $config = $kirby->option('kirbydesk.simplify');
                 $providerConfig = $config['providers'][$providerType] ?? [];
                 $modelConfig['provider_currency'] = $providerConfig['currency'] ?? 'USD';
 
@@ -431,7 +431,7 @@ return [
                     'monthlyBudget' => (float) $monthlyBudget,
                 ];
 
-                $budgetManager = new \chrfickinger\Simplify\Core\BudgetManager($configId);
+                $budgetManager = new \kirbydesk\Simplify\Core\BudgetManager($configId);
                 $success = $budgetManager->saveSettings($settings);
 
                 if (!$success) {
@@ -463,7 +463,7 @@ return [
 
             return RouteHelper::handleAction(function () use ($configId, $context) {
                 // Create BudgetManager instance and get summary
-                $budgetManager = new \chrfickinger\Simplify\Core\BudgetManager($configId);
+                $budgetManager = new \kirbydesk\Simplify\Core\BudgetManager($configId);
                 $summary = $budgetManager->getSummary();
 
                 return RouteHelper::successResponse('', [
@@ -493,7 +493,7 @@ return [
 
             return RouteHelper::handleAction(function () use ($configId, $periodType, $context) {
                 // Create BudgetManager and reset usage for specified period
-                $budgetManager = new \chrfickinger\Simplify\Core\BudgetManager($configId);
+                $budgetManager = new \kirbydesk\Simplify\Core\BudgetManager($configId);
                 $budgetManager->reset($periodType);
 
                 return RouteHelper::successResponse('Budget reset successfully');
@@ -526,7 +526,7 @@ return [
 
                 // Get provider currency from Kirby config (fallback to USD)
                 $kirby = $context['kirby'];
-                $config = $kirby->option('chrfickinger.simplify');
+                $config = $kirby->option('kirbydesk.simplify');
                 $providerConfig = $config['providers'][$providerType] ?? [];
                 $currency = $providerConfig['currency'] ?? 'USD';
 

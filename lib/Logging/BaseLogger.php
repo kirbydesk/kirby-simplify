@@ -1,6 +1,6 @@
 <?php
 
-namespace chrfickinger\Simplify\Logging;
+namespace kirbydesk\Simplify\Logging;
 
 /**
  * Base Logger Class

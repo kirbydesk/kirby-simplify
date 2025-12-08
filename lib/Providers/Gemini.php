@@ -1,9 +1,9 @@
 <?php
 
-namespace chrfickinger\Simplify\Providers;
+namespace kirbydesk\Simplify\Providers;
 
-use chrfickinger\Simplify\Providers\ProviderInterface;
-use chrfickinger\Simplify\Providers\ProviderResult;
+use kirbydesk\Simplify\Providers\ProviderInterface;
+use kirbydesk\Simplify\Providers\ProviderResult;
 
 /**
  * Google Gemini Provider Implementation

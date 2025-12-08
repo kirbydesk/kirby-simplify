@@ -1,6 +1,6 @@
 <?php
 
-namespace chrfickinger\Simplify\Helpers;
+namespace kirbydesk\Simplify\Helpers;
 
 use Kirby\Cms\App as Kirby;
 
@@ -15,7 +15,7 @@ class PathHelper
     /**
      * Get the base config path for Simplify
      *
-     * Can be customized via 'chrfickinger.simplify.config' option.
+     * Can be customized via 'kirbydesk.simplify.config' option.
      * Default: site/config/simplify
      * For content repos: site/content/.simplify
      *
@@ -27,7 +27,7 @@ class PathHelper
         $kirby = Kirby::instance();
 
         // Get custom config path or use default
-        $basePath = option('chrfickinger.simplify.config');
+        $basePath = option('kirbydesk.simplify.config');
 
         if (!$basePath) {
             // Default: site/config/simplify

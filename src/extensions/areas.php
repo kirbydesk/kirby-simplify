@@ -61,7 +61,7 @@ function loadVariantPages($kirby, $variantCode, &$variantConfig) {
 
     // Save config if new pages were added
     if ($configChanged) {
-        \chrfickinger\Simplify\Config\ConfigFileManager::saveVariantConfig($variantCode, $variantConfig);
+        \kirbydesk\Simplify\Config\ConfigFileManager::saveVariantConfig($variantCode, $variantConfig);
     }
 
     // Now build the display list from config
@@ -127,7 +127,7 @@ return function ($kirby) {
             [
                 'pattern' => 'simplify/(:any)',
                 'action' => function (string $tab) use ($kirby) {
-                    $config = \chrfickinger\Simplify\Config\ConfigHelper::getConfig();
+                    $config = \kirbydesk\Simplify\Config\ConfigHelper::getConfig();
 
                     $pages = $kirby->site()->index();
                     $data = [
@@ -197,7 +197,7 @@ return function ($kirby) {
                         // Load provider model from variant config
                         $providerModel = null;
                         $providerLabel = null;
-                        $variantConfigPath = \chrfickinger\Simplify\Helpers\PathHelper::getConfigPath($code . '.json');
+                        $variantConfigPath = \kirbydesk\Simplify\Helpers\PathHelper::getConfigPath($code . '.json');
                         if (file_exists($variantConfigPath)) {
                             $variantConfigJson = file_get_contents($variantConfigPath);
                             $variantConfig = json_decode($variantConfigJson, true);
@@ -206,7 +206,7 @@ return function ($kirby) {
                             // Get label from model config
                             if ($providerModel) {
                                 // Load model config to get provider name
-                                $modelData = \chrfickinger\Simplify\Config\ModelConfig::load($providerModel);
+                                $modelData = \kirbydesk\Simplify\Config\ModelConfig::load($providerModel);
                                 if ($modelData) {
                                     $providerType = $modelData['provider_type'] ?? 'unknown';
                                     $modelName = $modelData['model'] ?? $providerModel;
@@ -239,7 +239,7 @@ return function ($kirby) {
                     // Get available rule variants for each source language
                     $availableRuleVariants = [];
                     foreach ($siteLanguages as $siteLang) {
-                        $variants = \chrfickinger\Simplify\Config\ConfigHelper::getAvailableVariantsForSource($siteLang['code']);
+                        $variants = \kirbydesk\Simplify\Config\ConfigHelper::getAvailableVariantsForSource($siteLang['code']);
                         if (!empty($variants)) {
                             $availableRuleVariants[$siteLang['code']] = $variants;
                         }
@@ -250,7 +250,7 @@ return function ($kirby) {
                     $enrichedConfig = $config;
                     if (isset($config['providers']) && is_array($config['providers'])) {
                         // Get all models grouped by provider
-                        $allModels = \chrfickinger\Simplify\Config\ModelConfig::getAll();
+                        $allModels = \kirbydesk\Simplify\Config\ModelConfig::getAll();
                         $modelsByProvider = [];
                         foreach ($allModels as $model) {
                             $providerType = $model['provider_type'] ?? 'unknown';
@@ -263,9 +263,9 @@ return function ($kirby) {
                         foreach ($config['providers'] as $providerId => $providerData) {
                             $providerType = $providerData['provider'] ?? $providerId;
                             $enrichedConfig['providers'][$providerId]['displayName'] =
-                                \chrfickinger\Simplify\Helpers\ProviderHelper::getProviderName($providerId);
+                                \kirbydesk\Simplify\Helpers\ProviderHelper::getProviderName($providerId);
                             $enrichedConfig['providers'][$providerId]['icon'] =
-                                \chrfickinger\Simplify\Helpers\ProviderHelper::getProviderIcon($providerId);
+                                \kirbydesk\Simplify\Helpers\ProviderHelper::getProviderIcon($providerId);
                             $enrichedConfig['providers'][$providerId]['modelCount'] =
                                 $modelsByProvider[$providerType] ?? 0;
                         }
@@ -293,7 +293,7 @@ return function ($kirby) {
             [
                 'pattern' => 'simplify/variants/(:any)/(:any?)',
                 'action' => function (string $variantCode, string $tab = 'pages') use ($kirby) {
-                    $config = \chrfickinger\Simplify\Config\ConfigHelper::getConfig();
+                    $config = \kirbydesk\Simplify\Config\ConfigHelper::getConfig();
 
                     // Get variant language info
                     $language = $kirby->language($variantCode);
@@ -310,7 +310,7 @@ return function ($kirby) {
                     $variantConfig = $config['languages'][$variantCode] ?? [];
 
                     // Load custom config if exists (per-variant JSON file)
-                    $customConfigPath = \chrfickinger\Simplify\Helpers\PathHelper::getConfigPath($variantCode . '.json');
+                    $customConfigPath = \kirbydesk\Simplify\Helpers\PathHelper::getConfigPath($variantCode . '.json');
                     if (file_exists($customConfigPath)) {
                         $jsonContent = file_get_contents($customConfigPath);
                         $customConfig = json_decode($jsonContent, true);
@@ -321,7 +321,7 @@ return function ($kirby) {
                     }
 
                     // Load rule data (defaults) for this variant from rules/variants/*.json
-                    $ruleData = \chrfickinger\Simplify\Config\ConfigHelper::getRuleDataForVariant($variantCode);
+                    $ruleData = \kirbydesk\Simplify\Config\ConfigHelper::getRuleDataForVariant($variantCode);
 
                     // Load and sync all pages (including drafts)
                     $allPages = loadVariantPages($kirby, $variantCode, $variantConfig);
@@ -353,7 +353,7 @@ return function ($kirby) {
             [
                 'pattern' => 'simplify/project',
                 'action' => function () use ($kirby) {
-                    $config = \chrfickinger\Simplify\Config\ConfigHelper::getConfig();
+                    $config = \kirbydesk\Simplify\Config\ConfigHelper::getConfig();
 
                     return [
                         'component' => 'simplifyview',
@@ -373,7 +373,7 @@ return function ($kirby) {
             [
                 'pattern' => 'simplify/providers/(:any)',
                 'action' => function (string $providerId) use ($kirby) {
-                    $config = \chrfickinger\Simplify\Config\ConfigHelper::getConfig();
+                    $config = \kirbydesk\Simplify\Config\ConfigHelper::getConfig();
                     $providers = $config['providers'] ?? [];
 
                     // Find provider by ID
@@ -389,11 +389,11 @@ return function ($kirby) {
                     $provider = array_merge($providers[$providerId], ['id' => $providerId]);
 
                     // Enrich provider with metadata from central config
-                    $provider['displayName'] = \chrfickinger\Simplify\Helpers\ProviderHelper::getProviderName($providerId);
-                    $provider['icon'] = \chrfickinger\Simplify\Helpers\ProviderHelper::getProviderIcon($providerId);
+                    $provider['displayName'] = \kirbydesk\Simplify\Helpers\ProviderHelper::getProviderName($providerId);
+                    $provider['icon'] = \kirbydesk\Simplify\Helpers\ProviderHelper::getProviderIcon($providerId);
 
                     // Load models for this provider
-                    $allModels = \chrfickinger\Simplify\Config\ModelConfig::getAll();
+                    $allModels = \kirbydesk\Simplify\Config\ModelConfig::getAll();
                     $providerModels = array_filter($allModels, function($model) use ($providerId) {
                         return ($model['provider_type'] ?? '') === $providerId;
                     });
@@ -417,7 +417,7 @@ return function ($kirby) {
             [
                 'pattern' => 'simplify/providers/(:any)/(:any)',
                 'action' => function (string $providerId, string $tab) use ($kirby) {
-                    $config = \chrfickinger\Simplify\Config\ConfigHelper::getConfig();
+                    $config = \kirbydesk\Simplify\Config\ConfigHelper::getConfig();
                     $providers = $config['providers'] ?? [];
 
                     // Find provider by ID
@@ -433,11 +433,11 @@ return function ($kirby) {
                     $provider = array_merge($providers[$providerId], ['id' => $providerId]);
 
                     // Enrich provider with metadata from central config
-                    $provider['displayName'] = \chrfickinger\Simplify\Helpers\ProviderHelper::getProviderName($providerId);
-                    $provider['icon'] = \chrfickinger\Simplify\Helpers\ProviderHelper::getProviderIcon($providerId);
+                    $provider['displayName'] = \kirbydesk\Simplify\Helpers\ProviderHelper::getProviderName($providerId);
+                    $provider['icon'] = \kirbydesk\Simplify\Helpers\ProviderHelper::getProviderIcon($providerId);
 
                     // Load models for this provider
-                    $allModels = \chrfickinger\Simplify\Config\ModelConfig::getAll();
+                    $allModels = \kirbydesk\Simplify\Config\ModelConfig::getAll();
                     $providerModels = array_filter($allModels, function($model) use ($providerId) {
                         return ($model['provider_type'] ?? '') === $providerId;
                     });
@@ -466,7 +466,7 @@ return function ($kirby) {
                     $configId = $providerType . '/' . $modelPath;
 
                     // Load model config
-                    $modelConfig = \chrfickinger\Simplify\Config\ModelConfig::load($configId);
+                    $modelConfig = \kirbydesk\Simplify\Config\ModelConfig::load($configId);
 
                     if (!$modelConfig) {
                         return [
@@ -478,7 +478,7 @@ return function ($kirby) {
                     }
 
                     $modelName = $modelConfig['model'] ?? $modelPath;
-                    $providerName = \chrfickinger\Simplify\Helpers\ProviderHelper::getProviderName($providerType);
+                    $providerName = \kirbydesk\Simplify\Helpers\ProviderHelper::getProviderName($providerType);
 
                     return [
                         'component' => 'simplify-model-detail',

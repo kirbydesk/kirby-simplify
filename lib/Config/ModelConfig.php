@@ -1,6 +1,6 @@
 <?php
 
-namespace chrfickinger\Simplify\Config;
+namespace kirbydesk\Simplify\Config;
 
 use Kirby\Cms\App as Kirby;
 
@@ -22,7 +22,7 @@ class ModelConfig
      */
     private static function getConfigDir(): string
     {
-        return \chrfickinger\Simplify\Helpers\PathHelper::getConfigPath();
+        return \kirbydesk\Simplify\Helpers\PathHelper::getConfigPath();
     }
 
     /**

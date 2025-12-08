@@ -1,6 +1,6 @@
 <?php
 
-namespace chrfickinger\Simplify\Config;
+namespace kirbydesk\Simplify\Config;
 
 use Kirby\Cms\App as Kirby;
 
@@ -20,7 +20,7 @@ class ConfigInitializer
         $kirby = Kirby::instance();
 
         // Path to variant config file
-        $configPath = \chrfickinger\Simplify\Helpers\PathHelper::getConfigPath($languageCode . '.json');
+        $configPath = \kirbydesk\Simplify\Helpers\PathHelper::getConfigPath($languageCode . '.json');
 
         // Don't overwrite existing config
         if (file_exists($configPath)) {
@@ -28,7 +28,7 @@ class ConfigInitializer
         }
 
         // Ensure directory exists
-        \chrfickinger\Simplify\Helpers\PathHelper::ensureConfigDirectory(dirname($configPath));
+        \kirbydesk\Simplify\Helpers\PathHelper::ensureConfigDirectory(dirname($configPath));
 
         // Get variant data from language rules
         $variantData = self::getVariantDataFromRules($languageCode);
@@ -213,7 +213,7 @@ class ConfigInitializer
      */
     public static function configExists(string $languageCode): bool
     {
-        $configPath = \chrfickinger\Simplify\Helpers\PathHelper::getConfigPath($languageCode . '.json');
+        $configPath = \kirbydesk\Simplify\Helpers\PathHelper::getConfigPath($languageCode . '.json');
         return file_exists($configPath);
     }
 }

@@ -1,0 +1,15 @@
+{
+  "name": "kirby-simplify",
+  "version": "0.9.0",
+  "description": "Create accessible language variants for Kirby CMS using AI-powered content translations.",
+  "scripts": {
+    "watch": "vite",
+    "build": "kirbyup src/index.js"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.0",
+    "kirbyup": "^3.4.1",
+    "vite": "^5.0.0",
+    "vue": "^3.4.0"
+  }
+}

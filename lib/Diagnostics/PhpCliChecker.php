@@ -1,9 +1,9 @@
 <?php
 
-namespace chrfickinger\Simplify\Diagnostics;
+namespace kirbydesk\Simplify\Diagnostics;
 
 use Kirby\Cms\App as Kirby;
-use chrfickinger\Simplify\Queue\WorkerManager;
+use kirbydesk\Simplify\Queue\WorkerManager;
 
 /**
  * PHP CLI Checker

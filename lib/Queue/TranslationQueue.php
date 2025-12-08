@@ -1,6 +1,6 @@
 <?php
 
-namespace chrfickinger\Simplify\Queue;
+namespace kirbydesk\Simplify\Queue;
 
 use Kirby\Cms\App;
 use Kirby\Data\Json;
@@ -264,7 +264,7 @@ class TranslationQueue
                 $this->setJobStatus($job['id'], 'timeout', $errorMessage);
 
                 // Write to reports
-                $reportsLogger = new \chrfickinger\Simplify\Logging\ReportsLogger($job['variantCode']);
+                $reportsLogger = new \kirbydesk\Simplify\Logging\ReportsLogger($job['variantCode']);
                 $reportsLogger->logTranslation(
                     $job['pageId'],
                     $job['pageUuid'] ?? null,

@@ -7,10 +7,10 @@
  * Handles: simplify/reports/*
  */
 
-use chrfickinger\Simplify\Helpers\RouteHelper;
-use chrfickinger\Simplify\Logging\StatsLogger;
-use chrfickinger\Simplify\Logging\ReportsLogger;
-use chrfickinger\Simplify\Queue\TranslationQueue;
+use kirbydesk\Simplify\Helpers\RouteHelper;
+use kirbydesk\Simplify\Logging\StatsLogger;
+use kirbydesk\Simplify\Logging\ReportsLogger;
+use kirbydesk\Simplify\Queue\TranslationQueue;
 
 return [
     [

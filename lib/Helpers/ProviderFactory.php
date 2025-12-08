@@ -1,11 +1,11 @@
 <?php
 
-namespace chrfickinger\Simplify\Helpers;
+namespace kirbydesk\Simplify\Helpers;
 
-use chrfickinger\Simplify\Providers\Anthropic;
-use chrfickinger\Simplify\Providers\Gemini;
-use chrfickinger\Simplify\Providers\Mistral;
-use chrfickinger\Simplify\Providers\OpenAI;
+use kirbydesk\Simplify\Providers\Anthropic;
+use kirbydesk\Simplify\Providers\Gemini;
+use kirbydesk\Simplify\Providers\Mistral;
+use kirbydesk\Simplify\Providers\OpenAI;
 
 /**
  * Provider Factory Class
@@ -118,7 +118,7 @@ class ProviderFactory
     public static function createByModel(string $modelConfigId, array $globalConfig): ?object
     {
         // Load model config to get provider type
-        $modelConfig = \chrfickinger\Simplify\Config\ModelConfig::load($modelConfigId);
+        $modelConfig = \kirbydesk\Simplify\Config\ModelConfig::load($modelConfigId);
         if (!$modelConfig) {
             return null;
         }
@@ -148,7 +148,7 @@ class ProviderFactory
 
         // Get global config to find provider by model
         $kirby = \Kirby\Cms\App::instance();
-        $globalConfig = $kirby->option('chrfickinger.simplify', []);
+        $globalConfig = $kirby->option('kirbydesk.simplify', []);
 
         return self::createByModel($model, $globalConfig);
     }

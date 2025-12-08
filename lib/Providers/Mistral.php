@@ -1,6 +1,6 @@
 <?php
 
-namespace chrfickinger\Simplify\Providers;
+namespace kirbydesk\Simplify\Providers;
 
 /**
  * Mistral AI Provider

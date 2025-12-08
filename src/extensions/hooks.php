@@ -14,7 +14,7 @@ use Kirby\Cms\App as Kirby;
  */
 function getPageMode($page, $targetLang) {
     $kirby = Kirby::instance();
-    $customConfigPath = \chrfickinger\Simplify\Helpers\PathHelper::getConfigPath($targetLang . '.json');
+    $customConfigPath = \kirbydesk\Simplify\Helpers\PathHelper::getConfigPath($targetLang . '.json');
     $pageMode = 'auto'; // Default mode
 
     if (file_exists($customConfigPath)) {
@@ -54,7 +54,7 @@ return [
 
         // Only initialize for language variants (with -x- in code)
         if (strpos($code, '-x-') !== false) {
-            $initialized = \chrfickinger\Simplify\Config\ConfigInitializer::initializeVariantConfig($code);
+            $initialized = \kirbydesk\Simplify\Config\ConfigInitializer::initializeVariantConfig($code);
 
             if ($initialized && $logger) {
                 $logger->info("Initialized variant config for new language: {$code}");
@@ -129,7 +129,7 @@ return [
                 }
 
                 // Check if variant is enabled
-                $customConfigPath = \chrfickinger\Simplify\Helpers\PathHelper::getConfigPath($targetLang . '.json');
+                $customConfigPath = \kirbydesk\Simplify\Helpers\PathHelper::getConfigPath($targetLang . '.json');
                 $variantEnabled = true; // Default to enabled
                 if (file_exists($customConfigPath)) {
                     $jsonContent = file_get_contents($customConfigPath);
@@ -173,7 +173,7 @@ return [
                     }
 
                     // Mode is 'auto' - use background job system
-                    $queue = new \chrfickinger\Simplify\Queue\TranslationQueue();
+                    $queue = new \kirbydesk\Simplify\Queue\TranslationQueue();
 
                     // Check if job already running for this page+variant
                     $existingJob = $queue->getRunningJobForPage($page->id(), $targetLang);
@@ -185,7 +185,7 @@ return [
                     }
 
                     // Create snapshot
-                    $snapshot = \chrfickinger\Simplify\Processing\DiffDetector::createSnapshot($page);
+                    $snapshot = \kirbydesk\Simplify\Processing\DiffDetector::createSnapshot($page);
 
                     // Create job (automatic translation)
                     $job = $queue->addJob($page->id(), $targetLang, $snapshot, false);
@@ -204,7 +204,7 @@ return [
 
                     // Start worker using WorkerManager
                     $workerPath = __DIR__ . '/../../cli/worker.php';
-                    \chrfickinger\Simplify\Queue\WorkerManager::startWorker($job, $workerPath, $logger);
+                    \kirbydesk\Simplify\Queue\WorkerManager::startWorker($job, $workerPath, $logger);
 
                 } catch (\Exception $e) {
                     if ($logger) {
@@ -244,7 +244,7 @@ return [
                 }
 
                 // This is a language variant - set mode to manual
-                $customConfigPath = \chrfickinger\Simplify\Helpers\PathHelper::getConfigPath($currentLang . '.json');
+                $customConfigPath = \kirbydesk\Simplify\Helpers\PathHelper::getConfigPath($currentLang . '.json');
 
                 if ($logger) {
                     $logger->info("Config path: {$customConfigPath}, exists: " . (file_exists($customConfigPath) ? 'yes' : 'no'));
@@ -348,7 +348,7 @@ return [
                 }
 
                 // Check if variant is enabled
-                $customConfigPath = \chrfickinger\Simplify\Helpers\PathHelper::getConfigPath($targetLang . '.json');
+                $customConfigPath = \kirbydesk\Simplify\Helpers\PathHelper::getConfigPath($targetLang . '.json');
                 $variantEnabled = true; // Default to enabled
                 if (file_exists($customConfigPath)) {
                     $jsonContent = file_get_contents($customConfigPath);
@@ -392,7 +392,7 @@ return [
                     }
 
                     // Mode is 'auto' - use background job system
-                    $queue = new \chrfickinger\Simplify\Queue\TranslationQueue();
+                    $queue = new \kirbydesk\Simplify\Queue\TranslationQueue();
 
                     // Check if job already running
                     $existingJob = $queue->getRunningJobForPage($newPage->id(), $targetLang);
@@ -405,7 +405,7 @@ return [
                     }
 
                     // Create snapshot
-                    $snapshot = \chrfickinger\Simplify\Processing\DiffDetector::createSnapshot($newPage);
+                    $snapshot = \kirbydesk\Simplify\Processing\DiffDetector::createSnapshot($newPage);
 
                     // Create job (automatic translation)
                     $job = $queue->addJob($newPage->id(), $targetLang, $snapshot, false);
@@ -424,7 +424,7 @@ return [
 
                     // Start worker using WorkerManager
                     $workerPath = __DIR__ . '/../../cli/worker.php';
-                    \chrfickinger\Simplify\Queue\WorkerManager::startWorker($job, $workerPath, $logger);
+                    \kirbydesk\Simplify\Queue\WorkerManager::startWorker($job, $workerPath, $logger);
 
                 } catch (\Exception $e) {
                     if ($logger) {
@@ -448,7 +448,7 @@ return [
             // Only delete for language variants (with -x- in code)
             if (strpos($code, '-x-') !== false) {
                 // 1. Delete config file
-                $customConfigPath = \chrfickinger\Simplify\Helpers\PathHelper::getConfigPath($code . '.json');
+                $customConfigPath = \kirbydesk\Simplify\Helpers\PathHelper::getConfigPath($code . '.json');
                 if (file_exists($customConfigPath)) {
                     unlink($customConfigPath);
                     if ($logger) {
@@ -466,7 +466,7 @@ return [
                 }
 
                 // 3. Delete all queue jobs for this variant
-                $queue = new \chrfickinger\Simplify\Queue\TranslationQueue();
+                $queue = new \kirbydesk\Simplify\Queue\TranslationQueue();
                 $jobs = $queue->getJobsForVariant($code);
                 foreach ($jobs as $job) {
                     $queue->deleteJob($job['id']);
@@ -477,7 +477,7 @@ return [
 
                 // 4. Clear variant reports (not provider stats - those remain for accounting)
                 try {
-                    $reportsLogger = new \chrfickinger\Simplify\Logging\ReportsLogger();
+                    $reportsLogger = new \kirbydesk\Simplify\Logging\ReportsLogger();
                     $reportsLogger->clearReports($code);
                     if ($logger) {
                         $logger->info("Cleared variant reports for deleted variant: {$code}");
@@ -490,7 +490,7 @@ return [
 
                 // 5. Clear translation cache for this variant
                 try {
-                    $translationCache = new \chrfickinger\Simplify\Cache\TranslationCache();
+                    $translationCache = new \kirbydesk\Simplify\Cache\TranslationCache();
                     $translationCache->clearLanguage($code);
                     if ($logger) {
                         $logger->info("Cleared translation cache for deleted variant: {$code}");
@@ -523,7 +523,7 @@ return [
             }
 
             // Find all variant config files
-            $configDir = \chrfickinger\Simplify\Helpers\PathHelper::getConfigPath();
+            $configDir = \kirbydesk\Simplify\Helpers\PathHelper::getConfigPath();
             if (!is_dir($configDir)) {
                 return;
             }
@@ -533,7 +533,7 @@ return [
                 $variantCode = basename($configFile, '.json');
 
                 // Load config
-                $config = \chrfickinger\Simplify\Config\ConfigFileManager::loadVariantConfig($variantCode);
+                $config = \kirbydesk\Simplify\Config\ConfigFileManager::loadVariantConfig($variantCode);
                 if (!$config || !isset($config['pages']) || !is_array($config['pages'])) {
                     continue;
                 }
@@ -556,7 +556,7 @@ return [
 
                 // Save if something was removed
                 if (count($config['pages']) < $originalCount) {
-                    \chrfickinger\Simplify\Config\ConfigFileManager::saveVariantConfig($variantCode, $config, $logger);
+                    \kirbydesk\Simplify\Config\ConfigFileManager::saveVariantConfig($variantCode, $config, $logger);
                     if ($logger) {
                         $logger->info("Removed deleted page {$uuidString} from variant config: {$variantCode}");
                     }

@@ -1,6 +1,6 @@
 <?php
 
-namespace chrfickinger\Simplify\Helpers;
+namespace kirbydesk\Simplify\Helpers;
 
 /**
  * Privacy Helper

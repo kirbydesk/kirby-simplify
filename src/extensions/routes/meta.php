@@ -7,8 +7,8 @@
  * Handles: simplify/templates, simplify/field-types
  */
 
-use chrfickinger\Simplify\Helpers\RouteHelper;
-use chrfickinger\Simplify\Helpers\BlueprintScanner;
+use kirbydesk\Simplify\Helpers\RouteHelper;
+use kirbydesk\Simplify\Helpers\BlueprintScanner;
 
 return [
     [

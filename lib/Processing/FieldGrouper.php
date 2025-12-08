@@ -1,10 +1,10 @@
 <?php
 
-namespace chrfickinger\Simplify\Processing;
+namespace kirbydesk\Simplify\Processing;
 
 use Kirby\Cms\Page;
-use chrfickinger\Simplify\Processing\TranslationFilter;
-use chrfickinger\Simplify\Processing\ContentMasker;
+use kirbydesk\Simplify\Processing\TranslationFilter;
+use kirbydesk\Simplify\Processing\ContentMasker;
 
 class FieldGrouper
 {

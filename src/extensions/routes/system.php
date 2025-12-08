@@ -1,7 +1,7 @@
 <?php
 
-use chrfickinger\Simplify\Helpers\RouteHelper;
-use chrfickinger\Simplify\Diagnostics\PhpCliChecker;
+use kirbydesk\Simplify\Helpers\RouteHelper;
+use kirbydesk\Simplify\Diagnostics\PhpCliChecker;
 
 /**
  * System and diagnostics routes
