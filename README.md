@@ -1,7 +1,5 @@
 # Kirby Simplify
 
-> Create accessible language variants for Kirby CMS using AI-powered content translations.
-
 **Kirby Simplify** automatically generates simplified language versions of your content, making your website more accessible and inclusive. Perfect to help people with reading difficulties, non-native speakers, and improve overall user experience.
 
 ## Features
