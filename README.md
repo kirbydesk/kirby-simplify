@@ -34,7 +34,7 @@ Detailed setup instructions available at [kirbydesk.com](https://kirbydesk.com/s
 
 ## Contributing
 
-See [Contributing Guidelines](https://github.com/chrfickinger/kirby-simplify/blob/main/CONTRIBUTING.md) for details on how to contribute to this project.
+See [Contributing Guidelines](https://github.com/kirbydesk/kirby-simplify/blob/main/CONTRIBUTING.md) for details on how to contribute to this project.
 
 ## License
 
