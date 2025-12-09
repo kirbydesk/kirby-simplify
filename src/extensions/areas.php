@@ -111,7 +111,7 @@ function loadVariantPages($kirby, $variantCode, &$variantConfig) {
 return function ($kirby) {
     return [
         'label' => 'Simplify',
-        'icon' => 'kirby-simplify',
+        'icon' => 'simplify',
         'menu' => true,
         'link' => 'simplify/variants',
         'access' => function () use ($kirby) {
