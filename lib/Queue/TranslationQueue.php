@@ -45,6 +45,25 @@ class TranslationQueue
             throw new \Exception("Page not found: {$pageId}");
         }
 
+        // Get source language from variant config
+        $config = \kirbydesk\Simplify\Config\ConfigHelper::getConfig();
+        $sourceLanguage = $config['languages'][$variantCode]['source_language'] ?? null;
+
+        // Get page title in source language
+        $pageTitle = $pageId; // Fallback to page ID if no source language
+        if ($sourceLanguage) {
+            $currentLang = $kirby->language();
+            $kirby->setCurrentLanguage($sourceLanguage);
+            $pageTitle = $page->title()->value();
+            // Fallback to page ID if title is empty
+            if (empty($pageTitle)) {
+                $pageTitle = $pageId;
+            }
+            if ($currentLang) {
+                $kirby->setCurrentLanguage($currentLang->code());
+            }
+        }
+
         $timestamp = time();
         $uuid = bin2hex(random_bytes(8));
         $jobId = "job_{$timestamp}_{$uuid}";
@@ -52,7 +71,7 @@ class TranslationQueue
         $job = [
             'id' => $jobId,
             'pageId' => $pageId,
-            'pageTitle' => $page->title()->value(),
+            'pageTitle' => $pageTitle,
             'variantCode' => $variantCode,
             'status' => 'pending',
             'isManual' => $isManual, // Track if this is a manual or auto translation

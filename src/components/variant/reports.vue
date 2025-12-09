@@ -330,12 +330,24 @@ export default {
         const tokens = report.tokens || 0;
         const error = report.error || "";
 
-        // Find the actual page object by UUID first, fallback to title
+        // Find the actual page object by UUID first, then pageId, fallback to title
         let page = null;
+
         if (pageUuid) {
-          page = this.allPages?.find((p) => p.uuid === pageUuid);
+          // Normalize UUID - remove page:// prefix if present
+          const normalizedUuid = pageUuid.replace(/^page:\/\//, "");
+          page = this.allPages?.find((p) => {
+            const pageNormalizedUuid = p.uuid
+              ? p.uuid.replace(/^page:\/\//, "")
+              : null;
+            return pageNormalizedUuid === normalizedUuid;
+          });
         }
-        // Fallback to title if UUID not found or not available
+        // Try pageId if UUID search failed
+        if (!page && pageId) {
+          page = this.allPages?.find((p) => p.id === pageId);
+        }
+        // Fallback to title if still not found
         if (!page) {
           page = this.allPages?.find((p) => p.title === pageName);
         }
@@ -493,8 +505,18 @@ export default {
       pageId = null,
       languageCode = null
     ) {
-      // Find the page in allPages to get its status
-      const page = this.allPages?.find((p) => p.title === pageName);
+      // Find the page in allPages by pageId (more reliable than title)
+      // Fallback to title search if pageId not available
+      let page = null;
+      if (pageId) {
+        page = this.allPages?.find((p) => p.id === pageId);
+      }
+      if (!page) {
+        page = this.allPages?.find((p) => p.title === pageName);
+      }
+
+      // Use the correct title from allPages if page was found
+      const displayTitle = page?.title || pageName;
 
       // Default status for pages that don't exist (e.g. dummy entries)
       const status = page?.status || "draft";
@@ -519,11 +541,11 @@ export default {
         : "";
 
       // Build page link like in stats table
-      let pageDisplay = pageName;
+      let pageDisplay = displayTitle;
       if (pageId && languageCode) {
         const pageIdEncoded = pageId.replace(/\//g, "+");
         const url = `pages/${pageIdEncoded}?language=${languageCode}`;
-        pageDisplay = `<a href="${url}" style="color: var(--color-blue-600); text-decoration: underline;">${pageName}</a>`;
+        pageDisplay = `<a href="${url}" style="color: var(--color-blue-600); text-decoration: underline;">${displayTitle}</a>`;
       }
 
       return `<span style="display:flex;align-items:center;gap:var(--spacing-2);">

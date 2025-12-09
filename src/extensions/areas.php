@@ -82,14 +82,35 @@ function loadVariantPages($kirby, $variantCode, &$variantConfig) {
                 $translatedFileExists = file_exists($contentFile);
 
                 // Get source language for this variant
-                $sourceLanguage = $variantConfig['source_language'];
+                $sourceLanguage = $variantConfig['source_language'] ?? null;
 
                 // Get page title in source language by loading content file directly
-                $pageTitle = $page->content($sourceLanguage)->get('title')->value();
-
-                // Fallback: try default language title if source language title is empty
-                if (empty($pageTitle)) {
+                if ($sourceLanguage) {
+                    $pageTitle = $page->content($sourceLanguage)->get('title')->value();
+                } else {
+                    // No source language configured - fallback to current page title
                     $pageTitle = $page->title()->value();
+                }
+
+                // Fallback: use page ID if title is empty in source language
+                if (empty($pageTitle)) {
+                    $pageTitle = $page->id();
+                }
+
+                // Get page status in source language context
+                // Store current language and temporarily switch to source language
+                $pageStatus = 'draft'; // Default
+                if ($sourceLanguage) {
+                    $currentLang = $kirby->language();
+                    $kirby->setCurrentLanguage($sourceLanguage);
+                    $pageStatus = $page->status();
+                    // Restore original language
+                    if ($currentLang) {
+                        $kirby->setCurrentLanguage($currentLang->code());
+                    }
+                } else {
+                    // No source language - use current page status
+                    $pageStatus = $page->status();
                 }
 
                 $allPages[] = [
@@ -98,7 +119,7 @@ function loadVariantPages($kirby, $variantCode, &$variantConfig) {
                     'title' => $pageTitle,
                     'template' => $page->intendedTemplate()->name(),
                     'id' => $page->id(),
-                    'status' => $page->status(),
+                    'status' => $pageStatus,
                     'hasTranslation' => $translatedFileExists,
                 ];
             }
