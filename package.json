@@ -1,6 +1,6 @@
 {
   "name": "kirby-simplify",
-  "version": "0.9.1",
+  "version": "0.9.2",
   "description": "Create accessible language variants for Kirby CMS using AI-powered content translations.",
   "scripts": {
     "watch": "vite",
