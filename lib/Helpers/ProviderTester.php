@@ -330,17 +330,17 @@ class ProviderTester
                     $status['versionFull'] = $versionLine;
 
                     // Check if version is compatible (>= 8.1.0)
-                    if (version_compare($status['version'], '8.1.0', '>=')) {
+                    if (version_compare($status['version'], '8.0.0', '>=')) {
                         $status['compatible'] = true;
 
                         if ($logger) {
                             $logger->info("PHP CLI version: {$status['version']} (compatible)");
                         }
                     } else {
-                        $status['errors'][] = "PHP version {$status['version']} is too old. Minimum required: 8.1.0";
+                        $status['errors'][] = "PHP version {$status['version']} is too old. Minimum required: 8.0.0";
 
                         if ($logger) {
-                            $logger->warning("PHP CLI version {$status['version']} is incompatible. Minimum: 8.1.0");
+                            $logger->warning("PHP CLI version {$status['version']} is incompatible. Minimum: 8.0.0");
                         }
                     }
                 } else {

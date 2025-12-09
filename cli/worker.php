@@ -13,8 +13,8 @@
  */
 
 // Verify PHP version early
-if (version_compare(PHP_VERSION, '8.1.0', '<')) {
-    fwrite(STDERR, "Error: PHP 8.1.0 or higher is required. Current version: " . PHP_VERSION . "\n");
+if (version_compare(PHP_VERSION, '8.0.0', '<')) {
+    fwrite(STDERR, "Error: PHP 8.0.0 or higher is required. Current version: " . PHP_VERSION . "\n");
     exit(1);
 }
 
