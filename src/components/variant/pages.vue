@@ -124,7 +124,7 @@
             @click.native="onTableClick"
           >
             <template #header="{ columnIndex, label }">
-              <span>
+              <span class="simplify-table-header-sortable">
                 {{ label }}
                 <k-icon
                   v-if="columnIndex === sortBy"
@@ -436,7 +436,7 @@ export default {
         )}"><svg aria-hidden="true" data-type="pause" class="k-icon" style="width: 18px; height: 18px;"><use xlink:href="#icon-pause"></use></svg></span>`;
       }
 
-      return `<span class="variant-mode variant-mode--${mode}" data-page-uuid="${
+      return `<span class="simplify-variant-mode simplify-variant-mode--${mode}" data-page-uuid="${
         page.uuid
       }" style="cursor: pointer; display: inline-flex; align-items: center; justify-content: center;" title="${this.$t(
         "simplify.pages.changeModus"
@@ -473,7 +473,7 @@ export default {
     onTableClick(event) {
       // Check if clicked element is a mode badge or has data-page-uuid
       const modeBadge =
-        event.target.closest(".variant-mode") ||
+        event.target.closest(".simplify-variant-mode") ||
         event.target.closest("[data-page-uuid]");
       if (modeBadge) {
         const pageUuid = modeBadge.getAttribute("data-page-uuid");
@@ -631,7 +631,7 @@ export default {
   },
 };
 </script>
-<style>
+<style scoped>
 .simplify-pages-tab {
   display: flex;
   flex-direction: column;

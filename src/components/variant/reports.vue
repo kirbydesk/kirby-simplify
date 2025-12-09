@@ -94,7 +94,7 @@
           @header="onHeader"
         >
           <template #header="{ columnIndex, label }">
-            <span>
+            <span class="simplify-table-header-sortable">
               {{ label }}
               <k-icon
                 v-if="columnIndex === sortBy"
@@ -556,7 +556,9 @@ export default {
     formatMode(action) {
       // Get first letter (uppercase) from translated text, centered
       const modeClass =
-        action === "MANUAL" ? "variant-mode--manual" : "variant-mode--auto";
+        action === "MANUAL"
+          ? "simplify-variant-mode--manual"
+          : "simplify-variant-mode--auto";
       const translationKey =
         action === "MANUAL"
           ? "simplify.pages.mode.manual"
@@ -564,7 +566,7 @@ export default {
       const text = this.$t(translationKey) || action;
       const letter = text.charAt(0).toUpperCase();
 
-      return `<div style="display: flex; justify-content: center;"><span class="variant-mode ${modeClass}" title="${text}">${letter}</span></div>`;
+      return `<div style="display: flex; justify-content: center;"><span class="simplify-variant-mode ${modeClass}" title="${text}">${letter}</span></div>`;
     },
     formatStatus(status) {
       // Unified status formatting for both reports and jobs - only icon with text in title
@@ -1002,9 +1004,7 @@ export default {
 .k-field-header > .k-field-label {
   cursor: default;
 }
-</style>
 
-<style>
 .simplify-reports-tab {
   display: flex;
   flex-direction: column;

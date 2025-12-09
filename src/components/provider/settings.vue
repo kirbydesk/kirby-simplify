@@ -391,7 +391,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .k-provider-apikey-wrapper {
   display: flex;
   justify-content: space-between;

@@ -127,7 +127,7 @@
         :rows="paginatedCallsRows"
       >
         <template #header="{ columnIndex, label }">
-          <span class="k-table-header-sortable">
+          <span class="simplify-table-header-sortable">
             {{ label }}
             <k-icon
               v-if="columnIndex === sortBy"
@@ -664,24 +664,16 @@ export default {
 };
 </script>
 
-<style>
-.k-table-header-sortable {
-  display: inline-flex;
-  width: 100%;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.k-table-header-sortable .k-icon {
-  flex-shrink: 0;
-}
-
+<style scoped>
 .k-provider-stats .k-table .k-table-cell[data-align="right"] {
   font-weight: var(--font-normal);
   font-family: var(--code-font-family);
 }
 
-.k-provider-stats .k-table th[data-align="right"] .k-table-header-sortable {
+.k-provider-stats
+  .k-table
+  th[data-align="right"]
+  .simplify-table-header-sortable {
   justify-content: flex-end;
 }
 </style>

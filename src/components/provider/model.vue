@@ -405,7 +405,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .simplify-model .k-model-detail-view .k-header {
   align-items: flex-end;
 }

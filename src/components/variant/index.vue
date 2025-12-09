@@ -1,6 +1,6 @@
 <template>
   <k-panel-inside>
-    <k-view class="k-variant-detail-view">
+    <k-view class="simplify-variant-detail-view">
       <k-header :editable="true" @edit="openEditDialog">
         {{ variant.name }}
         <template #buttons>
@@ -1425,20 +1425,30 @@ export default {
 };
 </script>
 
-<style>
-.k-variant-detail-view .k-header {
+<style scoped>
+.simplify-variant-detail-view .k-header {
   align-items: flex-end;
 }
 
-.k-variant-detail-view .k-field-header > .k-field-label {
+.simplify-variant-detail-view .k-field-header > .k-field-label {
   cursor: default;
 }
 
-.k-variant-detail-view th.k-table-column > span {
+.simplify-variant-detail-view th.k-table-column > span {
   cursor: pointer;
   display: inline-flex;
   width: 100%;
   align-items: center;
   justify-content: space-between;
+}
+
+/* Field type category labels */
+:deep(.field-type-category) {
+  float: right;
+  font-size: 0.85em;
+  font-weight: var(--font-normal);
+  color: var(--color-text-dimmed);
+  font-style: italic;
+  margin-left: var(--spacing-2);
 }
 </style>
