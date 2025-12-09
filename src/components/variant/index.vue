@@ -662,7 +662,7 @@ export default {
         }
       } catch (error) {
         this.$panel.notification.error(
-          error.message || this.$t("simplify.languages.toggleError")
+          error.message || this.$t("simplify.variants.toggleError")
         );
       }
     },
@@ -713,12 +713,12 @@ export default {
             // If save failed, show error
             this.$panel.notification.error(
               response.message ||
-                this.$t("simplify.privacy.optout.templates.saveError")
+                this.$t("simplify.save.error")
             );
           }
         } catch (error) {
           this.$panel.notification.error(
-            this.$t("simplify.privacy.optout.templates.saveError")
+            this.$t("simplify.save.error")
           );
         }
       }, 500); // Wait 500ms after last change
@@ -1065,7 +1065,7 @@ export default {
         } else {
           if (!silent) {
             this.$panel.notification.error(
-              response.message || this.$t("simplify.variant.save.error")
+              response.message || this.$t("simplify.save.error")
             );
           }
         }

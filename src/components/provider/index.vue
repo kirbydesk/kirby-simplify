@@ -261,12 +261,12 @@ export default {
           this.$panel.notification.success();
         } else {
           this.$panel.notification.error(
-            response.message || this.$t("simplify.provider.saveError")
+            response.message || this.$t("simplify.save.error")
           );
         }
       } catch (error) {
         console.error("Failed to save provider settings:", error);
-        this.$panel.notification.error(this.$t("simplify.provider.saveError"));
+        this.$panel.notification.error(this.$t("simplify.save.error"));
       }
     },
     discardChanges() {

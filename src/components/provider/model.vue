@@ -281,30 +281,21 @@ export default {
     pricingFields() {
       return {
         input: {
-          label: this.$t("simplify.model.pricing.input"),
           type: "number",
           step: 0.01,
           min: 0,
           placeholder: "0.00",
-          width: "1/4",
-          help: this.$t("simplify.model.pricing.input.help"),
         },
         output: {
-          label: this.$t("simplify.model.pricing.output"),
           type: "number",
           step: 0.01,
           min: 0,
           placeholder: "0.00",
-          width: "1/4",
-          help: this.$t("simplify.model.pricing.output.help"),
         },
         per_tokens: {
-          label: this.$t("simplify.model.pricing.per_tokens"),
           type: "number",
           step: 100000,
           placeholder: "1000000",
-          width: "1/4",
-          help: this.$t("simplify.model.pricing.per_tokens.help"),
         },
       };
     },
@@ -389,12 +380,12 @@ export default {
           this.$panel.notification.success();
         } else {
           this.$panel.notification.error(
-            response.message || this.$t("simplify.model.saveError")
+            response.message || this.$t("simplify.save.error")
           );
         }
       } catch (error) {
         console.error("Failed to save model:", error);
-        const errorMsg = error?.message || this.$t("simplify.model.saveError");
+        const errorMsg = error?.message || this.$t("simplify.save.error");
         this.$panel.notification.error(errorMsg);
       }
     },

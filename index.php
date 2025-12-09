@@ -25,7 +25,7 @@ spl_autoload_register(function ($class) {
 
 // Load all translations dynamically
 $translations = [];
-$translationsPath = __DIR__ . "/i18n/translations";
+$translationsPath = __DIR__ . "/i18n";
 if (is_dir($translationsPath)) {
     foreach (glob($translationsPath . "/*.json") as $file) {
         $locale = basename($file, ".json");

@@ -330,7 +330,7 @@ return function ($kirby) {
                         'component' => 'simplify-variant-detail',
                         'title' => $language->name(),
                         'breadcrumb' => [
-                            ['label' => t('simplify.languages'), 'link' => 'simplify/variants'],
+                            ['label' => t('simplify.variants'), 'link' => 'simplify/variants'],
                             ['label' => $language->name(), 'link' => 'simplify/variants/' . $variantCode]
                         ],
                         'props' => [

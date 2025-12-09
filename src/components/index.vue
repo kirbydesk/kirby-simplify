@@ -11,7 +11,7 @@
               size="sm"
               @click="openAddVariantDialog"
             >
-              {{ $t("simplify.languages.addVariant") }}
+              {{ $t("simplify.variants.addVariant") }}
             </k-button>
           </k-button-group>
           <k-button-group
@@ -195,7 +195,7 @@ export default {
       const tabs = [
         {
           name: "variants",
-          label: this.$t("simplify.languages"),
+          label: this.$t("simplify.variants"),
           icon: "translate",
           link: "simplify/variants",
           badge: 0,
@@ -334,7 +334,7 @@ export default {
           this.$panel.notification.success();
         } else {
           this.$panel.notification.error(
-            response.message || this.$t("simplify.project.save.error")
+            response.message || this.$t("simplify.save.error")
           );
         }
       } catch (error) {
@@ -439,7 +439,7 @@ export default {
             } catch (error) {
               this.$panel.notification.error(
                 error.message ||
-                  this.$t("simplify.languages.notification.updateError")
+                  this.$t("simplify.variants.notification.updateError")
               );
             }
           },
@@ -461,7 +461,7 @@ export default {
 
       if (availableSourceLanguages.length === 0) {
         this.$panel.notification.error(
-          this.$t("simplify.languages.notification.allVariants")
+          this.$t("simplify.variants.notification.allVariants")
         );
         return;
       }
@@ -496,7 +496,7 @@ export default {
       if (allVariants.length > 1) {
         // Multiple variants: show dropdown with disabled items for existing ones
         fields.variant = {
-          label: this.$t("simplify.languages.dialog.variant"),
+          label: this.$t("simplify.variants.dialog.variant"),
           type: "select",
           required: true,
           options: allVariants.map((variant) => {
@@ -520,7 +520,7 @@ export default {
 
         // Show variant info as read-only info field
         fields.variantInfo = {
-          label: this.$t("simplify.languages.dialog.variant"),
+          label: this.$t("simplify.variants.dialog.variant"),
           type: "info",
           text: `${onlyVariant.variant_name} (${onlyVariant.standard})`,
           help: onlyVariant.description,
@@ -532,7 +532,7 @@ export default {
         type: "text",
         required: true,
         icon: "title",
-        help: this.$t("simplify.languages.dialog.nameHelp"),
+        help: this.$t("simplify.variants.dialog.nameHelp"),
       };
 
       fields.code = {
@@ -540,7 +540,7 @@ export default {
         type: "text",
         required: true,
         icon: "translate",
-        help: this.$t("simplify.languages.dialog.codeHelp"),
+        help: this.$t("simplify.variants.dialog.codeHelp"),
       };
 
       return { fields, values };
@@ -582,7 +582,7 @@ export default {
         values._previousName = values.name; // Track initial name
       } else {
         values.name = `${sourceLang.name} - ${this.$t(
-          "simplify.languages.dialog.defaultNameSuffix"
+          "simplify.variants.dialog.defaultNameSuffix"
         )}`;
         values.code = `${sourceCode}-x-ls`;
         values._previousCode = `${sourceCode}-x-ls`; // Track initial code
@@ -593,7 +593,7 @@ export default {
         component: "k-form-dialog",
         props: {
           fields,
-          submitButton: this.$t("simplify.languages.dialog.submit"),
+          submitButton: this.$t("simplify.variants.dialog.submit"),
           value: values,
         },
         on: {
@@ -682,7 +682,7 @@ export default {
         } else {
           this.$panel.notification.error(
             response.message ||
-              this.$t("simplify.languages.notification.createError")
+              this.$t("simplify.variants.notification.createError")
           );
         }
       } catch (error) {
@@ -694,12 +694,12 @@ export default {
     showSourceSelectionDialog(sourceOptions, onSubmit) {
       const fields = {
         source: {
-          label: this.$t("simplify.languages.dialog.sourceLabel"),
+          label: this.$t("simplify.variants.dialog.sourceLabel"),
           type: "select",
           required: true,
           empty: false,
           options: sourceOptions,
-          help: this.$t("simplify.languages.dialog.sourceHelp"),
+          help: this.$t("simplify.variants.dialog.sourceHelp"),
         },
       };
 
@@ -707,7 +707,7 @@ export default {
         component: "k-form-dialog",
         props: {
           fields,
-          submitButton: this.$t("simplify.languages.dialog.next"),
+          submitButton: this.$t("simplify.variants.dialog.next"),
           value: { source: "" },
         },
         on: {
@@ -780,7 +780,7 @@ export default {
                 required: true,
               },
             },
-            submitButton: this.$t("simplify.languages.dialog.next"),
+            submitButton: this.$t("simplify.variants.dialog.next"),
           },
           on: {
             submit: (values) => {
@@ -938,7 +938,7 @@ export default {
       this.$dialog({
         component: "k-remove-dialog",
         props: {
-          text: this.$t("simplify.languages.delete.confirm", {
+          text: this.$t("simplify.variants.delete.confirm", {
             name: variant.name,
             code: variant.code,
           }),
@@ -956,7 +956,7 @@ export default {
                 window.location.reload();
               } else {
                 this.$panel.notification.error(
-                  this.$t("simplify.languages.notification.deleteError")
+                  this.$t("simplify.variants.notification.deleteError")
                 );
               }
             } catch (error) {

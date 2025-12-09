@@ -3,7 +3,7 @@
     <header v-if="hasVariants" class="k-field-header">
       <label class="k-label k-field-label">
         <span class="k-label-text">
-          {{ $t("simplify.languages.headline") }}
+          {{ $t("simplify.variants.headline") }}
         </span>
       </label>
     </header>
@@ -40,7 +40,7 @@
             <h3
               :title="
                 variant.enabled === false
-                  ? variant.name + ' (' + $t('simplify.languages.paused') + ')'
+                  ? variant.name + ' (' + $t('simplify.variants.paused') + ')'
                   : variant.name
               "
               class="k-item-title"
@@ -58,7 +58,7 @@
               >
                 <span
                   v-if="variant.enabled === false"
-                  :title="$t('simplify.languages.paused')"
+                  :title="$t('simplify.variants.paused')"
                   style="
                     display: inline-flex;
                     align-items: center;
@@ -124,7 +124,7 @@
       </div>
 
       <k-empty v-else icon="translate" layout="cards">
-        {{ $t("simplify.languages.empty") }}
+        {{ $t("simplify.variants.empty") }}
       </k-empty>
     </div>
   </section>

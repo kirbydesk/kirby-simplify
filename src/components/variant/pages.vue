@@ -363,8 +363,8 @@ export default {
         {
           icon: "pause",
           text: this.isEnabled
-            ? this.$t("simplify.languages.pause")
-            : this.$t("simplify.languages.resume"),
+            ? this.$t("simplify.variants.pause")
+            : this.$t("simplify.variants.resume"),
           click() {
             self.$emit("toggle-enabled");
           },
@@ -496,9 +496,7 @@ export default {
         component: "k-remove-dialog",
         props: {
           text: this.$t("simplify.pages.translateMissing.confirm", { count }),
-          submitButton: this.$t("simplify.pages.translateMissing.submit", {
-            count,
-          }),
+          submitButton: this.$t("simplify.pages.translate.submit"),
           cancelButton: this.$t("cancel"),
           icon: "sparkling",
           theme: "positive",
@@ -515,7 +513,7 @@ export default {
 
               if (response.success) {
                 this.$panel.notification.success(
-                  this.$t("simplify.pages.translateMissingStarted", {
+                  this.$t("simplify.pages.translate.started", {
                     count: response.count,
                   })
                 );
@@ -544,9 +542,7 @@ export default {
           text: this.$t("simplify.pages.translateAll.confirm", {
             count: totalPages,
           }),
-          submitButton: this.$t("simplify.pages.translateAll.submit", {
-            count: totalPages,
-          }),
+          submitButton: this.$t("simplify.pages.translate.submit"),
           cancelButton: this.$t("cancel"),
           icon: "sparkling",
           theme: "positive",
@@ -563,7 +559,7 @@ export default {
 
               if (response.success) {
                 this.$panel.notification.success(
-                  this.$t("simplify.pages.translateAllStarted", {
+                  this.$t("simplify.pages.translate.started", {
                     count: response.count || totalPages,
                   })
                 );
