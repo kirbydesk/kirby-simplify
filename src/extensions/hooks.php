@@ -184,8 +184,8 @@ return [
                         continue;
                     }
 
-                    // Create snapshot
-                    $snapshot = \kirbydesk\Simplify\Processing\DiffDetector::createSnapshot($page);
+                    // Create snapshot from source language (which is current language in this hook context)
+                    $snapshot = \kirbydesk\Simplify\Processing\DiffDetector::createSnapshot($page, $sourceLang);
 
                     // Create job (automatic translation)
                     $job = $queue->addJob($page->id(), $targetLang, $snapshot, false);
@@ -404,8 +404,8 @@ return [
                         continue;
                     }
 
-                    // Create snapshot
-                    $snapshot = \kirbydesk\Simplify\Processing\DiffDetector::createSnapshot($newPage);
+                    // Create snapshot from source language (which is current language in this hook context)
+                    $snapshot = \kirbydesk\Simplify\Processing\DiffDetector::createSnapshot($newPage, $sourceLang);
 
                     // Create job (automatic translation)
                     $job = $queue->addJob($newPage->id(), $targetLang, $snapshot, false);

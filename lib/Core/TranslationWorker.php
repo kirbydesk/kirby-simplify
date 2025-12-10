@@ -91,13 +91,16 @@ class TranslationWorker
                 throw new Exception("No configuration found for variant: {$job['variantCode']}");
             }
 
+            // Get source language from variant config
+            $sourceLanguage = $variantConfig['source_language'];
+
             // Check if variant content file exists
             $languageCode = $variantConfig['language_code'];
             $contentFile = $page->contentFile($languageCode);
             $variantExists = file_exists($contentFile);
 
-            // Read source content for diff detection (always from default language)
-            $sourceContent = $page->content()->toArray();
+            // Read source content for diff detection (always from source language)
+            $sourceContent = $page->content($sourceLanguage)->toArray();
 
             // Read target content for merging (from variant if exists, otherwise from source)
             // This preserves existing translations when updating
@@ -507,8 +510,11 @@ class TranslationWorker
             ];
         }
 
-        // Get source content
-        $sourceContent = $page->content()->get($fieldName)->value();
+        // Get source language from variant config
+        $sourceLanguage = $variantConfig['source_language'];
+
+        // Get source content from source language (not current/default language)
+        $sourceContent = $page->content($sourceLanguage)->get($fieldName)->value();
         if (empty(trim($sourceContent))) {
             return [
                 'success' => true,

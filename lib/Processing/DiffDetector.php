@@ -15,12 +15,19 @@ class DiffDetector
      * Create a snapshot of the current page content
      *
      * @param Page $page Source page
+     * @param string|null $languageCode Language code to use for snapshot (null = current language)
      * @return array Snapshot of all translatable fields
      */
-    public static function createSnapshot(Page $page): array
+    public static function createSnapshot(Page $page, ?string $languageCode = null): array
     {
         $snapshot = [];
-        $content = $page->content()->toArray();
+
+        // If language code is specified, use it; otherwise use current language
+        if ($languageCode !== null) {
+            $content = $page->content($languageCode)->toArray();
+        } else {
+            $content = $page->content()->toArray();
+        }
 
         foreach ($content as $key => $value) {
             // Store all field values

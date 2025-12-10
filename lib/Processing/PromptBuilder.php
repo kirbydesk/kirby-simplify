@@ -36,7 +36,7 @@ class PromptBuilder
         // Add project-wide instructions if available
         $projectPrompt = $variantConfig['project_prompt'] ?? '';
         if (!empty($projectPrompt)) {
-            $systemPrompt .= "\n\n**Projekt-Anweisungen:**\n" . $projectPrompt;
+            $systemPrompt .= "\n\n" . $projectPrompt;
         }
 
         // Add field instruction and category prompt

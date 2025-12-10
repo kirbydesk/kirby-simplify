@@ -159,8 +159,11 @@ return [
                     }
                 }
 
-                // Create snapshot and job
-                $snapshot = DiffDetector::createSnapshot($page);
+                // Get source language from variant config
+                $sourceLanguage = $variantConfig['source_language'];
+
+                // Create snapshot from source language content
+                $snapshot = DiffDetector::createSnapshot($page, $sourceLanguage);
                 $job = $queue->addJob($pageId, $variantCode, $snapshot);
 
                 // Check if a worker is already running
@@ -207,6 +210,7 @@ return [
                 $variantConfig = ConfigFileManager::loadVariantConfig($variantCode);
                 $pages = $variantConfig['pages'] ?? [];
                 $optOutTemplates = $variantConfig['opt_out_templates'] ?? [];
+                $sourceLanguage = $variantConfig['source_language'];
 
                 // Add each page without translation to queue
                 $queue = new TranslationQueue();
@@ -240,8 +244,8 @@ return [
                     $runningJob = $queue->getRunningJobForPage($pageId, $variantCode);
                     if ($runningJob) continue;
 
-                    // Create snapshot and add job
-                    $snapshot = DiffDetector::createSnapshot($page);
+                    // Create snapshot from source language content
+                    $snapshot = DiffDetector::createSnapshot($page, $sourceLanguage);
                     $isManual = ($pageData['mode'] ?? 'auto') === 'manual';
                     $queue->addJob($pageId, $variantCode, $snapshot, $isManual);
                     $count++;
@@ -287,6 +291,7 @@ return [
                 $kirby = $context['kirby'];
                 $variantConfig = ConfigFileManager::loadVariantConfig($variantCode);
                 $pages = $variantConfig['pages'] ?? [];
+                $sourceLanguage = $variantConfig['source_language'];
 
                 if (empty($pages)) {
                     return RouteHelper::successResponse('No pages found', ['count' => 0]);
@@ -322,8 +327,8 @@ return [
                     $cache = new \kirbydesk\Simplify\Cache\TranslationCache();
                     $cache->clearPage($pageUuid, $variantCode);
 
-                    // Create snapshot and add job
-                    $snapshot = DiffDetector::createSnapshot($page);
+                    // Create snapshot from source language content
+                    $snapshot = DiffDetector::createSnapshot($page, $sourceLanguage);
                     $isManual = ($pageData['mode'] ?? 'auto') === 'manual';
                     $queue->addJob($pageId, $variantCode, $snapshot, $isManual);
                     $count++;
