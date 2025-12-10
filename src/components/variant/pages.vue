@@ -636,15 +636,6 @@ export default {
   .k-table-column[data-column-id="mode"] {
     cursor: pointer;
   }
-  /* Truncate template names with ellipsis */
-  .simplifyTemplate {
-    display: inline-block;
-    max-width: 100%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    vertical-align: middle;
-  }
   /* Remove link behavior from checkboxes field label */
   .k-checkboxes-field > .k-field-header > .k-field-label {
     pointer-events: none;

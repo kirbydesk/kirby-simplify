@@ -53,6 +53,28 @@
   }
 }
 
+/* Template labels in pages table */
+.simplifyTemplate {
+  display: inline-flex;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-inline: var(--spacing-1);
+  font-size: 0.8em;
+  font-weight: var(--font-normal);
+  font-family: var(--code-font-family);
+  background: var(--code-inline-color-back);
+  border-radius: var(--rounded);
+  outline: 1px solid
+    light-dark(var(--color-purple-400), var(--color-purple-900));
+  outline-offset: -1px;
+  line-height: var(--text-line-height) !important;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: light-dark(var(--color-purple-800), var(--color-purple-900));
+  background: var(--color-purple-300);
+}
+
 /* Styling for simplify field type category labels */
 .simplify-variant-detail-view {
   .k-field-name-opt_out_fieldtypes fieldset span.k-choice-input-label {
