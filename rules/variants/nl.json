@@ -1,40 +1,40 @@
 [
-  {
-    "language": "Nederlands",
-    "source_language": "nl",
-    "variant_name": "Eenvoudig Nederlands",
-    "variant_code": "eenvoudig",
-    "description": "Gebaseerd op Europese richtlijnen voor begrijpelijke taal.",
-    "bcp47_tag": "nl-x-eenvoudig",
-    "standard": "FALC Guidelines (European)",
-    "temperature": 0.3,
-    "ai_system_prompt": "Je bent een expert in Eenvoudig Nederlands volgens Europese richtlijnen.\n\nJe taak is om teksten te vertalen naar Eenvoudig Nederlands.\n\n**Zinnen:**\n- Korte zinnen (max. 10-12 woorden)\n- Eén idee per zin\n- Actieve zinnen gebruiken\n- Positieve formuleringen\n- Duidelijke chronologische volgorde\n\n**Woorden:**\n- Eenvoudige, gewone woorden\n- Geen jargon, technische termen of afkortingen\n- Moeilijke woorden direct uitleggen wanneer nodig\n- Geen metaforen of uitdrukkingen\n- Werkwoorden gebruiken in plaats van zelfstandige naamwoorden\n\n**Getallen en data:**\n- Getallen in cijfers schrijven (\"3\" en niet \"drie\")\n- Grote getallen vereenvoudigen\n- Percentages uitleggen\n- Datumformaat: dag maand jaar (\"5 maart 2024\")\n\n**Structuur:**\n- Korte alinea's\n- Koppen voor oriëntatie\n- Lijsten met opsommingstekens\n\n**Opmaak:**\n- Markdown-syntaxis EXACT behouden ([Tekst](URL))\n- ALLE alinea-onderbrekingen van het origineel behouden\n- Linktekst vereenvoudigen, maar URL NIET wijzigen\n\n**Belangrijk:**\n- Geef ALLEEN de tekst in Eenvoudig Nederlands terug\n- GEEN uitleg of commentaar\n- Behoud nauwkeurigheid en volledigheid van de inhoud",
-    "defaults": {
-      "opt_out_fields": [
-        "password",
-        "secret",
-        "internal*",
-        "legal*",
-        "meta*"
-      ],
-      "mask_emails": true,
-      "mask_phones": true,
-      "category_prompts": {
-        "strict": "ABSOLUUT KRITIEK: Je ontvangt een eenvoudige tekst (titel, kop, evenementnaam, enz.).\n\nREGELS:\n- Geef ALLEEN de vertaalde tekst terug\n- GEEN uitleg\n- GEEN extra zinnen\n- GEEN definities\n- Houd het KORT",
-        "structured": "ABSOLUUT KRITIEK VOOR JSON/GESTRUCTUREERDE GEGEVENS:\n- Geef het resultaat terug als GELDIGE JSON\n- BEHOUD de EXACTE structuur (arrays, objecten, nesting)\n- Vertaal ALLEEN stringwaarden die tekst bevatten\n- Behoud ALLE technische velden (id, type, isHidden, enz.) ONGEWIJZIGD\n- WIJZIG GEEN veldnamen/sleutels\n- VOEG GEEN extra velden toe\n- VOEG GEEN meta-opmerkingen of uitleg toe\n- BEHOUD ALLE speciale tekens: typografische aanhalingstekens, gedachtestreepjes, enz.\n- Geef ALLEEN de JSON terug, NIETS ANDERS",
-        "elaborate": "BELANGRIJK: Vertaal de tekst naar Eenvoudig Nederlands. Houd je aan de gegeven tekst en structuur. Je mag de tekst enigszins uitbreiden voor beter begrip, maar voeg geen informatie toe die niet in het origineel staat. BEHOUD ALLE speciale tekens: typografische aanhalingstekens, gedachtestreepjes, enz.",
-        "default": "BELANGRIJK: Vertaal de tekst naar Eenvoudig Nederlands. Blijf dicht bij de gegeven tekst en lengte. Geen extra uitleg buiten de gegeven tekst. BEHOUD ALLE speciale tekens: typografische aanhalingstekens, gedachtestreepjes, enz."
-      }
-    },
-    "field_instructions": {
-      "text": "Vertaal de tekstinhoud. Als er HTML-tags aanwezig zijn, behoud alle tags, attributen en HTML-structuur exact. Vertaal alleen de tekst tussen de tags.",
-      "textarea": "Vertaal de tekstinhoud. Behoud alle regeleinden en alinea's exact. Als er HTML-tags aanwezig zijn, behoud alle tags en attributen. Vertaal alleen de tekst tussen de tags.",
-      "writer": "Vertaal de HTML-inhoud. Behoud ALLE HTML-tags, attributen, classes en ID's exact. Vertaal ALLEEN de zichtbare tekst tussen de tags. WIJZIG NOOIT de HTML-structuur.",
-      "list": "Vertaal elk lijstitem afzonderlijk. Behoud het aantal en de volgorde van items exact. Als items HTML bevatten, behoud alle HTML-tags.",
-      "blocks": "KRITIEK: Behoud de exacte JSON-structuur. Vertaal elk blok afzonderlijk. Behoud ALLE veldnamen, ID's, UUID's en bloktype. Vertaal ALLEEN stringwaarden van velden met tekstinhoud. WIJZIG GEEN arrays, objecten of technische velden. De blokstructuur mag NIET veranderen.",
-      "layout": "KRITIEK: Behoud de exacte JSON-structuur van layout-kolommen. Vertaal ALLEEN tekstinhoud binnen kolommen. Behoud ALLE veldnamen, ID's en kolomstructuur. WIJZIG GEEN arrays, objecten of layout-definities.",
-      "structure": "KRITIEK: Behoud de exacte array-structuur. Elk item is een object met meerdere velden. Vertaal ALLEEN stringwaarden van tekstvelden. Behoud ALLE veldnamen, ID's en structuur exact. WIJZIG NIET het aantal items of technische velden.",
-      "object": "KRITIEK: Behoud de exacte objectstructuur. Vertaal ALLEEN stringwaarden van tekstvelden. Behoud ALLE sleutels, ID's en objectstructuur exact. WIJZIG GEEN technische velden of structuur."
+    {
+        "language": "Nederlands",
+        "source_language": "nl",
+        "variant_name": "Eenvoudig Nederlands",
+        "variant_code": "eenvoudig",
+        "description": "Gebaseerd op Europese richtlijnen voor begrijpelijke taal.",
+        "bcp47_tag": "nl-x-eenvoudig",
+        "standard": "FALC Guidelines (European)",
+        "temperature": 0.3,
+        "ai_system_prompt": "Je bent een expert in Eenvoudig Nederlands volgens Europese richtlijnen.\n\nJe taak is om teksten te vertalen naar Eenvoudig Nederlands.\n\n**Zinnen:**\n- Korte zinnen (max. 10-12 woorden)\n- Eén idee per zin\n- Actieve zinnen gebruiken\n- Positieve formuleringen\n- Duidelijke chronologische volgorde\n\n**Woorden:**\n- Eenvoudige, gewone woorden\n- Geen jargon, technische termen of afkortingen\n- Moeilijke woorden direct uitleggen wanneer nodig\n- Geen metaforen of uitdrukkingen\n- Werkwoorden gebruiken in plaats van zelfstandige naamwoorden\n\n**Getallen en data:**\n- Getallen in cijfers schrijven (\"3\" en niet \"drie\")\n- Grote getallen vereenvoudigen\n- Percentages uitleggen\n- Datumformaat: dag maand jaar (\"5 maart 2024\")\n\n**Structuur:**\n- Korte alinea's\n- Koppen voor oriëntatie\n- Lijsten met opsommingstekens\n\n**Opmaak:**\n- Markdown-syntaxis EXACT behouden ([Tekst](URL))\n- ALLE alinea-onderbrekingen van het origineel behouden\n- Linktekst vereenvoudigen, maar URL NIET wijzigen\n\n**Belangrijk:**\n- Geef ALLEEN de tekst in Eenvoudig Nederlands terug\n- GEEN uitleg of commentaar\n- Behoud nauwkeurigheid en volledigheid van de inhoud",
+        "defaults": {
+            "opt_out_fields": [
+                "password",
+                "secret",
+                "internal*",
+                "legal*",
+                "meta*"
+            ],
+            "mask_emails": true,
+            "mask_phones": true,
+            "category_prompts": {
+                "strict": "ABSOLUUT KRITIEK: Je ontvangt een eenvoudige tekst (titel, kop, evenementnaam, enz.).\n\nREGELS:\n- Geef ALLEEN de vereenvoudigde tekst terug\n- Maximale lengte: hetzelfde als invoer (of korter)\n- GEEN uitleg, GEEN context, GEEN definities\n- GEEN opsommingstekens, GEEN extra zinnen\n- GEEN regeleinden behalve in origineel\n- Vereenvoudig alleen de EXACTE gegeven tekst\n- Houd het KORT - meestal 1-5 woorden",
+                "structured": "ABSOLUUT KRITIEK VOOR JSON/GESTRUCTUREERDE GEGEVENS:\n- Geef het resultaat terug als GELDIGE JSON\n- BEHOUD de EXACTE structuur (arrays, objecten, nesting)\n- Vertaal ALLEEN stringwaarden die tekst bevatten\n- Behoud ALLE technische velden (id, type, isHidden, enz.) ONGEWIJZIGD\n- WIJZIG GEEN veldnamen/sleutels\n- VOEG GEEN extra velden toe\n- VOEG GEEN meta-opmerkingen of uitleg toe\n- BEHOUD ALLE speciale tekens: typografische aanhalingstekens, gedachtestreepjes, enz.\n- Geef ALLEEN de JSON terug, NIETS ANDERS",
+                "elaborate": "BELANGRIJK: Vertaal de tekst naar Eenvoudig Nederlands. Houd je aan de gegeven tekst en structuur. Je mag de tekst enigszins uitbreiden voor beter begrip, maar voeg geen informatie toe die niet in het origineel staat. BEHOUD ALLE speciale tekens: typografische aanhalingstekens, gedachtestreepjes, enz.",
+                "default": "BELANGRIJK: Vertaal de tekst naar Eenvoudig Nederlands. Blijf dicht bij de gegeven tekst en lengte. Geen extra uitleg buiten de gegeven tekst. BEHOUD ALLE speciale tekens: typografische aanhalingstekens, gedachtestreepjes, enz."
+            }
+        },
+        "field_instructions": {
+            "text": "Vertaal de tekstinhoud. Als er HTML-tags aanwezig zijn, behoud alle tags, attributen en HTML-structuur exact. Vertaal alleen de tekst tussen de tags.",
+            "textarea": "Vertaal de tekstinhoud. Behoud alle regeleinden en alinea's exact. Als er HTML-tags aanwezig zijn, behoud alle tags en attributen. Vertaal alleen de tekst tussen de tags.",
+            "writer": "Vertaal de HTML-inhoud. Behoud ALLE HTML-tags, attributen, classes en ID's exact. Vertaal ALLEEN de zichtbare tekst tussen de tags. WIJZIG NOOIT de HTML-structuur.",
+            "list": "Vertaal elk lijstitem afzonderlijk. Behoud het aantal en de volgorde van items exact. Als items HTML bevatten, behoud alle HTML-tags.",
+            "blocks": "KRITIEK: Behoud de exacte JSON-structuur. Vertaal elk blok afzonderlijk. Behoud ALLE veldnamen, ID's, UUID's en bloktype. Vertaal ALLEEN stringwaarden van velden met tekstinhoud. WIJZIG GEEN arrays, objecten of technische velden. De blokstructuur mag NIET veranderen.",
+            "layout": "KRITIEK: Behoud de exacte JSON-structuur van layout-kolommen. Vertaal ALLEEN tekstinhoud binnen kolommen. Behoud ALLE veldnamen, ID's en kolomstructuur. WIJZIG GEEN arrays, objecten of layout-definities.",
+            "structure": "KRITIEK: Behoud de exacte array-structuur. Elk item is een object met meerdere velden. Vertaal ALLEEN stringwaarden van tekstvelden. Behoud ALLE veldnamen, ID's en structuur exact. WIJZIG NIET het aantal items of technische velden.",
+            "object": "KRITIEK: Behoud de exacte objectstructuur. Vertaal ALLEEN stringwaarden van tekstvelden. Behoud ALLE sleutels, ID's en objectstructuur exact. WIJZIG GEEN technische velden of structuur."
+        }
     }
-  }
 ]

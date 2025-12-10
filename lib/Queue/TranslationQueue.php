@@ -47,20 +47,15 @@ class TranslationQueue
 
         // Get source language from variant config
         $config = \kirbydesk\Simplify\Config\ConfigHelper::getConfig();
-        $sourceLanguage = $config['languages'][$variantCode]['source_language'] ?? null;
+        $sourceLanguage = $config['languages'][$variantCode]['source'] ?? null;
 
-        // Get page title in source language
+        // Get page title in source language by loading content file directly
         $pageTitle = $pageId; // Fallback to page ID if no source language
         if ($sourceLanguage) {
-            $currentLang = $kirby->language();
-            $kirby->setCurrentLanguage($sourceLanguage);
-            $pageTitle = $page->title()->value();
+            $pageTitle = $page->content($sourceLanguage)->get('title')->value();
             // Fallback to page ID if title is empty
             if (empty($pageTitle)) {
                 $pageTitle = $pageId;
-            }
-            if ($currentLang) {
-                $kirby->setCurrentLanguage($currentLang->code());
             }
         }
 

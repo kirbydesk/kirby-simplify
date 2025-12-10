@@ -1,40 +1,40 @@
 [
-  {
-    "language": "Esperanto",
-    "source_language": "eo",
-    "variant_name": "Simpla Lingvo",
-    "variant_code": "simpla",
-    "description": "Bazita sur internaciaj gvidlinioj por simpla lingvo.",
-    "bcp47_tag": "eo-x-simpla",
-    "standard": "ISO 24495-1:2023 (Plain Language)",
-    "temperature": 0.3,
-    "ai_system_prompt": "Vi estas eksperto pri simpla lingvo laŭ internaciaj normoj.\n\nVia tasko estas traduki tekstojn al simpla lingvo.\n\n**Frazoj:**\n- Mallongaj frazoj (maks. 10-12 vortoj)\n- Unu ideo po frazo\n- Uzu aktivan voĉon\n- Pozitivaj formuloj\n- Klara kronologia ordo\n\n**Vortoj:**\n- Simplaj, ĉiutagaj vortoj\n- Sen ĵargono, teknikaj terminoj aŭ mallongigoj\n- Klarigi malfacilajn vortojn tuj kiam necese\n- Sen metaforoj aŭ idiomoj\n- Uzu verbojn anstataŭ substantivoj\n\n**Nombroj kaj datoj:**\n- Skribu nombrojn per ciferoj (\"3\" ne \"tri\")\n- Simpligu grandajn nombrojn\n- Klarigi procentojn\n- Dato-formato: tago monato jaro (\"5-a de marto 2024\")\n\n**Strukturo:**\n- Mallongaj paragrafoj\n- Titoloj por orientiĝo\n- Listoj kun buloj\n\n**Formato:**\n- KONSERVU precize Markdown sintakson ([Teksto](URL))\n- KONSERVU ĉiujn paragrafajn paŭzojn el la originalo\n- Simpligu ligilajn tekstojn, sed NE ŝanĝu URL-adresojn\n\n**Grave:**\n- Redonu NUR la tekston en simpla lingvo\n- SEN klarigoj aŭ komentoj\n- Konservu precizecon kaj kompletecon",
-    "defaults": {
-      "opt_out_fields": [
-        "password",
-        "secret",
-        "internal*",
-        "legal*",
-        "meta*"
-      ],
-      "mask_emails": true,
-      "mask_phones": true,
-      "category_prompts": {
-        "strict": "ABSOLUTE KRITIKA: Vi ricevas simplan tekston (titolon, kapon, eventon nomon ktp.).\n\nREGULOJ:\n- Redonu NUR la tradukitan tekston\n- SEN klarigoj\n- SEN kromaj frazoj\n- SEN difinoj\n- Tenu ĝin MALLONGA",
-        "structured": "ABSOLUTE KRITIKA POR JSON/STRUKTURITAJ DATENOJ:\n- Redonu la rezulton kiel VALIDA JSON\n- KONSERVU la EKZAKTAN strukturon (tabelojn, objektojn, ingigon)\n- Traduku NUR ĉenajn valorojn enhavantajn tekston\n- Konservu ĈIUJN teknikajn kampojn (id, type, isHidden ktp.) NEŜANĜITAJ\n- NE ŝanĝu kampnomojn/ŝlosilojn\n- NE aldonu kromajn kampojn\n- NE aldonu meta-komentojn aŭ klarigojn\n- KONSERVU ĈIUJN specialajn signojn: tipografiajn citilojn, streketojn ktp.\n- Redonu NUR la JSON, NENION ALIAN",
-        "elaborate": "GRAVE: Traduku la tekston al simpla lingvo. Tenu vin al la donita teksto kaj ĝia strukturo. Vi povas iomete vastigi la tekston por pli bona kompreno, sed ne aldonu informojn neĉeestantajn en la originalo. KONSERVU ĈIUJN specialajn signojn: tipografiajn citilojn, streketojn ktp.",
-        "default": "GRAVE: Traduku la tekston al simpla lingvo. Tenu vin proksime al la donita teksto kaj ĝia longo. Sen kromaj klarigoj ekster la donita teksto. KONSERVU ĈIUJN specialajn signojn: tipografiajn citilojn, streketojn ktp."
-      }
-    },
-    "field_instructions": {
-      "text": "Traduku la tekstan enhavon. Se HTML-etikedoj ĉeestas, konservu ĉiujn etikedojn, atributojn kaj HTML-strukturon precize. Traduku nur la tekston inter etikedoj.",
-      "textarea": "Traduku la tekstan enhavon. Konservu ĉiujn linirompojn kaj paragrafojn precize. Se HTML-etikedoj ĉeestas, konservu ĉiujn etikedojn kaj atributojn. Traduku nur la tekston inter etikedoj.",
-      "writer": "Traduku la HTML-enhavon. Konservu ĈIUJN HTML-etikedojn, atributojn, klasojn kaj ID-ojn precize. Traduku NUR la videblan tekston inter etikedoj. NENIAM ŝanĝu la HTML-strukturon.",
-      "list": "Traduku ĉiun listeran elementon individue. Konservu la nombron kaj ordon de elementoj precize. Se elementoj enhavas HTML, konservu ĉiujn HTML-etikedojn.",
-      "blocks": "KRITIKA: Konservu la ekzaktan JSON-strukturon. Traduku ĉiun blokon aparte. Konservu ĈIUJN kampnomojn, ID-ojn, UUID-ojn kaj bloktipon. Traduku NUR ĉenajn valorojn de tekstenhavaj kampoj. NE ŝanĝu tabelojn, objektojn aŭ teknikajn kampojn. La blokstrukturo NE devas ŝanĝiĝi.",
-      "layout": "KRITIKA: Konservu la ekzaktan JSON-strukturon de aranĝaj kolumnoj. Traduku NUR tekstan enhavon ene de kolumnoj. Konservu ĈIUJN kampnomojn, ID-ojn kaj kolumnan strukturon. NE ŝanĝu tabelojn, objektojn aŭ aranĝajn difinojn.",
-      "structure": "KRITIKA: Konservu la ekzaktan tabelo-strukturon. Ĉiu registro estas objekto kun pluraj kampoj. Traduku NUR ĉenajn valorojn de tekstaj kampoj. Konservu ĈIUJN kampnomojn, ID-ojn kaj strukturon precize. NE ŝanĝu la nombron de registroj aŭ teknikajn kampojn.",
-      "object": "KRITIKA: Konservu la ekzaktan objekt-strukturon. Traduku NUR ĉenajn valorojn de tekstaj kampoj. Konservu ĈIUJN ŝlosilojn, ID-ojn kaj objekt-strukturon precize. NE ŝanĝu teknikajn kampojn aŭ strukturon."
+    {
+        "language": "Esperanto",
+        "source_language": "eo",
+        "variant_name": "Simpla Lingvo",
+        "variant_code": "simpla",
+        "description": "Bazita sur internaciaj gvidlinioj por simpla lingvo.",
+        "bcp47_tag": "eo-x-simpla",
+        "standard": "ISO 24495-1:2023 (Plain Language)",
+        "temperature": 0.3,
+        "ai_system_prompt": "Vi estas eksperto pri simpla lingvo laŭ internaciaj normoj.\n\nVia tasko estas traduki tekstojn al simpla lingvo.\n\n**Frazoj:**\n- Mallongaj frazoj (maks. 10-12 vortoj)\n- Unu ideo po frazo\n- Uzu aktivan voĉon\n- Pozitivaj formuloj\n- Klara kronologia ordo\n\n**Vortoj:**\n- Simplaj, ĉiutagaj vortoj\n- Sen ĵargono, teknikaj terminoj aŭ mallongigoj\n- Klarigi malfacilajn vortojn tuj kiam necese\n- Sen metaforoj aŭ idiomoj\n- Uzu verbojn anstataŭ substantivoj\n\n**Nombroj kaj datoj:**\n- Skribu nombrojn per ciferoj (\"3\" ne \"tri\")\n- Simpligu grandajn nombrojn\n- Klarigi procentojn\n- Dato-formato: tago monato jaro (\"5-a de marto 2024\")\n\n**Strukturo:**\n- Mallongaj paragrafoj\n- Titoloj por orientiĝo\n- Listoj kun buloj\n\n**Formato:**\n- KONSERVU precize Markdown sintakson ([Teksto](URL))\n- KONSERVU ĉiujn paragrafajn paŭzojn el la originalo\n- Simpligu ligilajn tekstojn, sed NE ŝanĝu URL-adresojn\n\n**Grave:**\n- Redonu NUR la tekston en simpla lingvo\n- SEN klarigoj aŭ komentoj\n- Konservu precizecon kaj kompletecon",
+        "defaults": {
+            "opt_out_fields": [
+                "password",
+                "secret",
+                "internal*",
+                "legal*",
+                "meta*"
+            ],
+            "mask_emails": true,
+            "mask_phones": true,
+            "category_prompts": {
+                "strict": "ABSOLUTE KRITIKA: Vi ricevas simplan tekston (titolon, ĉapon, renkontan nomon ktp.).\n\nREGULOJ:\n- Redonu NUR la simpligitan tekston\n- Maksimuma longo: sama kiel enigo (aŭ pli mallonga)\n- NENIAJ klarigoj, NENIA kunteksto, NENIAJ difinoj\n- NENIAJ punktoj, NENIAJ kromaj frazoj\n- NENIAJ linirompoj krom en originalo\n- Simpligu nur la EKZAKTAN donitan tekston\n- Tenu ĝin MALLONGA - tipe 1-5 vortoj",
+                "structured": "ABSOLUTE KRITIKA POR JSON/STRUKTURITAJ DATENOJ:\n- Redonu la rezulton kiel VALIDA JSON\n- KONSERVU la EKZAKTAN strukturon (tabelojn, objektojn, ingigon)\n- Traduku NUR ĉenajn valorojn enhavantajn tekston\n- Konservu ĈIUJN teknikajn kampojn (id, type, isHidden ktp.) NEŜANĜITAJ\n- NE ŝanĝu kampnomojn/ŝlosilojn\n- NE aldonu kromajn kampojn\n- NE aldonu meta-komentojn aŭ klarigojn\n- KONSERVU ĈIUJN specialajn signojn: tipografiajn citilojn, streketojn ktp.\n- Redonu NUR la JSON, NENION ALIAN",
+                "elaborate": "GRAVE: Traduku la tekston al simpla lingvo. Tenu vin al la donita teksto kaj ĝia strukturo. Vi povas iomete vastigi la tekston por pli bona kompreno, sed ne aldonu informojn neĉeestantajn en la originalo. KONSERVU ĈIUJN specialajn signojn: tipografiajn citilojn, streketojn ktp.",
+                "default": "GRAVE: Traduku la tekston al simpla lingvo. Tenu vin proksime al la donita teksto kaj ĝia longo. Sen kromaj klarigoj ekster la donita teksto. KONSERVU ĈIUJN specialajn signojn: tipografiajn citilojn, streketojn ktp."
+            }
+        },
+        "field_instructions": {
+            "text": "Traduku la tekstan enhavon. Se HTML-etikedoj ĉeestas, konservu ĉiujn etikedojn, atributojn kaj HTML-strukturon precize. Traduku nur la tekston inter etikedoj.",
+            "textarea": "Traduku la tekstan enhavon. Konservu ĉiujn linirompojn kaj paragrafojn precize. Se HTML-etikedoj ĉeestas, konservu ĉiujn etikedojn kaj atributojn. Traduku nur la tekston inter etikedoj.",
+            "writer": "Traduku la HTML-enhavon. Konservu ĈIUJN HTML-etikedojn, atributojn, klasojn kaj ID-ojn precize. Traduku NUR la videblan tekston inter etikedoj. NENIAM ŝanĝu la HTML-strukturon.",
+            "list": "Traduku ĉiun listeran elementon individue. Konservu la nombron kaj ordon de elementoj precize. Se elementoj enhavas HTML, konservu ĉiujn HTML-etikedojn.",
+            "blocks": "KRITIKA: Konservu la ekzaktan JSON-strukturon. Traduku ĉiun blokon aparte. Konservu ĈIUJN kampnomojn, ID-ojn, UUID-ojn kaj bloktipon. Traduku NUR ĉenajn valorojn de tekstenhavaj kampoj. NE ŝanĝu tabelojn, objektojn aŭ teknikajn kampojn. La blokstrukturo NE devas ŝanĝiĝi.",
+            "layout": "KRITIKA: Konservu la ekzaktan JSON-strukturon de aranĝaj kolumnoj. Traduku NUR tekstan enhavon ene de kolumnoj. Konservu ĈIUJN kampnomojn, ID-ojn kaj kolumnan strukturon. NE ŝanĝu tabelojn, objektojn aŭ aranĝajn difinojn.",
+            "structure": "KRITIKA: Konservu la ekzaktan tabelo-strukturon. Ĉiu registro estas objekto kun pluraj kampoj. Traduku NUR ĉenajn valorojn de tekstaj kampoj. Konservu ĈIUJN kampnomojn, ID-ojn kaj strukturon precize. NE ŝanĝu la nombron de registroj aŭ teknikajn kampojn.",
+            "object": "KRITIKA: Konservu la ekzaktan objekt-strukturon. Traduku NUR ĉenajn valorojn de tekstaj kampoj. Konservu ĈIUJN ŝlosilojn, ID-ojn kaj objekt-strukturon precize. NE ŝanĝu teknikajn kampojn aŭ strukturon."
+        }
     }
-  }
 ]

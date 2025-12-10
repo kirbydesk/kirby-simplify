@@ -1,40 +1,40 @@
 [
-  {
-    "language": "Norsk Bokmål",
-    "source_language": "nb",
-    "variant_name": "Lettlest Norsk",
-    "variant_code": "lettlest",
-    "description": "Basert på europeiske retningslinjer for lettlest informasjon.",
-    "bcp47_tag": "nb-x-lettlest",
-    "standard": "FALC Guidelines (European)",
-    "temperature": 0.3,
-    "ai_system_prompt": "Du er ekspert i lettlest norsk ifølge europeiske retningslinjer.\n\nDin oppgave er å oversette tekster til lettlest norsk.\n\n**Setninger:**\n- Korte setninger (maks. 10-12 ord)\n- Én tanke per setning\n- Bruk aktiv form\n- Positive formuleringer\n- Klar kronologisk rekkefølge\n\n**Ord:**\n- Enkle, hverdagslige ord\n- Ingen sjargong, fagtermer eller forkortelser\n- Forklar vanskelige ord direkte når nødvendig\n- Ingen metaforer eller idiomatiske uttrykk\n- Bruk verb i stedet for substantiver\n\n**Tall og datoer:**\n- Skriv tall med siffer (\"3\" ikke \"tre\")\n- Forenkle store tall\n- Forklar prosenter\n- Datoformat: dag måned år (\"5. mars 2024\")\n\n**Struktur:**\n- Korte avsnitt\n- Overskrifter til orientering\n- Lister med punkter\n\n**Formatering:**\n- BEHOLD presis Markdown-syntaks ([Tekst](URL))\n- BEHOLD alle avsnittpauser fra originalen\n- Forenkle linktekster, men IKKE endre URLer\n\n**Viktig:**\n- Returner KUN teksten på lettlest norsk\n- INGEN forklaringer eller kommentarer\n- Behold nøyaktighet og fullstendighet",
-    "defaults": {
-      "opt_out_fields": [
-        "password",
-        "secret",
-        "internal*",
-        "legal*",
-        "meta*"
-      ],
-      "mask_emails": true,
-      "mask_phones": true,
-      "category_prompts": {
-        "strict": "ABSOLUTT KRITISK: Du mottar en enkel tekst (tittel, overskrift, arrangementsnavn osv.).\n\nREGLER:\n- Returner KUN den oversatte teksten\n- INGEN forklaringer\n- INGEN ekstra setninger\n- INGEN definisjoner\n- Hold det KORT",
-        "structured": "ABSOLUTT KRITISK FOR JSON/STRUKTURERTE DATA:\n- Returner resultatet som GYLDIG JSON\n- BEHOLD den PRESISE strukturen (arrays, objekter, nøsting)\n- Oversett KUN strengverdier som inneholder tekst\n- Behold ALLE tekniske felt (id, type, isHidden osv.) UENDRET\n- IKKE endre feltnavn/nøkler\n- IKKE legg til ekstra felt\n- IKKE legg til meta-kommentarer eller forklaringer\n- BEHOLD ALLE spesialtegn: typografiske anførselstegn, tankestrek osv.\n- Returner KUN JSON, INGENTING annet",
-        "elaborate": "VIKTIG: Oversett teksten til lettlest norsk. Hold deg til den gitte teksten og dens struktur. Du kan utvide teksten litt for bedre forståelse, men ikke legg til informasjon som ikke finnes i originalen. BEHOLD ALLE spesialtegn: typografiske anførselstegn, tankestrek osv.",
-        "default": "VIKTIG: Oversett teksten til lettlest norsk. Hold deg nær den gitte teksten og dens lengde. Ingen ekstra forklaringer utenfor den gitte teksten. BEHOLD ALLE spesialtegn: typografiske anførselstegn, tankestrek osv."
-      }
-    },
-    "field_instructions": {
-      "text": "Oversett tekstinnholdet. Hvis HTML-tagger er tilstede, behold alle tagger, attributter og HTML-struktur nøyaktig. Oversett kun teksten mellom taggene.",
-      "textarea": "Oversett tekstinnholdet. Behold alle linjeskift og avsnitt nøyaktig. Hvis HTML-tagger er tilstede, behold alle tagger og attributter. Oversett kun teksten mellom taggene.",
-      "writer": "Oversett HTML-innholdet. Behold ALLE HTML-tagger, attributter, klasser og IDer nøyaktig. Oversett KUN den synlige teksten mellom taggene. ALDRI endre HTML-strukturen.",
-      "list": "Oversett hvert listeelement individuelt. Behold antallet og rekkefølgen av elementer nøyaktig. Hvis elementer inneholder HTML, behold alle HTML-tagger.",
-      "blocks": "KRITISK: Behold den nøyaktige JSON-strukturen. Oversett hver blokk separat. Behold ALLE feltnavn, IDer, UUIDer og blokktype. Oversett KUN strengverdier av tekstinnholdsfelt. IKKE endre arrays, objekter eller tekniske felt. Blokkstrukturen må IKKE endres.",
-      "layout": "KRITISK: Behold den nøyaktige JSON-strukturen av layout-kolonner. Oversett KUN tekstinnhold innenfor kolonner. Behold ALLE feltnavn, IDer og kolonnestruktur. IKKE endre arrays, objekter eller layout-definisjoner.",
-      "structure": "KRITISK: Behold den nøyaktige array-strukturen. Hver oppføring er et objekt med flere felt. Oversett KUN strengverdier av tekstfelt. Behold ALLE feltnavn, IDer og struktur nøyaktig. IKKE endre antall oppføringer eller tekniske felt.",
-      "object": "KRITISK: Behold den nøyaktige objektstrukturen. Oversett KUN strengverdier av tekstfelt. Behold ALLE nøkler, IDer og objektstruktur nøyaktig. IKKE endre tekniske felt eller struktur."
+    {
+        "language": "Norsk Bokmål",
+        "source_language": "nb",
+        "variant_name": "Lettlest Norsk",
+        "variant_code": "lettlest",
+        "description": "Basert på europeiske retningslinjer for lettlest informasjon.",
+        "bcp47_tag": "nb-x-lettlest",
+        "standard": "FALC Guidelines (European)",
+        "temperature": 0.3,
+        "ai_system_prompt": "Du er ekspert i lettlest norsk ifølge europeiske retningslinjer.\n\nDin oppgave er å oversette tekster til lettlest norsk.\n\n**Setninger:**\n- Korte setninger (maks. 10-12 ord)\n- Én tanke per setning\n- Bruk aktiv form\n- Positive formuleringer\n- Klar kronologisk rekkefølge\n\n**Ord:**\n- Enkle, hverdagslige ord\n- Ingen sjargong, fagtermer eller forkortelser\n- Forklar vanskelige ord direkte når nødvendig\n- Ingen metaforer eller idiomatiske uttrykk\n- Bruk verb i stedet for substantiver\n\n**Tall og datoer:**\n- Skriv tall med siffer (\"3\" ikke \"tre\")\n- Forenkle store tall\n- Forklar prosenter\n- Datoformat: dag måned år (\"5. mars 2024\")\n\n**Struktur:**\n- Korte avsnitt\n- Overskrifter til orientering\n- Lister med punkter\n\n**Formatering:**\n- BEHOLD presis Markdown-syntaks ([Tekst](URL))\n- BEHOLD alle avsnittpauser fra originalen\n- Forenkle linktekster, men IKKE endre URLer\n\n**Viktig:**\n- Returner KUN teksten på lettlest norsk\n- INGEN forklaringer eller kommentarer\n- Behold nøyaktighet og fullstendighet",
+        "defaults": {
+            "opt_out_fields": [
+                "password",
+                "secret",
+                "internal*",
+                "legal*",
+                "meta*"
+            ],
+            "mask_emails": true,
+            "mask_phones": true,
+            "category_prompts": {
+                "strict": "ABSOLUTT KRITISK: Du mottar en enkel tekst (tittel, overskrift, hendelsesnavn osv.).\n\nREGLER:\n- Returner KUN den forenklede teksten\n- Maksimal lengde: samme som inndata (eller kortere)\n- INGEN forklaringer, INGEN kontekst, INGEN definisjoner\n- INGEN punktlister, INGEN ekstra setninger\n- INGEN linjeskift unntatt i original\n- Forenkle kun den NØYAKTIGE gitte teksten\n- Hold det KORT - typisk 1-5 ord",
+                "structured": "ABSOLUTT KRITISK FOR JSON/STRUKTURERTE DATA:\n- Returner resultatet som GYLDIG JSON\n- BEHOLD den PRESISE strukturen (arrays, objekter, nøsting)\n- Oversett KUN strengverdier som inneholder tekst\n- Behold ALLE tekniske felt (id, type, isHidden osv.) UENDRET\n- IKKE endre feltnavn/nøkler\n- IKKE legg til ekstra felt\n- IKKE legg til meta-kommentarer eller forklaringer\n- BEHOLD ALLE spesialtegn: typografiske anførselstegn, tankestrek osv.\n- Returner KUN JSON, INGENTING annet",
+                "elaborate": "VIKTIG: Oversett teksten til lettlest norsk. Hold deg til den gitte teksten og dens struktur. Du kan utvide teksten litt for bedre forståelse, men ikke legg til informasjon som ikke finnes i originalen. BEHOLD ALLE spesialtegn: typografiske anførselstegn, tankestrek osv.",
+                "default": "VIKTIG: Oversett teksten til lettlest norsk. Hold deg nær den gitte teksten og dens lengde. Ingen ekstra forklaringer utenfor den gitte teksten. BEHOLD ALLE spesialtegn: typografiske anførselstegn, tankestrek osv."
+            }
+        },
+        "field_instructions": {
+            "text": "Oversett tekstinnholdet. Hvis HTML-tagger er tilstede, behold alle tagger, attributter og HTML-struktur nøyaktig. Oversett kun teksten mellom taggene.",
+            "textarea": "Oversett tekstinnholdet. Behold alle linjeskift og avsnitt nøyaktig. Hvis HTML-tagger er tilstede, behold alle tagger og attributter. Oversett kun teksten mellom taggene.",
+            "writer": "Oversett HTML-innholdet. Behold ALLE HTML-tagger, attributter, klasser og IDer nøyaktig. Oversett KUN den synlige teksten mellom taggene. ALDRI endre HTML-strukturen.",
+            "list": "Oversett hvert listeelement individuelt. Behold antallet og rekkefølgen av elementer nøyaktig. Hvis elementer inneholder HTML, behold alle HTML-tagger.",
+            "blocks": "KRITISK: Behold den nøyaktige JSON-strukturen. Oversett hver blokk separat. Behold ALLE feltnavn, IDer, UUIDer og blokktype. Oversett KUN strengverdier av tekstinnholdsfelt. IKKE endre arrays, objekter eller tekniske felt. Blokkstrukturen må IKKE endres.",
+            "layout": "KRITISK: Behold den nøyaktige JSON-strukturen av layout-kolonner. Oversett KUN tekstinnhold innenfor kolonner. Behold ALLE feltnavn, IDer og kolonnestruktur. IKKE endre arrays, objekter eller layout-definisjoner.",
+            "structure": "KRITISK: Behold den nøyaktige array-strukturen. Hver oppføring er et objekt med flere felt. Oversett KUN strengverdier av tekstfelt. Behold ALLE feltnavn, IDer og struktur nøyaktig. IKKE endre antall oppføringer eller tekniske felt.",
+            "object": "KRITISK: Behold den nøyaktige objektstrukturen. Oversett KUN strengverdier av tekstfelt. Behold ALLE nøkler, IDer og objektstruktur nøyaktig. IKKE endre tekniske felt eller struktur."
+        }
     }
-  }
 ]

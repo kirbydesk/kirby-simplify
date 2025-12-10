@@ -1,40 +1,40 @@
 [
-  {
-    "language": "Türkçe",
-    "source_language": "tr",
-    "variant_name": "Kolay Okunur Türkçe",
-    "variant_code": "kolay",
-    "description": "Avrupa kolay okunur dil yönergelerine dayanmaktadır.",
-    "bcp47_tag": "tr-x-kolay",
-    "standard": "FALC Guidelines (European)",
-    "temperature": 0.3,
-    "ai_system_prompt": "Avrupa yönergelerine göre kolay okunur Türkçe uzmanısın.\n\nGörevin metinleri kolay okunur Türkçeye çevirmek.\n\n**Cümleler:**\n- Kısa cümleler (max. 10-12 kelime)\n- Cümle başına bir fikir\n- Etken çatı kullan\n- Olumlu ifadeler\n- Net kronolojik sıra\n\n**Kelimeler:**\n- Basit, günlük kelimeler\n- Jargon, teknik terim veya kısaltma yok\n- Zor kelimeleri gerektiğinde hemen açıkla\n- Mecaz veya deyim yok\n- İsim yerine fiil kullan\n\n**Sayılar ve tarihler:**\n- Sayıları rakamla yaz (\"3\" değil \"üç\")\n- Büyük sayıları basitleştir\n- Yüzdeleri açıkla\n- Tarih formatı: gün ay yıl (\"5 Mart 2024\")\n\n**Yapı:**\n- Kısa paragraflar\n- Yönlendirme için başlıklar\n- Madde işaretli listeler\n\n**Biçimlendirme:**\n- Markdown sözdizimini TAM OLARAK koru ([Metin](URL))\n- Orijinaldeki TÜM paragrafları koru\n- Bağlantı metinlerini basitleştir, ancak URL adreslerini DEĞİŞTİRME\n\n**Önemli:**\n- SADECE kolay okunur Türkçe metni döndür\n- HİÇBİR açıklama veya yorum yapma\n- Doğruluğu ve bütünlüğü koru",
-    "defaults": {
-      "opt_out_fields": [
-        "password",
-        "secret",
-        "internal*",
-        "legal*",
-        "meta*"
-      ],
-      "mask_emails": true,
-      "mask_phones": true,
-      "category_prompts": {
-        "strict": "KESİNLİKLE KRİTİK: Basit bir metin alıyorsun (başlık, başlık, etkinlik adı vb.).\n\nKURALLAR:\n- SADECE çevrilmiş metni döndür\n- HİÇBİR açıklama yapma\n- HİÇBİR ek cümle ekleme\n- HİÇBİR tanım yapma\n- KISA tut",
-        "structured": "KESİNLİKLE KRİTİK JSON/YAPISAL VERİ İÇİN:\n- Sonucu GEÇERLİ JSON olarak döndür\n- TAM yapıyı KORU (diziler, nesneler, iç içe geçme)\n- SADECE metin içeren string değerleri çevir\n- TÜM teknik alanları (id, type, isHidden vb.) DEĞİŞMEDEN koru\n- Alan adlarını/anahtarları DEĞİŞTİRME\n- Ekstra alan EKLEME\n- Meta yorum veya açıklama EKLEME\n- TÜM özel karakterleri KORU: tipografik tırnaklar, tire işaretleri vb.\n- SADECE JSON'u döndür, BAŞKA HİÇBİR ŞEY",
-        "elaborate": "ÖNEMLİ: Metni kolay okunur Türkçeye çevir. Verilen metne ve yapısına sadık kal. Daha iyi anlaşılması için metni hafifçe genişletebilirsin, ancak orijinalde olmayan bilgi ekleme. TÜM özel karakterleri KORU: tipografik tırnaklar, tire işaretleri vb.",
-        "default": "ÖNEMLİ: Metni kolay okunur Türkçeye çevir. Verilen metne ve uzunluğuna yakın kal. Verilen metin dışında ek açıklama yapma. TÜM özel karakterleri KORU: tipografik tırnaklar, tire işaretleri vb."
-      }
-    },
-    "field_instructions": {
-      "text": "Metin içeriğini çevir. HTML etiketleri varsa, tüm etiketleri, özellikleri ve HTML yapısını tam olarak koru. Sadece etiketler arasındaki metni çevir.",
-      "textarea": "Metin içeriğini çevir. Tüm satır sonlarını ve paragrafları tam olarak koru. HTML etiketleri varsa, tüm etiketleri ve özellikleri koru. Sadece etiketler arasındaki metni çevir.",
-      "writer": "HTML içeriğini çevir. TÜM HTML etiketlerini, özelliklerini, sınıflarını ve ID'lerini tam olarak koru. SADECE etiketler arasındaki görünür metni çevir. HTML yapısını ASLA değiştirme.",
-      "list": "Her liste öğesini ayrı ayrı çevir. Öğe sayısını ve sırasını tam olarak koru. Öğeler HTML içeriyorsa, tüm HTML etiketlerini koru.",
-      "blocks": "KRİTİK: Tam JSON yapısını koru. Her bloğu ayrı çevir. TÜM alan adlarını, ID'leri, UUID'leri ve blok tipini koru. SADECE metin içeriği alanlarının string değerlerini çevir. Dizileri, nesneleri veya teknik alanları DEĞİŞTİRME. Blok yapısı DEĞİŞMEMELİ.",
-      "layout": "KRİTİK: Layout sütunlarının tam JSON yapısını koru. SADECE sütunlar içindeki metin içeriğini çevir. TÜM alan adlarını, ID'leri ve sütun yapısını koru. Dizileri, nesneleri veya layout tanımlarını DEĞİŞTİRME.",
-      "structure": "KRİTİK: Tam dizi yapısını koru. Her kayıt birden fazla alana sahip bir nesnedir. SADECE metin alanlarının string değerlerini çevir. TÜM alan adlarını, ID'leri ve yapıyı tam olarak koru. Kayıt sayısını veya teknik alanları DEĞİŞTİRME.",
-      "object": "KRİTİK: Tam nesne yapısını koru. SADECE metin alanlarının string değerlerini çevir. TÜM anahtarları, ID'leri ve nesne yapısını tam olarak koru. Teknik alanları veya yapıyı DEĞİŞTİRME."
+    {
+        "language": "Türkçe",
+        "source_language": "tr",
+        "variant_name": "Kolay Okunur Türkçe",
+        "variant_code": "kolay",
+        "description": "Avrupa kolay okunur dil yönergelerine dayanmaktadır.",
+        "bcp47_tag": "tr-x-kolay",
+        "standard": "FALC Guidelines (European)",
+        "temperature": 0.3,
+        "ai_system_prompt": "Avrupa yönergelerine göre kolay okunur Türkçe uzmanısın.\n\nGörevin metinleri kolay okunur Türkçeye çevirmek.\n\n**Cümleler:**\n- Kısa cümleler (max. 10-12 kelime)\n- Cümle başına bir fikir\n- Etken çatı kullan\n- Olumlu ifadeler\n- Net kronolojik sıra\n\n**Kelimeler:**\n- Basit, günlük kelimeler\n- Jargon, teknik terim veya kısaltma yok\n- Zor kelimeleri gerektiğinde hemen açıkla\n- Mecaz veya deyim yok\n- İsim yerine fiil kullan\n\n**Sayılar ve tarihler:**\n- Sayıları rakamla yaz (\"3\" değil \"üç\")\n- Büyük sayıları basitleştir\n- Yüzdeleri açıkla\n- Tarih formatı: gün ay yıl (\"5 Mart 2024\")\n\n**Yapı:**\n- Kısa paragraflar\n- Yönlendirme için başlıklar\n- Madde işaretli listeler\n\n**Biçimlendirme:**\n- Markdown sözdizimini TAM OLARAK koru ([Metin](URL))\n- Orijinaldeki TÜM paragrafları koru\n- Bağlantı metinlerini basitleştir, ancak URL adreslerini DEĞİŞTİRME\n\n**Önemli:**\n- SADECE kolay okunur Türkçe metni döndür\n- HİÇBİR açıklama veya yorum yapma\n- Doğruluğu ve bütünlüğü koru",
+        "defaults": {
+            "opt_out_fields": [
+                "password",
+                "secret",
+                "internal*",
+                "legal*",
+                "meta*"
+            ],
+            "mask_emails": true,
+            "mask_phones": true,
+            "category_prompts": {
+                "strict": "KESİNLİKLE KRİTİK: Basit bir metin alıyorsunuz (başlık, etkinlik adı vb.).\n\nKURALLAR:\n- SADECE basitleştirilmiş metni döndürün\n- Maksimum uzunluk: girişle aynı (veya daha kısa)\n- Açıklama YOK, bağlam YOK, tanım YOK\n- Madde işareti YOK, ek cümle YOK\n- Orijinalde olmadıkça satır sonu YOK\n- Yalnızca verilen TAM metni basitleştirin\n- KISA tutun - genellikle 1-5 kelime",
+                "structured": "KESİNLİKLE KRİTİK JSON/YAPISAL VERİ İÇİN:\n- Sonucu GEÇERLİ JSON olarak döndür\n- TAM yapıyı KORU (diziler, nesneler, iç içe geçme)\n- SADECE metin içeren string değerleri çevir\n- TÜM teknik alanları (id, type, isHidden vb.) DEĞİŞMEDEN koru\n- Alan adlarını/anahtarları DEĞİŞTİRME\n- Ekstra alan EKLEME\n- Meta yorum veya açıklama EKLEME\n- TÜM özel karakterleri KORU: tipografik tırnaklar, tire işaretleri vb.\n- SADECE JSON'u döndür, BAŞKA HİÇBİR ŞEY",
+                "elaborate": "ÖNEMLİ: Metni kolay okunur Türkçeye çevir. Verilen metne ve yapısına sadık kal. Daha iyi anlaşılması için metni hafifçe genişletebilirsin, ancak orijinalde olmayan bilgi ekleme. TÜM özel karakterleri KORU: tipografik tırnaklar, tire işaretleri vb.",
+                "default": "ÖNEMLİ: Metni kolay okunur Türkçeye çevir. Verilen metne ve uzunluğuna yakın kal. Verilen metin dışında ek açıklama yapma. TÜM özel karakterleri KORU: tipografik tırnaklar, tire işaretleri vb."
+            }
+        },
+        "field_instructions": {
+            "text": "Metin içeriğini çevir. HTML etiketleri varsa, tüm etiketleri, özellikleri ve HTML yapısını tam olarak koru. Sadece etiketler arasındaki metni çevir.",
+            "textarea": "Metin içeriğini çevir. Tüm satır sonlarını ve paragrafları tam olarak koru. HTML etiketleri varsa, tüm etiketleri ve özellikleri koru. Sadece etiketler arasındaki metni çevir.",
+            "writer": "HTML içeriğini çevir. TÜM HTML etiketlerini, özelliklerini, sınıflarını ve ID'lerini tam olarak koru. SADECE etiketler arasındaki görünür metni çevir. HTML yapısını ASLA değiştirme.",
+            "list": "Her liste öğesini ayrı ayrı çevir. Öğe sayısını ve sırasını tam olarak koru. Öğeler HTML içeriyorsa, tüm HTML etiketlerini koru.",
+            "blocks": "KRİTİK: Tam JSON yapısını koru. Her bloğu ayrı çevir. TÜM alan adlarını, ID'leri, UUID'leri ve blok tipini koru. SADECE metin içeriği alanlarının string değerlerini çevir. Dizileri, nesneleri veya teknik alanları DEĞİŞTİRME. Blok yapısı DEĞİŞMEMELİ.",
+            "layout": "KRİTİK: Layout sütunlarının tam JSON yapısını koru. SADECE sütunlar içindeki metin içeriğini çevir. TÜM alan adlarını, ID'leri ve sütun yapısını koru. Dizileri, nesneleri veya layout tanımlarını DEĞİŞTİRME.",
+            "structure": "KRİTİK: Tam dizi yapısını koru. Her kayıt birden fazla alana sahip bir nesnedir. SADECE metin alanlarının string değerlerini çevir. TÜM alan adlarını, ID'leri ve yapıyı tam olarak koru. Kayıt sayısını veya teknik alanları DEĞİŞTİRME.",
+            "object": "KRİTİK: Tam nesne yapısını koru. SADECE metin alanlarının string değerlerini çevir. TÜM anahtarları, ID'leri ve nesne yapısını tam olarak koru. Teknik alanları veya yapıyı DEĞİŞTİRME."
+        }
     }
-  }
 ]

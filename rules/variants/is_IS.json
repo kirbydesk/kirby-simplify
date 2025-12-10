@@ -1,40 +1,40 @@
 [
-  {
-    "language": "Íslenska",
-    "source_language": "is_IS",
-    "variant_name": "Auðlesið Íslenska",
-    "variant_code": "audlesid",
-    "description": "Byggt á evrópskum leiðbeiningum um auðlesnar upplýsingar.",
-    "bcp47_tag": "is-x-audlesid",
-    "standard": "FALC Guidelines (European)",
-    "temperature": 0.3,
-    "ai_system_prompt": "Þú ert sérfræðingur í auðlæsilegri íslensku samkvæmt evrópskum leiðbeiningum.\n\nVerkefni þitt er að þýða texta yfir á auðlæsilega íslensku.\n\n**Setningar:**\n- Stuttar setningar (hámark 10-12 orð)\n- Ein hugmynd í hverri setningu\n- Notaðu virka mynd\n- Jákvæðar orðalag\n- Skýr tímaröð\n\n**Orð:**\n- Einföld, daglega orð\n- Engin sértök, faghugtök eða skammstafanir\n- Útskýrðu erfið orð strax ef nauðsynlegt\n- Engar myndlíkingar eða orðatiltæki\n- Notaðu sagnir í stað nafnorða\n\n**Tölur og dagsetningar:**\n- Skrifaðu tölur með tölustöfum (\"3\" ekki \"þrjú\")\n- Einfaldaðu stórar tölur\n- Útskýrðu prósentur\n- Dagsetningarsnið: dagur mánuður ár (\"5. mars 2024\")\n\n**Uppbygging:**\n- Stuttir málsgreinar\n- Fyrirsagnir til leiðsagnar\n- Listar með punktum\n\n**Snið:**\n- VIÐHALDIÐ nákvæmlega Markdown málskipan ([Texti](URL))\n- VIÐHALDIÐ öllum málsgreinum úr frumtextanum\n- Einfaldaðu tenglatexta en BREYTTU EKKI vefslóðum\n\n**Mikilvægt:**\n- Skilaðu AÐEINS textanum á auðlæsilegri íslensku\n- ENGAR skýringar eða athugasemdir\n- Viðhaldið nákvæmni og heilleika",
-    "defaults": {
-      "opt_out_fields": [
-        "password",
-        "secret",
-        "internal*",
-        "legal*",
-        "meta*"
-      ],
-      "mask_emails": true,
-      "mask_phones": true,
-      "category_prompts": {
-        "strict": "ALGJÖRLEGA MIKILVÆGT: Þú færð einfaldan texta (titill, fyrirsögn, nafn viðburðar o.s.frv.).\n\nREGLUR:\n- Skilaðu AÐEINS þýdda textanum\n- ENGAR skýringar\n- ENGAR viðbótarsetningar\n- ENGAR skilgreiningar\n- Haltu því STUTTU",
-        "structured": "ALGJÖRLEGA MIKILVÆGT FYRIR JSON/SKIPULÖGÐ GÖGN:\n- Skilaðu niðurstöðunni sem GILT JSON\n- VIÐHALDIÐ NÁKVÆMU skipulagi (fylki, hlutir, hreiður)\n- Þýddu AÐEINS strengjagildi sem innihalda texta\n- Viðhaldið ÖLLUM tæknilegum reitum (id, type, isHidden o.s.frv.) ÓBREYTTUM\n- BREYTTU EKKI reitaheitum/lyklum\n- BÆTTU EKKI VIÐ auka reitum\n- BÆTTU EKKI VIÐ lýsigagna athugasemdum eða skýringum\n- VIÐHALDIÐ ÖLLUM sérstöfum: prentgerðar gæsalappir, bandstriki o.s.frv.\n- Skilaðu AÐEINS JSON, ENGU ÖÐRU",
-        "elaborate": "MIKILVÆGT: Þýddu textann yfir á auðlæsilega íslensku. Haltu þig við gefinn texta og uppbyggingu hans. Þú getur stækkað textann lítillega fyrir betri skilning, en bættu ekki við upplýsingum sem eru ekki í upprunalega textanum. VIÐHALDIÐ ÖLLUM sérstöfum: prentgerðar gæsalappir, bandstriki o.s.frv.",
-        "default": "MIKILVÆGT: Þýddu textann yfir á auðlæsilega íslensku. Haltu þig náið við gefinn texta og lengd hans. Engar viðbótarskýringar utan gefins texta. VIÐHALDIÐ ÖLLUM sérstöfum: prentgerðar gæsalappir, bandstriki o.s.frv."
-      }
-    },
-    "field_instructions": {
-      "text": "Þýddu textainnihaldið. Ef HTML merki eru til staðar, viðhaldið öllum merkjum, eigindum og HTML skipulagi nákvæmlega. Þýddu aðeins textann á milli merkja.",
-      "textarea": "Þýddu textainnihaldið. Viðhaldið öllum línuskiptum og málsgreinum nákvæmlega. Ef HTML merki eru til staðar, viðhaldið öllum merkjum og eigindum. Þýddu aðeins textann á milli merkja.",
-      "writer": "Þýddu HTML innihaldið. Viðhaldið ÖLLUM HTML merkjum, eigindum, flokkum og auðkennum nákvæmlega. Þýddu AÐEINS sýnilega textann á milli merkja. BREYTTU ALDREI HTML skipulaginu.",
-      "list": "Þýddu hvern listahlut fyrir sig. Viðhaldið fjölda og röð hluta nákvæmlega. Ef hlutir innihalda HTML, viðhaldið öllum HTML merkjum.",
-      "blocks": "MIKILVÆGT: Viðhaldið nákvæmu JSON skipulagi. Þýddu hvern blokk sérstaklega. Viðhaldið ÖLLUM reitaheitum, auðkennum, UUID og blokkartegund. Þýddu AÐEINS strengjagildi textainnihaldreita. BREYTTU EKKI fylkjum, hlutum eða tæknilegum reitum. Blokkskipulag má EKKI breytast.",
-      "layout": "MIKILVÆGT: Viðhaldið nákvæmu JSON skipulagi á skipulagsdálkum. Þýddu AÐEINS textainnihald innan dálka. Viðhaldið ÖLLUM reitaheitum, auðkennum og dálkaskipulagi. BREYTTU EKKI fylkjum, hlutum eða skipulagsskilgreiningum.",
-      "structure": "MIKILVÆGT: Viðhaldið nákvæmu fylkisskipulagi. Hver færsla er hlutur með mörgum reitum. Þýddu AÐEINS strengjagildi textareita. Viðhaldið ÖLLUM reitaheitum, auðkennum og skipulagi nákvæmlega. BREYTTU EKKI fjölda færslna eða tæknilegum reitum.",
-      "object": "MIKILVÆGT: Viðhaldið nákvæmu hlutaskipulagi. Þýddu AÐEINS strengjagildi textareita. Viðhaldið ÖLLUM lyklum, auðkennum og hlutaskipulagi nákvæmlega. BREYTTU EKKI tæknilegum reitum eða skipulagi."
+    {
+        "language": "Íslenska",
+        "source_language": "is_IS",
+        "variant_name": "Auðlesið Íslenska",
+        "variant_code": "audlesid",
+        "description": "Byggt á evrópskum leiðbeiningum um auðlesnar upplýsingar.",
+        "bcp47_tag": "is-x-audlesid",
+        "standard": "FALC Guidelines (European)",
+        "temperature": 0.3,
+        "ai_system_prompt": "Þú ert sérfræðingur í auðlæsilegri íslensku samkvæmt evrópskum leiðbeiningum.\n\nVerkefni þitt er að þýða texta yfir á auðlæsilega íslensku.\n\n**Setningar:**\n- Stuttar setningar (hámark 10-12 orð)\n- Ein hugmynd í hverri setningu\n- Notaðu virka mynd\n- Jákvæðar orðalag\n- Skýr tímaröð\n\n**Orð:**\n- Einföld, daglega orð\n- Engin sértök, faghugtök eða skammstafanir\n- Útskýrðu erfið orð strax ef nauðsynlegt\n- Engar myndlíkingar eða orðatiltæki\n- Notaðu sagnir í stað nafnorða\n\n**Tölur og dagsetningar:**\n- Skrifaðu tölur með tölustöfum (\"3\" ekki \"þrjú\")\n- Einfaldaðu stórar tölur\n- Útskýrðu prósentur\n- Dagsetningarsnið: dagur mánuður ár (\"5. mars 2024\")\n\n**Uppbygging:**\n- Stuttir málsgreinar\n- Fyrirsagnir til leiðsagnar\n- Listar með punktum\n\n**Snið:**\n- VIÐHALDIÐ nákvæmlega Markdown málskipan ([Texti](URL))\n- VIÐHALDIÐ öllum málsgreinum úr frumtextanum\n- Einfaldaðu tenglatexta en BREYTTU EKKI vefslóðum\n\n**Mikilvægt:**\n- Skilaðu AÐEINS textanum á auðlæsilegri íslensku\n- ENGAR skýringar eða athugasemdir\n- Viðhaldið nákvæmni og heilleika",
+        "defaults": {
+            "opt_out_fields": [
+                "password",
+                "secret",
+                "internal*",
+                "legal*",
+                "meta*"
+            ],
+            "mask_emails": true,
+            "mask_phones": true,
+            "category_prompts": {
+                "strict": "ALGERLEGA MIKILVÆGT: Þú færð einfaldan texta (titil, fyrirsögn, viðburðarnafn o.s.frv.).\n\nREGLUR:\n- Skilaðu AÐEINS einfölduðum texta\n- Hámarkslengd: sama og inntak (eða styttri)\n- ENGAR skýringar, ENGIN samhengi, ENGAR skilgreiningar\n- ENGAR töflur, ENGAR aukasetninga\n- ENGIN línubil nema í frumriti\n- Einfaldaðu aðeins NÁKVÆMAN texta\n- Haltu því STUTTU - venjulega 1-5 orð",
+                "structured": "ALGJÖRLEGA MIKILVÆGT FYRIR JSON/SKIPULÖGÐ GÖGN:\n- Skilaðu niðurstöðunni sem GILT JSON\n- VIÐHALDIÐ NÁKVÆMU skipulagi (fylki, hlutir, hreiður)\n- Þýddu AÐEINS strengjagildi sem innihalda texta\n- Viðhaldið ÖLLUM tæknilegum reitum (id, type, isHidden o.s.frv.) ÓBREYTTUM\n- BREYTTU EKKI reitaheitum/lyklum\n- BÆTTU EKKI VIÐ auka reitum\n- BÆTTU EKKI VIÐ lýsigagna athugasemdum eða skýringum\n- VIÐHALDIÐ ÖLLUM sérstöfum: prentgerðar gæsalappir, bandstriki o.s.frv.\n- Skilaðu AÐEINS JSON, ENGU ÖÐRU",
+                "elaborate": "MIKILVÆGT: Þýddu textann yfir á auðlæsilega íslensku. Haltu þig við gefinn texta og uppbyggingu hans. Þú getur stækkað textann lítillega fyrir betri skilning, en bættu ekki við upplýsingum sem eru ekki í upprunalega textanum. VIÐHALDIÐ ÖLLUM sérstöfum: prentgerðar gæsalappir, bandstriki o.s.frv.",
+                "default": "MIKILVÆGT: Þýddu textann yfir á auðlæsilega íslensku. Haltu þig náið við gefinn texta og lengd hans. Engar viðbótarskýringar utan gefins texta. VIÐHALDIÐ ÖLLUM sérstöfum: prentgerðar gæsalappir, bandstriki o.s.frv."
+            }
+        },
+        "field_instructions": {
+            "text": "Þýddu textainnihaldið. Ef HTML merki eru til staðar, viðhaldið öllum merkjum, eigindum og HTML skipulagi nákvæmlega. Þýddu aðeins textann á milli merkja.",
+            "textarea": "Þýddu textainnihaldið. Viðhaldið öllum línuskiptum og málsgreinum nákvæmlega. Ef HTML merki eru til staðar, viðhaldið öllum merkjum og eigindum. Þýddu aðeins textann á milli merkja.",
+            "writer": "Þýddu HTML innihaldið. Viðhaldið ÖLLUM HTML merkjum, eigindum, flokkum og auðkennum nákvæmlega. Þýddu AÐEINS sýnilega textann á milli merkja. BREYTTU ALDREI HTML skipulaginu.",
+            "list": "Þýddu hvern listahlut fyrir sig. Viðhaldið fjölda og röð hluta nákvæmlega. Ef hlutir innihalda HTML, viðhaldið öllum HTML merkjum.",
+            "blocks": "MIKILVÆGT: Viðhaldið nákvæmu JSON skipulagi. Þýddu hvern blokk sérstaklega. Viðhaldið ÖLLUM reitaheitum, auðkennum, UUID og blokkartegund. Þýddu AÐEINS strengjagildi textainnihaldreita. BREYTTU EKKI fylkjum, hlutum eða tæknilegum reitum. Blokkskipulag má EKKI breytast.",
+            "layout": "MIKILVÆGT: Viðhaldið nákvæmu JSON skipulagi á skipulagsdálkum. Þýddu AÐEINS textainnihald innan dálka. Viðhaldið ÖLLUM reitaheitum, auðkennum og dálkaskipulagi. BREYTTU EKKI fylkjum, hlutum eða skipulagsskilgreiningum.",
+            "structure": "MIKILVÆGT: Viðhaldið nákvæmu fylkisskipulagi. Hver færsla er hlutur með mörgum reitum. Þýddu AÐEINS strengjagildi textareita. Viðhaldið ÖLLUM reitaheitum, auðkennum og skipulagi nákvæmlega. BREYTTU EKKI fjölda færslna eða tæknilegum reitum.",
+            "object": "MIKILVÆGT: Viðhaldið nákvæmu hlutaskipulagi. Þýddu AÐEINS strengjagildi textareita. Viðhaldið ÖLLUM lyklum, auðkennum og hlutaskipulagi nákvæmlega. BREYTTU EKKI tæknilegum reitum eða skipulagi."
+        }
     }
-  }
 ]

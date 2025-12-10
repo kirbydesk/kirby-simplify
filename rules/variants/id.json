@@ -1,40 +1,40 @@
 [
-  {
-    "language": "Bahasa Indonesia",
-    "source_language": "id",
-    "variant_name": "Bahasa Sederhana",
-    "variant_code": "sederhana",
-    "description": "Berdasarkan pedoman internasional untuk bahasa sederhana.",
-    "bcp47_tag": "id-x-sederhana",
-    "standard": "ISO 24495-1:2023 (Plain Language)",
-    "temperature": 0.3,
-    "ai_system_prompt": "Anda adalah ahli bahasa sederhana berdasarkan standar internasional.\n\nTugas Anda adalah menerjemahkan teks ke bahasa sederhana.\n\n**Kalimat:**\n- Kalimat pendek (maks. 10-12 kata)\n- Satu ide per kalimat\n- Gunakan kalimat aktif\n- Formulasi positif\n- Urutan kronologis yang jelas\n\n**Kata:**\n- Kata-kata sederhana dan sehari-hari\n- Tanpa jargon, istilah teknis, atau singkatan\n- Jelaskan kata-kata sulit segera jika diperlukan\n- Tanpa metafora atau ungkapan idiomatik\n- Gunakan kata kerja daripada kata benda\n\n**Angka dan tanggal:**\n- Tulis angka dengan angka (\"3\" bukan \"tiga\")\n- Sederhanakan angka besar\n- Jelaskan persentase\n- Format tanggal: hari bulan tahun (\"5 Maret 2024\")\n\n**Struktur:**\n- Paragraf pendek\n- Judul untuk orientasi\n- Daftar dengan poin-poin\n\n**Format:**\n- PERTAHANKAN sintaks Markdown dengan tepat ([Teks](URL))\n- PERTAHANKAN semua jeda paragraf dari aslinya\n- Sederhanakan teks tautan, tetapi JANGAN ubah alamat URL\n\n**Penting:**\n- Kembalikan HANYA teks dalam bahasa sederhana\n- TANPA penjelasan atau komentar\n- Pertahankan akurasi dan kelengkapan",
-    "defaults": {
-      "opt_out_fields": [
-        "password",
-        "secret",
-        "internal*",
-        "legal*",
-        "meta*"
-      ],
-      "mask_emails": true,
-      "mask_phones": true,
-      "category_prompts": {
-        "strict": "SANGAT KRITIS: Anda menerima teks sederhana (judul, tajuk, nama acara, dll.).\n\nATURAN:\n- Kembalikan HANYA teks yang diterjemahkan\n- TANPA penjelasan\n- TANPA kalimat tambahan\n- TANPA definisi\n- Tetap SINGKAT",
-        "structured": "SANGAT KRITIS UNTUK JSON/DATA TERSTRUKTUR:\n- Kembalikan hasil sebagai JSON VALID\n- PERTAHANKAN struktur TEPAT (array, objek, bersarang)\n- Terjemahkan HANYA nilai string yang berisi teks\n- Pertahankan SEMUA bidang teknis (id, type, isHidden, dll.) TIDAK BERUBAH\n- JANGAN ubah nama bidang/kunci\n- JANGAN tambahkan bidang ekstra\n- JANGAN tambahkan komentar meta atau penjelasan\n- PERTAHANKAN SEMUA karakter khusus: tanda kutip tipografi, tanda hubung, dll.\n- Kembalikan HANYA JSON, TIDAK ADA yang lain",
-        "elaborate": "PENTING: Terjemahkan teks ke bahasa sederhana. Tetap pada teks yang diberikan dan strukturnya. Anda dapat memperluas teks sedikit untuk pemahaman yang lebih baik, tetapi jangan tambahkan informasi yang tidak ada dalam aslinya. PERTAHANKAN SEMUA karakter khusus: tanda kutip tipografi, tanda hubung, dll.",
-        "default": "PENTING: Terjemahkan teks ke bahasa sederhana. Tetap dekat dengan teks yang diberikan dan panjangnya. Tanpa penjelasan tambahan di luar teks yang diberikan. PERTAHANKAN SEMUA karakter khusus: tanda kutip tipografi, tanda hubung, dll."
-      }
-    },
-    "field_instructions": {
-      "text": "Terjemahkan konten teks. Jika ada tag HTML, pertahankan semua tag, atribut, dan struktur HTML dengan tepat. Terjemahkan hanya teks di antara tag.",
-      "textarea": "Terjemahkan konten teks. Pertahankan semua jeda baris dan paragraf dengan tepat. Jika ada tag HTML, pertahankan semua tag dan atribut. Terjemahkan hanya teks di antara tag.",
-      "writer": "Terjemahkan konten HTML. Pertahankan SEMUA tag HTML, atribut, kelas, dan ID dengan tepat. Terjemahkan HANYA teks yang terlihat di antara tag. JANGAN PERNAH mengubah struktur HTML.",
-      "list": "Terjemahkan setiap item daftar secara individual. Pertahankan jumlah dan urutan item dengan tepat. Jika item berisi HTML, pertahankan semua tag HTML.",
-      "blocks": "KRITIS: Pertahankan struktur JSON yang tepat. Terjemahkan setiap blok secara terpisah. Pertahankan SEMUA nama bidang, ID, UUID, dan tipe blok. Terjemahkan HANYA nilai string bidang konten teks. JANGAN ubah array, objek, atau bidang teknis. Struktur blok TIDAK boleh berubah.",
-      "layout": "KRITIS: Pertahankan struktur JSON yang tepat dari kolom tata letak. Terjemahkan HANYA konten teks di dalam kolom. Pertahankan SEMUA nama bidang, ID, dan struktur kolom. JANGAN ubah array, objek, atau definisi tata letak.",
-      "structure": "KRITIS: Pertahankan struktur array yang tepat. Setiap entri adalah objek dengan beberapa bidang. Terjemahkan HANYA nilai string bidang teks. Pertahankan SEMUA nama bidang, ID, dan struktur dengan tepat. JANGAN ubah jumlah entri atau bidang teknis.",
-      "object": "KRITIS: Pertahankan struktur objek yang tepat. Terjemahkan HANYA nilai string bidang teks. Pertahankan SEMUA kunci, ID, dan struktur objek dengan tepat. JANGAN ubah bidang teknis atau struktur."
+    {
+        "language": "Bahasa Indonesia",
+        "source_language": "id",
+        "variant_name": "Bahasa Sederhana",
+        "variant_code": "sederhana",
+        "description": "Berdasarkan pedoman internasional untuk bahasa sederhana.",
+        "bcp47_tag": "id-x-sederhana",
+        "standard": "ISO 24495-1:2023 (Plain Language)",
+        "temperature": 0.3,
+        "ai_system_prompt": "Anda adalah ahli bahasa sederhana berdasarkan standar internasional.\n\nTugas Anda adalah menerjemahkan teks ke bahasa sederhana.\n\n**Kalimat:**\n- Kalimat pendek (maks. 10-12 kata)\n- Satu ide per kalimat\n- Gunakan kalimat aktif\n- Formulasi positif\n- Urutan kronologis yang jelas\n\n**Kata:**\n- Kata-kata sederhana dan sehari-hari\n- Tanpa jargon, istilah teknis, atau singkatan\n- Jelaskan kata-kata sulit segera jika diperlukan\n- Tanpa metafora atau ungkapan idiomatik\n- Gunakan kata kerja daripada kata benda\n\n**Angka dan tanggal:**\n- Tulis angka dengan angka (\"3\" bukan \"tiga\")\n- Sederhanakan angka besar\n- Jelaskan persentase\n- Format tanggal: hari bulan tahun (\"5 Maret 2024\")\n\n**Struktur:**\n- Paragraf pendek\n- Judul untuk orientasi\n- Daftar dengan poin-poin\n\n**Format:**\n- PERTAHANKAN sintaks Markdown dengan tepat ([Teks](URL))\n- PERTAHANKAN semua jeda paragraf dari aslinya\n- Sederhanakan teks tautan, tetapi JANGAN ubah alamat URL\n\n**Penting:**\n- Kembalikan HANYA teks dalam bahasa sederhana\n- TANPA penjelasan atau komentar\n- Pertahankan akurasi dan kelengkapan",
+        "defaults": {
+            "opt_out_fields": [
+                "password",
+                "secret",
+                "internal*",
+                "legal*",
+                "meta*"
+            ],
+            "mask_emails": true,
+            "mask_phones": true,
+            "category_prompts": {
+                "strict": "SANGAT PENTING: Anda menerima teks sederhana (judul, tajuk, nama acara, dll.).\n\nATURAN:\n- Kembalikan HANYA teks yang disederhanakan\n- Panjang maksimum: sama dengan input (atau lebih pendek)\n- TANPA penjelasan, TANPA konteks, TANPA definisi\n- TANPA poin-poin, TANPA kalimat tambahan\n- TANPA jeda baris kecuali di aslinya\n- Sederhanakan hanya teks PERSIS yang diberikan\n- Tetap PENDEK - biasanya 1-5 kata",
+                "structured": "SANGAT KRITIS UNTUK JSON/DATA TERSTRUKTUR:\n- Kembalikan hasil sebagai JSON VALID\n- PERTAHANKAN struktur TEPAT (array, objek, bersarang)\n- Terjemahkan HANYA nilai string yang berisi teks\n- Pertahankan SEMUA bidang teknis (id, type, isHidden, dll.) TIDAK BERUBAH\n- JANGAN ubah nama bidang/kunci\n- JANGAN tambahkan bidang ekstra\n- JANGAN tambahkan komentar meta atau penjelasan\n- PERTAHANKAN SEMUA karakter khusus: tanda kutip tipografi, tanda hubung, dll.\n- Kembalikan HANYA JSON, TIDAK ADA yang lain",
+                "elaborate": "PENTING: Terjemahkan teks ke bahasa sederhana. Tetap pada teks yang diberikan dan strukturnya. Anda dapat memperluas teks sedikit untuk pemahaman yang lebih baik, tetapi jangan tambahkan informasi yang tidak ada dalam aslinya. PERTAHANKAN SEMUA karakter khusus: tanda kutip tipografi, tanda hubung, dll.",
+                "default": "PENTING: Terjemahkan teks ke bahasa sederhana. Tetap dekat dengan teks yang diberikan dan panjangnya. Tanpa penjelasan tambahan di luar teks yang diberikan. PERTAHANKAN SEMUA karakter khusus: tanda kutip tipografi, tanda hubung, dll."
+            }
+        },
+        "field_instructions": {
+            "text": "Terjemahkan konten teks. Jika ada tag HTML, pertahankan semua tag, atribut, dan struktur HTML dengan tepat. Terjemahkan hanya teks di antara tag.",
+            "textarea": "Terjemahkan konten teks. Pertahankan semua jeda baris dan paragraf dengan tepat. Jika ada tag HTML, pertahankan semua tag dan atribut. Terjemahkan hanya teks di antara tag.",
+            "writer": "Terjemahkan konten HTML. Pertahankan SEMUA tag HTML, atribut, kelas, dan ID dengan tepat. Terjemahkan HANYA teks yang terlihat di antara tag. JANGAN PERNAH mengubah struktur HTML.",
+            "list": "Terjemahkan setiap item daftar secara individual. Pertahankan jumlah dan urutan item dengan tepat. Jika item berisi HTML, pertahankan semua tag HTML.",
+            "blocks": "KRITIS: Pertahankan struktur JSON yang tepat. Terjemahkan setiap blok secara terpisah. Pertahankan SEMUA nama bidang, ID, UUID, dan tipe blok. Terjemahkan HANYA nilai string bidang konten teks. JANGAN ubah array, objek, atau bidang teknis. Struktur blok TIDAK boleh berubah.",
+            "layout": "KRITIS: Pertahankan struktur JSON yang tepat dari kolom tata letak. Terjemahkan HANYA konten teks di dalam kolom. Pertahankan SEMUA nama bidang, ID, dan struktur kolom. JANGAN ubah array, objek, atau definisi tata letak.",
+            "structure": "KRITIS: Pertahankan struktur array yang tepat. Setiap entri adalah objek dengan beberapa bidang. Terjemahkan HANYA nilai string bidang teks. Pertahankan SEMUA nama bidang, ID, dan struktur dengan tepat. JANGAN ubah jumlah entri atau bidang teknis.",
+            "object": "KRITIS: Pertahankan struktur objek yang tepat. Terjemahkan HANYA nilai string bidang teks. Pertahankan SEMUA kunci, ID, dan struktur objek dengan tepat. JANGAN ubah bidang teknis atau struktur."
+        }
     }
-  }
 ]

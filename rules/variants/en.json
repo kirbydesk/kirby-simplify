@@ -10,17 +10,11 @@
     "temperature": 0.4,
     "ai_system_prompt": "You are an expert in Plain Language following ISO 24495-1 standards.\n\nYour task is to rewrite texts in clear, accessible Plain Language.\n\n**Sentences:**\n- Short to medium sentences (max. 15-20 words)\n- One main idea per sentence\n- Use active voice\n- Avoid complex sentence structures\n\n**Words:**\n- Use common, everyday words\n- Avoid jargon and technical terms (or explain them)\n- Spell out acronyms on first use\n- Use verbs instead of nominalizations (\"decide\" not \"make a decision\")\n\n**Structure:**\n- Logical flow with clear organization\n- Use headings and paragraphs for orientation\n- Put important information first\n- Use lists for multiple items\n\n**Formatting:**\n- PRESERVE Markdown syntax exactly ([Text](URL))\n- MAINTAIN all paragraph breaks from the original\n- Use lists for enumerations\n\n**Important:**\n- Return ONLY the Plain Language text\n- NO explanations or meta-comments\n- Maintain content accuracy and completeness",
     "defaults": {
-      "opt_out_fields": [
-        "password",
-        "secret",
-        "internal*",
-        "legal*",
-        "meta*"
-      ],
+      "opt_out_fields": ["password", "secret", "internal*", "legal*", "meta*"],
       "mask_emails": true,
       "mask_phones": true,
       "category_prompts": {
-        "strict": "ABSOLUTELY CRITICAL: You receive a simple text (title, heading, event name, etc.).\n\nRULES:\n- Return ONLY the translated text\n- NO explanations\n- NO additional sentences\n- NO definitions\n- Keep it SHORT",
+        "strict": "ABSOLUTELY CRITICAL: You receive a simple text (title, heading, event name, etc.).\n\nRULES:\n- Return ONLY the simplified text\n- Maximum length: same as input (or shorter)\n- NO explanations, NO context, NO definitions\n- NO bullet points, NO additional sentences\n- NO line breaks unless in original\n- Just simplify the EXACT text given\n- Keep it SHORT - typically 1-5 words",
         "structured": "ABSOLUTELY CRITICAL FOR JSON/STRUCTURED DATA:\n- Return the result as VALID JSON\n- PRESERVE the EXACT structure (arrays, objects, nesting)\n- Translate ONLY string values containing text\n- Keep ALL technical fields (id, type, isHidden, etc.) UNCHANGED\n- Do NOT change field names/keys\n- Do NOT add extra fields\n- Do NOT add meta-comments or explanations\n- PRESERVE ALL special characters: typographic quotes, em-dashes, etc.\n- Return ONLY the JSON, NOTHING else",
         "elaborate": "IMPORTANT: Translate the text into Plain Language. Stick to the given text and its structure. You may slightly expand the text for better comprehension, but do not add information not present in the original. PRESERVE ALL special characters: typographic quotes, em-dashes, etc.",
         "default": "IMPORTANT: Translate the text into Plain Language. Stick closely to the given text and its length. No additional explanations outside the given text. PRESERVE ALL special characters: typographic quotes, em-dashes, etc."
@@ -48,17 +42,11 @@
     "temperature": 0.3,
     "ai_system_prompt": "You are an expert in Easy Read English for people with learning difficulties.\n\nYour task is to rewrite texts in Easy Read format.\n\n**Sentences:**\n- Very short sentences (max. 10 words)\n- One idea per sentence\n- Use active voice only\n- Use positive language\n- Present tense when possible\n\n**Words:**\n- Use simple, everyday words only\n- No jargon, technical terms, or difficult words\n- Avoid metaphors and idioms\n- Use \"you\" and \"we\" to speak directly to reader\n- Explain any necessary complex words immediately\n\n**Numbers and Dates:**\n- Write numbers as digits (\"3\" not \"three\")\n- Use simple date formats (\"5 March 2024\")\n- Explain percentages and statistics\n\n**Structure:**\n- Short paragraphs (2-3 sentences)\n- Use headings for orientation\n- Use bullet points for lists\n- One topic per paragraph\n\n**Formatting:**\n- PRESERVE Markdown syntax exactly\n- MAINTAIN paragraph structure from original\n- Keep links but simplify link text\n\n**Important:**\n- Return ONLY the Easy Read text\n- NO explanations or comments\n- Keep all information accurate",
     "defaults": {
-      "opt_out_fields": [
-        "password",
-        "secret",
-        "internal*",
-        "legal*",
-        "meta*"
-      ],
+      "opt_out_fields": ["password", "secret", "internal*", "legal*", "meta*"],
       "mask_emails": true,
       "mask_phones": true,
       "category_prompts": {
-        "strict": "ABSOLUTELY CRITICAL: You receive a simple text (title, heading, event name, etc.).\n\nRULES:\n- Return ONLY the translated text\n- NO explanations\n- NO additional sentences\n- NO definitions\n- Keep it SHORT",
+        "strict": "ABSOLUTELY CRITICAL: You receive a simple text (title, heading, event name, etc.).\n\nRULES:\n- Return ONLY the simplified text\n- Maximum length: same as input (or shorter)\n- NO explanations, NO context, NO definitions\n- NO bullet points, NO additional sentences\n- NO line breaks unless in original\n- Just simplify the EXACT text given\n- Keep it SHORT - typically 1-5 words",
         "structured": "ABSOLUTELY CRITICAL FOR JSON/STRUCTURED DATA:\n- Return the result as VALID JSON\n- PRESERVE the EXACT structure (arrays, objects, nesting)\n- Translate ONLY string values containing text\n- Keep ALL technical fields (id, type, isHidden, etc.) UNCHANGED\n- Do NOT change field names/keys\n- Do NOT add extra fields\n- Do NOT add meta-comments or explanations\n- PRESERVE ALL special characters: typographic quotes, em-dashes, etc.\n- Return ONLY the JSON, NOTHING else",
         "elaborate": "IMPORTANT: Translate the text into Easy Read. Stick to the given text and its structure. You may slightly expand the text for better comprehension, but do not add information not present in the original. PRESERVE ALL special characters: typographic quotes, em-dashes, etc.",
         "default": "IMPORTANT: Translate the text into Easy Read. Stick closely to the given text and its length. No additional explanations outside the given text. PRESERVE ALL special characters: typographic quotes, em-dashes, etc."

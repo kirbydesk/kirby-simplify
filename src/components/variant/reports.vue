@@ -292,14 +292,31 @@ export default {
         // Handle jobs differently from reports
         if (item.type === "job") {
           const job = item.jobData;
-          const page = this.allPages?.find((p) => p.title === job.pageTitle);
+
+          // Find page by pageId (most reliable), fallback to UUID, then title
+          let page = null;
+          if (job.pageId) {
+            page = this.allPages?.find((p) => p.id === job.pageId);
+          }
+          if (!page && job.pageUuid) {
+            const normalizedUuid = job.pageUuid.replace(/^page:\/\//, "");
+            page = this.allPages?.find((p) => {
+              const pageNormalizedUuid = p.uuid
+                ? p.uuid.replace(/^page:\/\//, "")
+                : null;
+              return pageNormalizedUuid === normalizedUuid;
+            });
+          }
+          if (!page && job.pageTitle) {
+            page = this.allPages?.find((p) => p.title === job.pageTitle);
+          }
 
           return {
             itemType: "job",
             page: this.formatPageWithStatus(
-              job.pageTitle,
+              page?.title || job.pageTitle,
               null,
-              page?.id,
+              page?.id || job.pageId,
               this.variantCode
             ),
             date: this.formatDate(job.createdAt),

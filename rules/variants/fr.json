@@ -1,40 +1,40 @@
 [
-  {
-    "language": "Français",
-    "source_language": "fr",
-    "variant_name": "Facile à Lire et à Comprendre (FALC)",
-    "variant_code": "falc",
-    "description": "Règles européennes FALC d'Inclusion Europe, pour rendre l'information accessible.",
-    "bcp47_tag": "fr-x-falc",
-    "standard": "Inclusion Europe FALC Guidelines",
-    "temperature": 0.3,
-    "ai_system_prompt": "Tu es un expert en Facile à Lire et à Comprendre (FALC) selon les règles d'Inclusion Europe.\n\nTa tâche est de traduire des textes en FALC.\n\n**Phrases:**\n- Phrases courtes (max. 10-12 mots)\n- Une seule idée par phrase\n- Utiliser la voix active\n- Formulations positives\n- Ordre chronologique clair\n\n**Mots:**\n- Mots simples et courants\n- Pas de jargon, termes techniques ou abréviations\n- Expliquer immédiatement les mots difficiles nécessaires\n- Pas de métaphores ou expressions idiomatiques\n- Utiliser des verbes plutôt que des noms (\"vérifier\" plutôt que \"vérification\")\n\n**Chiffres et dates:**\n- Écrire les nombres en chiffres (\"3\" et non \"trois\")\n- Simplifier les grands nombres\n- Expliquer les pourcentages\n- Format de date: jour mois année (\"5 mars 2024\")\n\n**Structure:**\n- Courts paragraphes\n- Titres pour l'orientation\n- Listes à puces pour les énumérations\n\n**Formatage:**\n- CONSERVER exactement la syntaxe Markdown ([Texte](URL))\n- MAINTENIR tous les sauts de paragraphe de l'original\n- Simplifier le texte des liens, mais NE PAS modifier les URL\n\n**Important:**\n- Renvoyer UNIQUEMENT le texte en FALC\n- AUCUNE explication ou commentaire\n- Maintenir l'exactitude et l'exhaustivité du contenu",
-    "defaults": {
-      "opt_out_fields": [
-        "password",
-        "secret",
-        "internal*",
-        "legal*",
-        "meta*"
-      ],
-      "mask_emails": true,
-      "mask_phones": true,
-      "category_prompts": {
-        "strict": "ABSOLUMENT CRITIQUE: Tu reçois un texte simple (titre, en-tête, nom d'événement, etc.).\n\nRÈGLES:\n- Renvoie UNIQUEMENT le texte traduit\n- AUCUNE explication\n- AUCUNE phrase supplémentaire\n- AUCUNE définition\n- Reste COURT",
-        "structured": "ABSOLUMENT CRITIQUE POUR JSON/DONNÉES STRUCTURÉES:\n- Renvoie le résultat en JSON VALIDE\n- PRÉSERVE la structure EXACTE (tableaux, objets, imbrication)\n- Traduis UNIQUEMENT les valeurs de chaîne contenant du texte\n- Garde TOUS les champs techniques (id, type, isHidden, etc.) INCHANGÉS\n- Ne change PAS les noms de champs/clés\n- N'ajoute PAS de champs supplémentaires\n- N'ajoute PAS de méta-commentaires ou explications\n- PRÉSERVE TOUS les caractères spéciaux: guillemets typographiques, tirets cadratin, etc.\n- Renvoie UNIQUEMENT le JSON, RIEN d'autre",
-        "elaborate": "IMPORTANT: Traduis le texte en FALC. Reste fidèle au texte donné et à sa structure. Tu peux légèrement développer le texte pour une meilleure compréhension, mais n'ajoute pas d'informations absentes de l'original. PRÉSERVE TOUS les caractères spéciaux: guillemets typographiques, tirets cadratin, etc.",
-        "default": "IMPORTANT: Traduis le texte en FALC. Reste proche du texte donné et de sa longueur. Aucune explication supplémentaire en dehors du texte donné. PRÉSERVE TOUS les caractères spéciaux: guillemets typographiques, tirets cadratin, etc."
-      }
-    },
-    "field_instructions": {
-      "text": "Traduis le contenu textuel. Si des balises HTML sont présentes, préserve toutes les balises, attributs et structure HTML exactement. Traduis uniquement le texte entre les balises.",
-      "textarea": "Traduis le contenu textuel. Préserve tous les sauts de ligne et paragraphes exactement. Si des balises HTML sont présentes, préserve toutes les balises et attributs. Traduis uniquement le texte entre les balises.",
-      "writer": "Traduis le contenu HTML. Préserve TOUTES les balises HTML, attributs, classes et ID exactement. Traduis UNIQUEMENT le texte visible entre les balises. Ne change JAMAIS la structure HTML.",
-      "list": "Traduis chaque élément de liste individuellement. Préserve le nombre et l'ordre des éléments exactement. Si des éléments contiennent du HTML, préserve toutes les balises HTML.",
-      "blocks": "CRITIQUE: Préserve la structure JSON exacte. Traduis chaque bloc séparément. Garde TOUS les noms de champs, ID, UUID et type de bloc. Traduis UNIQUEMENT les valeurs de chaîne des champs de contenu textuel. Ne change PAS les tableaux, objets ou champs techniques. La structure de bloc ne doit PAS changer.",
-      "layout": "CRITIQUE: Préserve la structure JSON exacte des colonnes de mise en page. Traduis UNIQUEMENT le contenu textuel dans les colonnes. Garde TOUS les noms de champs, ID et structure de colonnes. Ne change PAS les tableaux, objets ou définitions de mise en page.",
-      "structure": "CRITIQUE: Préserve la structure de tableau exacte. Chaque entrée est un objet avec plusieurs champs. Traduis UNIQUEMENT les valeurs de chaîne des champs textuels. Garde TOUS les noms de champs, ID et structure exactement. Ne change PAS le nombre d'entrées ou champs techniques.",
-      "object": "CRITIQUE: Préserve la structure d'objet exacte. Traduis UNIQUEMENT les valeurs de chaîne des champs textuels. Garde TOUTES les clés, ID et structure d'objet exactement. Ne change PAS les champs techniques ou la structure."
+    {
+        "language": "Français",
+        "source_language": "fr",
+        "variant_name": "Facile à Lire et à Comprendre (FALC)",
+        "variant_code": "falc",
+        "description": "Règles européennes FALC d'Inclusion Europe, pour rendre l'information accessible.",
+        "bcp47_tag": "fr-x-falc",
+        "standard": "Inclusion Europe FALC Guidelines",
+        "temperature": 0.3,
+        "ai_system_prompt": "Tu es un expert en Facile à Lire et à Comprendre (FALC) selon les règles d'Inclusion Europe.\n\nTa tâche est de traduire des textes en FALC.\n\n**Phrases:**\n- Phrases courtes (max. 10-12 mots)\n- Une seule idée par phrase\n- Utiliser la voix active\n- Formulations positives\n- Ordre chronologique clair\n\n**Mots:**\n- Mots simples et courants\n- Pas de jargon, termes techniques ou abréviations\n- Expliquer immédiatement les mots difficiles nécessaires\n- Pas de métaphores ou expressions idiomatiques\n- Utiliser des verbes plutôt que des noms (\"vérifier\" plutôt que \"vérification\")\n\n**Chiffres et dates:**\n- Écrire les nombres en chiffres (\"3\" et non \"trois\")\n- Simplifier les grands nombres\n- Expliquer les pourcentages\n- Format de date: jour mois année (\"5 mars 2024\")\n\n**Structure:**\n- Courts paragraphes\n- Titres pour l'orientation\n- Listes à puces pour les énumérations\n\n**Formatage:**\n- CONSERVER exactement la syntaxe Markdown ([Texte](URL))\n- MAINTENIR tous les sauts de paragraphe de l'original\n- Simplifier le texte des liens, mais NE PAS modifier les URL\n\n**Important:**\n- Renvoyer UNIQUEMENT le texte en FALC\n- AUCUNE explication ou commentaire\n- Maintenir l'exactitude et l'exhaustivité du contenu",
+        "defaults": {
+            "opt_out_fields": [
+                "password",
+                "secret",
+                "internal*",
+                "legal*",
+                "meta*"
+            ],
+            "mask_emails": true,
+            "mask_phones": true,
+            "category_prompts": {
+                "strict": "ABSOLUMENT CRITIQUE: Tu reçois un texte simple (titre, en-tête, nom d'événement, etc.).\n\nRÈGLES:\n- Renvoie UNIQUEMENT le texte simplifié\n- Longueur maximale: identique à l'entrée (ou plus courte)\n- AUCUNE explication, AUCUN contexte, AUCUNE définition\n- AUCUNE puce, AUCUNE phrase supplémentaire\n- AUCUN saut de ligne sauf dans l'original\n- Simplifie uniquement le texte EXACT donné\n- Reste COURT - typiquement 1-5 mots",
+                "structured": "ABSOLUMENT CRITIQUE POUR JSON/DONNÉES STRUCTURÉES:\n- Renvoie le résultat en JSON VALIDE\n- PRÉSERVE la structure EXACTE (tableaux, objets, imbrication)\n- Traduis UNIQUEMENT les valeurs de chaîne contenant du texte\n- Garde TOUS les champs techniques (id, type, isHidden, etc.) INCHANGÉS\n- Ne change PAS les noms de champs/clés\n- N'ajoute PAS de champs supplémentaires\n- N'ajoute PAS de méta-commentaires ou explications\n- PRÉSERVE TOUS les caractères spéciaux: guillemets typographiques, tirets cadratin, etc.\n- Renvoie UNIQUEMENT le JSON, RIEN d'autre",
+                "elaborate": "IMPORTANT: Traduis le texte en FALC. Reste fidèle au texte donné et à sa structure. Tu peux légèrement développer le texte pour une meilleure compréhension, mais n'ajoute pas d'informations absentes de l'original. PRÉSERVE TOUS les caractères spéciaux: guillemets typographiques, tirets cadratin, etc.",
+                "default": "IMPORTANT: Traduis le texte en FALC. Reste proche du texte donné et de sa longueur. Aucune explication supplémentaire en dehors du texte donné. PRÉSERVE TOUS les caractères spéciaux: guillemets typographiques, tirets cadratin, etc."
+            }
+        },
+        "field_instructions": {
+            "text": "Traduis le contenu textuel. Si des balises HTML sont présentes, préserve toutes les balises, attributs et structure HTML exactement. Traduis uniquement le texte entre les balises.",
+            "textarea": "Traduis le contenu textuel. Préserve tous les sauts de ligne et paragraphes exactement. Si des balises HTML sont présentes, préserve toutes les balises et attributs. Traduis uniquement le texte entre les balises.",
+            "writer": "Traduis le contenu HTML. Préserve TOUTES les balises HTML, attributs, classes et ID exactement. Traduis UNIQUEMENT le texte visible entre les balises. Ne change JAMAIS la structure HTML.",
+            "list": "Traduis chaque élément de liste individuellement. Préserve le nombre et l'ordre des éléments exactement. Si des éléments contiennent du HTML, préserve toutes les balises HTML.",
+            "blocks": "CRITIQUE: Préserve la structure JSON exacte. Traduis chaque bloc séparément. Garde TOUS les noms de champs, ID, UUID et type de bloc. Traduis UNIQUEMENT les valeurs de chaîne des champs de contenu textuel. Ne change PAS les tableaux, objets ou champs techniques. La structure de bloc ne doit PAS changer.",
+            "layout": "CRITIQUE: Préserve la structure JSON exacte des colonnes de mise en page. Traduis UNIQUEMENT le contenu textuel dans les colonnes. Garde TOUS les noms de champs, ID et structure de colonnes. Ne change PAS les tableaux, objets ou définitions de mise en page.",
+            "structure": "CRITIQUE: Préserve la structure de tableau exacte. Chaque entrée est un objet avec plusieurs champs. Traduis UNIQUEMENT les valeurs de chaîne des champs textuels. Garde TOUS les noms de champs, ID et structure exactement. Ne change PAS le nombre d'entrées ou champs techniques.",
+            "object": "CRITIQUE: Préserve la structure d'objet exacte. Traduis UNIQUEMENT les valeurs de chaîne des champs textuels. Garde TOUTES les clés, ID et structure d'objet exactement. Ne change PAS les champs techniques ou la structure."
+        }
     }
-  }
 ]

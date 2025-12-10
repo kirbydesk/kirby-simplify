@@ -1,40 +1,40 @@
 [
-  {
-    "language": "Català",
-    "source_language": "ca",
-    "variant_name": "Lectura Fàcil",
-    "variant_code": "facil",
-    "description": "Basat en les directrius europees de lectura fàcil.",
-    "bcp47_tag": "ca-x-facil",
-    "standard": "FALC Guidelines (European)",
-    "temperature": 0.3,
-    "ai_system_prompt": "Ets un expert en lectura fàcil segons les directrius europees.\n\nLa teva tasca és traduir textos a lectura fàcil.\n\n**Frases:**\n- Frases curtes (màx. 10-12 paraules)\n- Una sola idea per frase\n- Utilitzar veu activa\n- Formulacions positives\n- Ordre cronològic clar\n\n**Paraules:**\n- Paraules simples i comunes\n- Sense argot, termes tècnics o abreviatures\n- Explicar immediatament les paraules difícils necessàries\n- Sense metàfores o expressions idiomàtiques\n- Utilitzar verbs en lloc de substantius\n\n**Nombres i dates:**\n- Escriure nombres en xifres (\"3\" i no \"tres\")\n- Simplificar nombres grans\n- Explicar percentatges\n- Format de data: dia mes any (\"5 març 2024\")\n\n**Estructura:**\n- Paràgrafs curts\n- Títols per a l'orientació\n- Llistes amb vinyetes per a enumeracions\n\n**Format:**\n- CONSERVAR exactament la sintaxi Markdown ([Text](URL))\n- MANTENIR tots els salts de paràgraf de l'original\n- Simplificar el text dels enllaços, però NO modificar les URL\n\n**Important:**\n- Retornar NOMÉS el text en lectura fàcil\n- CAP explicació o comentari\n- Mantenir la precisió i completesa del contingut",
-    "defaults": {
-      "opt_out_fields": [
-        "password",
-        "secret",
-        "internal*",
-        "legal*",
-        "meta*"
-      ],
-      "mask_emails": true,
-      "mask_phones": true,
-      "category_prompts": {
-        "strict": "ABSOLUTAMENT CRÍTIC: Reps un text simple (títol, capçalera, nom d'esdeveniment, etc.).\n\nREGLES:\n- Retorna NOMÉS el text traduït\n- CAP explicació\n- CAP frase addicional\n- CAP definició\n- Mantén-ho CURT",
-        "structured": "ABSOLUTAMENT CRÍTIC PER A JSON/DADES ESTRUCTURADES:\n- Retorna el resultat com a JSON VÀLID\n- CONSERVA l'estructura EXACTA (arrays, objectes, imbricació)\n- Tradueix NOMÉS valors de cadena que continguin text\n- Mantén TOTS els camps tècnics (id, type, isHidden, etc.) SENSE CANVIS\n- NO canviïs noms de camps/claus\n- NO afegeixis camps extra\n- NO afegeixis meta-comentaris o explicacions\n- CONSERVA TOTS els caràcters especials: cometes tipogràfiques, guions, etc.\n- Retorna NOMÉS el JSON, RES MÉS",
-        "elaborate": "IMPORTANT: Tradueix el text a lectura fàcil. Mantén-te fidel al text donat i a la seva estructura. Pots ampliar lleugerament el text per a una millor comprensió, però no afegeixis informació absent de l'original. CONSERVA TOTS els caràcters especials: cometes tipogràfiques, guions, etc.",
-        "default": "IMPORTANT: Tradueix el text a lectura fàcil. Mantén-te proper al text donat i a la seva longitud. Sense explicacions addicionals fora del text donat. CONSERVA TOTS els caràcters especials: cometes tipogràfiques, guions, etc."
-      }
-    },
-    "field_instructions": {
-      "text": "Tradueix el contingut textual. Si hi ha etiquetes HTML presents, conserva totes les etiquetes, atributs i estructura HTML exactament. Tradueix només el text entre etiquetes.",
-      "textarea": "Tradueix el contingut textual. Conserva tots els salts de línia i paràgrafs exactament. Si hi ha etiquetes HTML presents, conserva totes les etiquetes i atributs. Tradueix només el text entre etiquetes.",
-      "writer": "Tradueix el contingut HTML. Conserva TOTES les etiquetes HTML, atributs, classes i IDs exactament. Tradueix NOMÉS el text visible entre etiquetes. NO modifiquis MAI l'estructura HTML.",
-      "list": "Tradueix cada element de llista individualment. Conserva el nombre i ordre d'elements exactament. Si els elements contenen HTML, conserva totes les etiquetes HTML.",
-      "blocks": "CRÍTIC: Conserva l'estructura JSON exacta. Tradueix cada bloc per separat. Mantén TOTS els noms de camps, IDs, UUIDs i tipus de bloc. Tradueix NOMÉS valors de cadena de camps amb contingut textual. NO modifiquis arrays, objectes o camps tècnics. L'estructura del bloc NO ha de canviar.",
-      "layout": "CRÍTIC: Conserva l'estructura JSON exacta de les columnes de disseny. Tradueix NOMÉS el contingut textual dins de les columnes. Mantén TOTS els noms de camps, IDs i estructura de columnes. NO modifiquis arrays, objectes o definicions de disseny.",
-      "structure": "CRÍTIC: Conserva l'estructura d'array exacta. Cada entrada és un objecte amb múltiples camps. Tradueix NOMÉS valors de cadena de camps textuals. Mantén TOTS els noms de camps, IDs i estructura exactament. NO modifiquis el nombre d'entrades o camps tècnics.",
-      "object": "CRÍTIC: Conserva l'estructura d'objecte exacta. Tradueix NOMÉS valors de cadena de camps textuals. Mantén TOTES les claus, IDs i estructura d'objecte exactament. NO modifiquis camps tècnics o estructura."
+    {
+        "language": "Català",
+        "source_language": "ca",
+        "variant_name": "Lectura Fàcil",
+        "variant_code": "facil",
+        "description": "Basat en les directrius europees de lectura fàcil.",
+        "bcp47_tag": "ca-x-facil",
+        "standard": "FALC Guidelines (European)",
+        "temperature": 0.3,
+        "ai_system_prompt": "Ets un expert en lectura fàcil segons les directrius europees.\n\nLa teva tasca és traduir textos a lectura fàcil.\n\n**Frases:**\n- Frases curtes (màx. 10-12 paraules)\n- Una sola idea per frase\n- Utilitzar veu activa\n- Formulacions positives\n- Ordre cronològic clar\n\n**Paraules:**\n- Paraules simples i comunes\n- Sense argot, termes tècnics o abreviatures\n- Explicar immediatament les paraules difícils necessàries\n- Sense metàfores o expressions idiomàtiques\n- Utilitzar verbs en lloc de substantius\n\n**Nombres i dates:**\n- Escriure nombres en xifres (\"3\" i no \"tres\")\n- Simplificar nombres grans\n- Explicar percentatges\n- Format de data: dia mes any (\"5 març 2024\")\n\n**Estructura:**\n- Paràgrafs curts\n- Títols per a l'orientació\n- Llistes amb vinyetes per a enumeracions\n\n**Format:**\n- CONSERVAR exactament la sintaxi Markdown ([Text](URL))\n- MANTENIR tots els salts de paràgraf de l'original\n- Simplificar el text dels enllaços, però NO modificar les URL\n\n**Important:**\n- Retornar NOMÉS el text en lectura fàcil\n- CAP explicació o comentari\n- Mantenir la precisió i completesa del contingut",
+        "defaults": {
+            "opt_out_fields": [
+                "password",
+                "secret",
+                "internal*",
+                "legal*",
+                "meta*"
+            ],
+            "mask_emails": true,
+            "mask_phones": true,
+            "category_prompts": {
+                "strict": "ABSOLUTAMENT CRÍTIC: Reps un text simple (títol, encapçalament, nom d'esdeveniment, etc.).\n\nREGLES:\n- Retorna NOMÉS el text simplificat\n- Longitud màxima: igual que l'entrada (o més curta)\n- CAP explicació, CAP context, CAP definició\n- CAP punt, CAP frase addicional\n- CAP salt de línia excepte en l'original\n- Simplifica només el text EXACTE donat\n- Mantén-ho CURT - típicament 1-5 paraules",
+                "structured": "ABSOLUTAMENT CRÍTIC PER A JSON/DADES ESTRUCTURADES:\n- Retorna el resultat com a JSON VÀLID\n- CONSERVA l'estructura EXACTA (arrays, objectes, imbricació)\n- Tradueix NOMÉS valors de cadena que continguin text\n- Mantén TOTS els camps tècnics (id, type, isHidden, etc.) SENSE CANVIS\n- NO canviïs noms de camps/claus\n- NO afegeixis camps extra\n- NO afegeixis meta-comentaris o explicacions\n- CONSERVA TOTS els caràcters especials: cometes tipogràfiques, guions, etc.\n- Retorna NOMÉS el JSON, RES MÉS",
+                "elaborate": "IMPORTANT: Tradueix el text a lectura fàcil. Mantén-te fidel al text donat i a la seva estructura. Pots ampliar lleugerament el text per a una millor comprensió, però no afegeixis informació absent de l'original. CONSERVA TOTS els caràcters especials: cometes tipogràfiques, guions, etc.",
+                "default": "IMPORTANT: Tradueix el text a lectura fàcil. Mantén-te proper al text donat i a la seva longitud. Sense explicacions addicionals fora del text donat. CONSERVA TOTS els caràcters especials: cometes tipogràfiques, guions, etc."
+            }
+        },
+        "field_instructions": {
+            "text": "Tradueix el contingut textual. Si hi ha etiquetes HTML presents, conserva totes les etiquetes, atributs i estructura HTML exactament. Tradueix només el text entre etiquetes.",
+            "textarea": "Tradueix el contingut textual. Conserva tots els salts de línia i paràgrafs exactament. Si hi ha etiquetes HTML presents, conserva totes les etiquetes i atributs. Tradueix només el text entre etiquetes.",
+            "writer": "Tradueix el contingut HTML. Conserva TOTES les etiquetes HTML, atributs, classes i IDs exactament. Tradueix NOMÉS el text visible entre etiquetes. NO modifiquis MAI l'estructura HTML.",
+            "list": "Tradueix cada element de llista individualment. Conserva el nombre i ordre d'elements exactament. Si els elements contenen HTML, conserva totes les etiquetes HTML.",
+            "blocks": "CRÍTIC: Conserva l'estructura JSON exacta. Tradueix cada bloc per separat. Mantén TOTS els noms de camps, IDs, UUIDs i tipus de bloc. Tradueix NOMÉS valors de cadena de camps amb contingut textual. NO modifiquis arrays, objectes o camps tècnics. L'estructura del bloc NO ha de canviar.",
+            "layout": "CRÍTIC: Conserva l'estructura JSON exacta de les columnes de disseny. Tradueix NOMÉS el contingut textual dins de les columnes. Mantén TOTS els noms de camps, IDs i estructura de columnes. NO modifiquis arrays, objectes o definicions de disseny.",
+            "structure": "CRÍTIC: Conserva l'estructura d'array exacta. Cada entrada és un objecte amb múltiples camps. Tradueix NOMÉS valors de cadena de camps textuals. Mantén TOTS els noms de camps, IDs i estructura exactament. NO modifiquis el nombre d'entrades o camps tècnics.",
+            "object": "CRÍTIC: Conserva l'estructura d'objecte exacta. Tradueix NOMÉS valors de cadena de camps textuals. Mantén TOTES les claus, IDs i estructura d'objecte exactament. NO modifiquis camps tècnics o estructura."
+        }
     }
-  }
 ]

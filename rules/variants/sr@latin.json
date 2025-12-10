@@ -1,40 +1,40 @@
 [
-  {
-    "language": "Srpski",
-    "source_language": "sr@latin",
-    "variant_name": "Lako Čitanje",
-    "variant_code": "lako",
-    "description": "Zasnovano na evropskim smernicama za lako čitanje.",
-    "bcp47_tag": "sr-Latn-x-lako",
-    "standard": "FALC Guidelines (European)",
-    "temperature": 0.3,
-    "ai_system_prompt": "Stručnjak si za lako čitanje prema evropskim smernicama.\n\nTvoj zadatak je prevođenje tekstova na lako čitanje.\n\n**Rečenice:**\n- Kratke rečenice (maks. 10-12 reči)\n- Jedna misao po rečenici\n- Koristi aktivnu formu\n- Pozitivne formulacije\n- Jasan hronološki redosled\n\n**Reči:**\n- Jednostavne, svakodnevne reči\n- Bez žargona, stručnih termina ili skraćenica\n- Objašnjavaj teške reči odmah kada su potrebne\n- Bez metafora ili idiomatskih izraza\n- Koristi glagole umesto imenica\n\n**Brojevi i datumi:**\n- Piši brojeve ciframa (\"3\" ne \"tri\")\n- Pojednostavljuj velike brojeve\n- Objašnjavaj procente\n- Format datuma: dan mesec godina (\"5. mart 2024.\")\n\n**Struktura:**\n- Kratki pasusi\n- Naslovi za orijentaciju\n- Liste sa oznakama\n\n**Oblikovanje:**\n- ZADRŽI tačno Markdown sintaksu ([Tekst](URL))\n- ZADRŽI sve pasuse iz originala\n- Pojednostavljuj tekstove linkova, ali NE menjaj URL adrese\n\n**Važno:**\n- Vrati SAMO tekst na lakom čitanju\n- BEZ objašnjenja ili komentara\n- Zadrži tačnost i potpunost",
-    "defaults": {
-      "opt_out_fields": [
-        "password",
-        "secret",
-        "internal*",
-        "legal*",
-        "meta*"
-      ],
-      "mask_emails": true,
-      "mask_phones": true,
-      "category_prompts": {
-        "strict": "APSOLUTNO KRITIČNO: Primaš jednostavan tekst (naslov, zaglavlje, naziv događaja itd.).\n\nPRAVILA:\n- Vrati SAMO prevedeni tekst\n- BEZ objašnjenja\n- BEZ dodatnih rečenica\n- BEZ definicija\n- Zadrži ga KRATKIM",
-        "structured": "APSOLUTNO KRITIČNO ZA JSON/STRUKTURIRANE PODATKE:\n- Vrati rezultat kao VALJAN JSON\n- ZADRŽI TAČNU strukturu (nizove, objekte, ugneždavanje)\n- Prevedi SAMO vrednosti stringova koji sadrže tekst\n- Zadrži SVA tehnička polja (id, type, isHidden itd.) NEPROMENJENA\n- NE menjaj nazive polja/ključeva\n- NE dodavaj dodatna polja\n- NE dodavaj meta-komentare ili objašnjenja\n- ZADRŽI SVE posebne znakove: tipografske navodnike, crtice itd.\n- Vrati SAMO JSON, NIŠTA DRUGO",
-        "elaborate": "VAŽNO: Prevedi tekst na lako čitanje. Drži se datog teksta i njegove strukture. Možeš lagano proširiti tekst za bolje razumevanje, ali ne dodavaj informacije koje nisu u originalnom tekstu. ZADRŽI SVE posebne znakove: tipografske navodnike, crtice itd.",
-        "default": "VAŽNO: Prevedi tekst na lako čitanje. Drži se blisko datog teksta i njegove dužine. Bez dodatnih objašnjenja izvan datog teksta. ZADRŽI SVE posebne znakove: tipografske navodnike, crtice itd."
-      }
-    },
-    "field_instructions": {
-      "text": "Prevedi tekstualni sadržaj. Ako su prisutne HTML oznake, zadrži sve oznake, atribute i HTML strukturu tačno. Prevedi samo tekst između oznaka.",
-      "textarea": "Prevedi tekstualni sadržaj. Zadrži sve prelome redova i pasuse tačno. Ako su prisutne HTML oznake, zadrži sve oznake i atribute. Prevedi samo tekst između oznaka.",
-      "writer": "Prevedi HTML sadržaj. Zadrži SVE HTML oznake, atribute, klase i ID-ove tačno. Prevedi SAMO vidljivi tekst između oznaka. NIKADA ne menjaj HTML strukturu.",
-      "list": "Prevedi svaku stavku liste pojedinačno. Zadrži broj i redosled stavki tačno. Ako stavke sadrže HTML, zadrži sve HTML oznake.",
-      "blocks": "KRITIČNO: Zadrži tačnu JSON strukturu. Prevedi svaki blok zasebno. Zadrži SVA imena polja, ID-ove, UUID-ove i tip bloka. Prevedi SAMO vrednosti stringova polja sa tekstualnim sadržajem. NE menjaj nizove, objekte ili tehnička polja. Struktura bloka se NE SME menjati.",
-      "layout": "KRITIČNO: Zadrži tačnu JSON strukturu kolona rasporeda. Prevedi SAMO tekstualni sadržaj unutar kolona. Zadrži SVA imena polja, ID-ove i strukturu kolona. NE menjaj nizove, objekte ili definicije rasporeda.",
-      "structure": "KRITIČNO: Zadrži tačnu strukturu niza. Svaki unos je objekat sa više polja. Prevedi SAMO vrednosti stringova tekstualnih polja. Zadrži SVA imena polja, ID-ove i strukturu tačno. NE menjaj broj unosa ili tehnička polja.",
-      "object": "KRITIČNO: Zadrži tačnu strukturu objekta. Prevedi SAMO vrednosti stringova tekstualnih polja. Zadrži SVE ključeve, ID-ove i strukturu objekta tačno. NE menjaj tehnička polja ili strukturu."
+    {
+        "language": "Srpski",
+        "source_language": "sr@latin",
+        "variant_name": "Lako Čitanje",
+        "variant_code": "lako",
+        "description": "Zasnovano na evropskim smernicama za lako čitanje.",
+        "bcp47_tag": "sr-Latn-x-lako",
+        "standard": "FALC Guidelines (European)",
+        "temperature": 0.3,
+        "ai_system_prompt": "Stručnjak si za lako čitanje prema evropskim smernicama.\n\nTvoj zadatak je prevođenje tekstova na lako čitanje.\n\n**Rečenice:**\n- Kratke rečenice (maks. 10-12 reči)\n- Jedna misao po rečenici\n- Koristi aktivnu formu\n- Pozitivne formulacije\n- Jasan hronološki redosled\n\n**Reči:**\n- Jednostavne, svakodnevne reči\n- Bez žargona, stručnih termina ili skraćenica\n- Objašnjavaj teške reči odmah kada su potrebne\n- Bez metafora ili idiomatskih izraza\n- Koristi glagole umesto imenica\n\n**Brojevi i datumi:**\n- Piši brojeve ciframa (\"3\" ne \"tri\")\n- Pojednostavljuj velike brojeve\n- Objašnjavaj procente\n- Format datuma: dan mesec godina (\"5. mart 2024.\")\n\n**Struktura:**\n- Kratki pasusi\n- Naslovi za orijentaciju\n- Liste sa oznakama\n\n**Oblikovanje:**\n- ZADRŽI tačno Markdown sintaksu ([Tekst](URL))\n- ZADRŽI sve pasuse iz originala\n- Pojednostavljuj tekstove linkova, ali NE menjaj URL adrese\n\n**Važno:**\n- Vrati SAMO tekst na lakom čitanju\n- BEZ objašnjenja ili komentara\n- Zadrži tačnost i potpunost",
+        "defaults": {
+            "opt_out_fields": [
+                "password",
+                "secret",
+                "internal*",
+                "legal*",
+                "meta*"
+            ],
+            "mask_emails": true,
+            "mask_phones": true,
+            "category_prompts": {
+                "strict": "APSOLUTNO KRITIČNO: Primaš jednostavan tekst (naslov, zaglavlje, naziv događaja itd.).\n\nPRAVILA:\n- Vrati SAMO pojednostavljeni tekst\n- Maksimalna dužina: ista kao ulaz (ili kraća)\n- NIKAKVA objašnjenja, NIKAKAV kontekst, NIKAKVE definicije\n- NIKAKVE oznake, NIKAKVE dodatne rečenice\n- NIKAKVI prelomi redova osim u originalu\n- Pojednostavi samo TAČAN dati tekst\n- Drži ga KRATKIM - obično 1-5 reči",
+                "structured": "APSOLUTNO KRITIČNO ZA JSON/STRUKTURIRANE PODATKE:\n- Vrati rezultat kao VALJAN JSON\n- ZADRŽI TAČNU strukturu (nizove, objekte, ugneždavanje)\n- Prevedi SAMO vrednosti stringova koji sadrže tekst\n- Zadrži SVA tehnička polja (id, type, isHidden itd.) NEPROMENJENA\n- NE menjaj nazive polja/ključeva\n- NE dodavaj dodatna polja\n- NE dodavaj meta-komentare ili objašnjenja\n- ZADRŽI SVE posebne znakove: tipografske navodnike, crtice itd.\n- Vrati SAMO JSON, NIŠTA DRUGO",
+                "elaborate": "VAŽNO: Prevedi tekst na lako čitanje. Drži se datog teksta i njegove strukture. Možeš lagano proširiti tekst za bolje razumevanje, ali ne dodavaj informacije koje nisu u originalnom tekstu. ZADRŽI SVE posebne znakove: tipografske navodnike, crtice itd.",
+                "default": "VAŽNO: Prevedi tekst na lako čitanje. Drži se blisko datog teksta i njegove dužine. Bez dodatnih objašnjenja izvan datog teksta. ZADRŽI SVE posebne znakove: tipografske navodnike, crtice itd."
+            }
+        },
+        "field_instructions": {
+            "text": "Prevedi tekstualni sadržaj. Ako su prisutne HTML oznake, zadrži sve oznake, atribute i HTML strukturu tačno. Prevedi samo tekst između oznaka.",
+            "textarea": "Prevedi tekstualni sadržaj. Zadrži sve prelome redova i pasuse tačno. Ako su prisutne HTML oznake, zadrži sve oznake i atribute. Prevedi samo tekst između oznaka.",
+            "writer": "Prevedi HTML sadržaj. Zadrži SVE HTML oznake, atribute, klase i ID-ove tačno. Prevedi SAMO vidljivi tekst između oznaka. NIKADA ne menjaj HTML strukturu.",
+            "list": "Prevedi svaku stavku liste pojedinačno. Zadrži broj i redosled stavki tačno. Ako stavke sadrže HTML, zadrži sve HTML oznake.",
+            "blocks": "KRITIČNO: Zadrži tačnu JSON strukturu. Prevedi svaki blok zasebno. Zadrži SVA imena polja, ID-ove, UUID-ove i tip bloka. Prevedi SAMO vrednosti stringova polja sa tekstualnim sadržajem. NE menjaj nizove, objekte ili tehnička polja. Struktura bloka se NE SME menjati.",
+            "layout": "KRITIČNO: Zadrži tačnu JSON strukturu kolona rasporeda. Prevedi SAMO tekstualni sadržaj unutar kolona. Zadrži SVA imena polja, ID-ove i strukturu kolona. NE menjaj nizove, objekte ili definicije rasporeda.",
+            "structure": "KRITIČNO: Zadrži tačnu strukturu niza. Svaki unos je objekat sa više polja. Prevedi SAMO vrednosti stringova tekstualnih polja. Zadrži SVA imena polja, ID-ove i strukturu tačno. NE menjaj broj unosa ili tehnička polja.",
+            "object": "KRITIČNO: Zadrži tačnu strukturu objekta. Prevedi SAMO vrednosti stringova tekstualnih polja. Zadrži SVE ključeve, ID-ove i strukturu objekta tačno. NE menjaj tehnička polja ili strukturu."
+        }
     }
-  }
 ]
